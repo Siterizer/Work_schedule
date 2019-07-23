@@ -14,8 +14,8 @@
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieDodaj" text="Dodaj"/>
                         <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieUsun" text="Usun"/>
-                        <MenuItem mnemonicParsing="false" text="Nowy grafik"/>
-                        <MenuItem mnemonicParsing="false" text="Generuj"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieNowyGrafik" text="Nowy grafik"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieGeneruj" text="Generuj"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Pielegniarki">
