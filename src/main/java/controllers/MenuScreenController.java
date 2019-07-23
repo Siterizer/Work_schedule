@@ -46,21 +46,4 @@ public class MenuScreenController {
             System.out.println("Nie mozna otworzyc okna 'Usun opiekuna'");
         }
     }
-
-    @FXML
-    void handleOpiekunowieEdytuj(ActionEvent event) {
-
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/EditPerson.fxml"));
-            Parent root1 = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Edytuj opiekuna");
-            stage.setScene(new Scene(root1));
-            stage.setResizable(false);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println("Nie mozna otworzyc okna 'Edytuj opiekuna'");
-        }
-    }
 }
