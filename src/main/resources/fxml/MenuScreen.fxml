@@ -13,12 +13,16 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieDodaj" text="Dodaj" />
                   <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieUsun" text="Usun" />
+                  <MenuItem mnemonicParsing="false" text="Nowy grafik" />
+                  <MenuItem mnemonicParsing="false" text="Generuj" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Pielegniarki">
                <items>
                   <MenuItem mnemonicParsing="false" text="Dodaj" />
                   <MenuItem mnemonicParsing="false" text="Usun" />
+                  <MenuItem mnemonicParsing="false" text="Nowy grafik" />
+                  <MenuItem mnemonicParsing="false" text="Generuj" />
                </items>
             </Menu>
          </menus>
