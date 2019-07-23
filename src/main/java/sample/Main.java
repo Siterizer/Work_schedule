@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -14,7 +15,6 @@ public class Main extends Application {
         primaryStage.setTitle("Apka");
         primaryStage.setScene(new Scene(root));
         primaryStage.setMaximized(true);
-//        primaryStage.setResizable(false);
         primaryStage.show();
 
     }
