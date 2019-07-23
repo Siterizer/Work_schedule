@@ -5,7 +5,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <BorderPane xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuScreenController">
    <top>
       <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="600.0" BorderPane.alignment="CENTER">
@@ -20,12 +19,6 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="Dodaj" />
                   <MenuItem mnemonicParsing="false" text="Usun" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Plan">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Edytuj" />
-                  <MenuItem mnemonicParsing="false" text="Generuj" />
                </items>
             </Menu>
          </menus>
