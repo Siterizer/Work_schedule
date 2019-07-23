@@ -5,22 +5,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.People;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.nio.charset.IllegalCharsetNameException;
 
 public class AddPersonController {
 
     @FXML
-    private TextArea firstName;
+    private TextField firstName;
 
     @FXML
-    private TextArea lastName;
+    private TextField lastName;
 
     @FXML
     void handleAdd(ActionEvent event) {

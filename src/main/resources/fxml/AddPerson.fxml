@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0"
-      prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controllers.AddPersonController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddPersonController">
     <children>
         <VBox prefHeight="120.0" prefWidth="300.0">
             <children>
-                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0"/>
+                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0" />
                 <HBox prefHeight="0.0" prefWidth="300.0">
                     <children>
-                        <TextField prefHeight="31.0" prefWidth="250.0" promptText="Imie"/>
-                        <Separator opacity="0.0" prefWidth="50.0"/>
+                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="100.0" text="Imie:" />
+                  <TextField fx:id="firstName" />
+                        <Separator opacity="0.0" prefWidth="50.0" />
                     </children>
                 </HBox>
-                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0"/>
+                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0" />
                 <HBox prefHeight="22.0" prefWidth="300.0">
                     <children>
-                        <TextField prefHeight="31.0" prefWidth="250.0" promptText="Nazwisko"/>
-                        <Separator opacity="0.0" prefWidth="50.0"/>
+                        <Label alignment="CENTER" prefHeight="60.0" prefWidth="100.0" text="Nazwisko:" />
+                  <TextField fx:id="lastName" />
+                        <Separator opacity="0.0" prefWidth="50.0" />
                     </children>
                 </HBox>
-                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0"/>
-                <HBox prefHeight="61.0" prefWidth="300.0">
+                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0" />
+                <HBox prefHeight="20.0" prefWidth="200.0">
                     <children>
-                        <Separator opacity="0.0" prefWidth="100.0"/>
-                        <Button mnemonicParsing="false" onAction="#handleAdd" prefWidth="100.0" text="Dodaj"/>
-                        <Separator opacity="0.0" prefWidth="100.0"/>
+                        <Separator opacity="0.0" prefWidth="100.0" />
+                        <Button mnemonicParsing="false" onAction="#handleAdd" prefWidth="100.0" text="Dodaj" />
+                        <Separator opacity="0.0" prefWidth="100.0" />
                     </children>
                 </HBox>
             </children>
