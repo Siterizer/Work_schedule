@@ -13,11 +13,11 @@ public class MessageBoxController {
     private Label message;
     private Stage toClose;
 
-    public void setMessage(String message){
+    public void setMessage(String message) {
         this.message.setText(message);
     }
 
-    public void stageToClose(Stage closeThis){
+    public void stageToClose(Stage closeThis) {
         this.toClose = closeThis;
     }
 
@@ -28,7 +28,7 @@ public class MessageBoxController {
     void handleOkButton(ActionEvent event) {
         Stage stage = (Stage) okButton.getScene().getWindow();
         stage.close();
-        if(toClose != null) {
+        if (toClose != null) {
             this.toClose.close();
         }
     }

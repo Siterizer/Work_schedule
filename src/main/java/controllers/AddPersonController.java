@@ -24,37 +24,36 @@ public class AddPersonController {
 
     @FXML
     void handleAdd(ActionEvent event) {
-        try{
-            if(firstName.getText().length() < 3){
+        try {
+            if (firstName.getText().length() < 3) {
                 throw new IllegalCharsetNameException("FirstNameLengthException");
             }
-            if(!firstName.getText().matches("[a-zA-Z]+")){
+            if (!firstName.getText().matches("[a-zA-Z]+")) {
                 throw new IllegalCharsetNameException("FirstNameCharacterException");
             }
-            if(lastName.getText().length() < 3){
+            if (lastName.getText().length() < 3) {
                 throw new IllegalCharsetNameException("LastNameLengthException");
             }
-            if(!lastName.getText().matches("[a-zA-Z]+")){
+            if (!lastName.getText().matches("[a-zA-Z]+")) {
                 throw new IllegalCharsetNameException("LastNameCharacterException");
             }
 
             new People(firstName.getText(), lastName.getText());
             message("Dodawanie zakonczone sukcesem", true);
-        }
-
-        catch(IllegalCharsetNameException e){
+        } catch (IllegalCharsetNameException e) {
             System.out.println(e.getCharsetName());
             message("Dodawanie nie powiodlo sie", false);
         }
 
     }
-    private void message(String message, boolean closeTheWindow){
+
+    private void message(String message, boolean closeTheWindow) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/MessageBox.fxml"));
             Parent root1 = fxmlLoader.load();
             MessageBoxController controller = fxmlLoader.getController();
             controller.setMessage(message);
-            if(closeTheWindow){
+            if (closeTheWindow) {
                 controller.stageToClose((Stage) firstName.getScene().getWindow());
             }
             Stage stage = new Stage();

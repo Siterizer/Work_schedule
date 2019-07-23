@@ -8,7 +8,7 @@ public class People {
     private String nazwisko;
     private static Vector<People> ludzie = new Vector<People>();
 
-    public People(String imie, String nazwisko){
+    public People(String imie, String nazwisko) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         ludzie.add(this);
@@ -21,7 +21,8 @@ public class People {
     public String getNazwisko() {
         return nazwisko;
     }
-    public static Vector<People> funkcja(){
+
+    public static Vector<People> funkcja() {
         return ludzie;
     }
 }

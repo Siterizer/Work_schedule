@@ -7,33 +7,35 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddPersonController">
-   <children>
-      <VBox prefHeight="120.0" prefWidth="300.0">
-         <children>
-            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0" />
-            <HBox prefHeight="0.0" prefWidth="300.0">
-               <children>
-                  <TextField prefHeight="31.0" prefWidth="250.0" promptText="Imie" />
-                  <Separator opacity="0.0" prefWidth="50.0" />
-               </children>
-            </HBox>
-            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0" />
-            <HBox prefHeight="22.0" prefWidth="300.0">
-               <children>
-                  <TextField prefHeight="31.0" prefWidth="250.0" promptText="Nazwisko" />
-                  <Separator opacity="0.0" prefWidth="50.0" />
-               </children>
-            </HBox>
-            <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0" />
-            <HBox prefHeight="61.0" prefWidth="300.0">
-               <children>
-                  <Separator opacity="0.0" prefWidth="100.0" />
-                  <Button mnemonicParsing="false" onAction="#handleAdd" prefWidth="100.0" text="Dodaj" />
-                  <Separator opacity="0.0" prefWidth="100.0" />
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0"
+      prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.AddPersonController">
+    <children>
+        <VBox prefHeight="120.0" prefWidth="300.0">
+            <children>
+                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0"/>
+                <HBox prefHeight="0.0" prefWidth="300.0">
+                    <children>
+                        <TextField prefHeight="31.0" prefWidth="250.0" promptText="Imie"/>
+                        <Separator opacity="0.0" prefWidth="50.0"/>
+                    </children>
+                </HBox>
+                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0"/>
+                <HBox prefHeight="22.0" prefWidth="300.0">
+                    <children>
+                        <TextField prefHeight="31.0" prefWidth="250.0" promptText="Nazwisko"/>
+                        <Separator opacity="0.0" prefWidth="50.0"/>
+                    </children>
+                </HBox>
+                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0"/>
+                <HBox prefHeight="61.0" prefWidth="300.0">
+                    <children>
+                        <Separator opacity="0.0" prefWidth="100.0"/>
+                        <Button mnemonicParsing="false" onAction="#handleAdd" prefWidth="100.0" text="Dodaj"/>
+                        <Separator opacity="0.0" prefWidth="100.0"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
 </Pane>

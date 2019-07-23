@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MenuScreen.fxml"));
         primaryStage.setTitle("Apka");
         primaryStage.setScene(new Scene(root));
@@ -22,7 +22,8 @@ public class Main extends Application {
         primaryStage.show();
 
     }
-    private void setScreenDimensions(Stage stage){
+
+    private void setScreenDimensions(Stage stage) {
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
 
