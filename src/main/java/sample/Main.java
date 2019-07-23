@@ -13,7 +13,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MenuScreen.fxml"));
         primaryStage.setTitle("Apka");
         primaryStage.setScene(new Scene(root));
-        primaryStage.setResizable(false);
+        primaryStage.setMaximized(true);
+//        primaryStage.setResizable(false);
         primaryStage.show();
 
     }
