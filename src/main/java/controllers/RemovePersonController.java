@@ -26,7 +26,6 @@ public class RemovePersonController {
         Enumeration vectorEnumeration = People.funkcja().elements();
         while(vectorEnumeration.hasMoreElements()){
             addPersonToVBox((People) vectorEnumeration.nextElement());
-           // System.out.println(vectorEnumeration.nextElement());
         }
 
     }
@@ -70,12 +69,10 @@ public class RemovePersonController {
         button.setMnemonicParsing(false);
         button.setText("Usun");
         button.setId(p.getImie());
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                People.funkcja().remove(p);
-                vBox.getChildren().clear();
-                initialize();
-            }
+        button.setOnAction(e -> {
+            People.funkcja().remove(p);
+            vBox.getChildren().clear();
+            initialize();
         });
         return button;
     }
