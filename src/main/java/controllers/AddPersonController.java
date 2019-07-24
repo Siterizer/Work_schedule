@@ -24,19 +24,7 @@ public class AddPersonController {
     @FXML
     void handleAdd(ActionEvent event) {
         try {
-            if (firstName.getText().length() < 3) {
-                throw new IllegalCharsetNameException("FirstNameLengthException");
-            }
-            if (!firstName.getText().matches("[a-zA-Z]+")) {
-                throw new IllegalCharsetNameException("FirstNameCharacterException");
-            }
-            if (lastName.getText().length() < 3) {
-                throw new IllegalCharsetNameException("LastNameLengthException");
-            }
-            if (!lastName.getText().matches("[a-zA-Z]+")) {
-                throw new IllegalCharsetNameException("LastNameCharacterException");
-            }
-
+            checkFirstAndLastName();
             new People(firstName.getText(), lastName.getText());
             message("Dodawanie zakonczone sukcesem", true);
         } catch (IllegalCharsetNameException e) {
@@ -44,6 +32,20 @@ public class AddPersonController {
             message("Dodawanie nie powiodlo sie", false);
         }
 
+    }
+    private void checkFirstAndLastName(){
+        if (firstName.getText().length() < 3) {
+            throw new IllegalCharsetNameException("FirstNameLengthException");
+        }
+        if (!firstName.getText().matches("[a-zA-Z]+")) {
+            throw new IllegalCharsetNameException("FirstNameCharacterException");
+        }
+        if (lastName.getText().length() < 3) {
+            throw new IllegalCharsetNameException("LastNameLengthException");
+        }
+        if (!lastName.getText().matches("[a-zA-Z]+")) {
+            throw new IllegalCharsetNameException("LastNameCharacterException");
+        }
     }
 
     private void message(String message, boolean closeTheWindow) {
