@@ -1,5 +1,6 @@
 package sample;
 
+import collector.data.DataDirectoryCreator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -7,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
@@ -18,6 +21,9 @@ public class Main extends Application {
         //chwilowe rozwiazanie
         setScreenDimensions(primaryStage);
         //
+
+        initialize();
+
         primaryStage.setMaximized(true);
         primaryStage.show();
 
@@ -31,6 +37,10 @@ public class Main extends Application {
         stage.setY(bounds.getMinY());
         stage.setWidth(bounds.getWidth());
         stage.setHeight(bounds.getHeight());
+    }
+
+    private void initialize() throws IOException {
+        new DataDirectoryCreator();
     }
 
 
