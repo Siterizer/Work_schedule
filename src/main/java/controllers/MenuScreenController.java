@@ -48,19 +48,24 @@ public class MenuScreenController {
     }
 
     @FXML
-    void handleOpiekunowieEdytuj(ActionEvent event) {
+    void handleOpiekunowieNowyGrafik(ActionEvent event) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/EditPerson.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/NewSchedule.fxml"));
             Parent root1 = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("Edytuj opiekuna");
+            stage.setTitle("Nowy Grafik");
             stage.setScene(new Scene(root1));
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (IOException e) {
-            System.out.println("Nie mozna otworzyc okna 'Edytuj opiekuna'");
+            System.out.println("Nie mozna otworzyc okna 'Nowy Grafik'");
         }
+    }
+
+    @FXML
+    void handleOpiekunowieGeneruj(ActionEvent event) {
+
     }
 }
