@@ -24,6 +24,6 @@ public class People {
 
     public static Vector<People> funkcja() {
         return ludzie;
-    }
+    } // zwracac klona wektora glownego
 }
 
