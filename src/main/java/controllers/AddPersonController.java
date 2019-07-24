@@ -57,6 +57,7 @@ public class AddPersonController {
             Parent root1 = fxmlLoader.load();
             MessageBoxController controller = fxmlLoader.getController();
             controller.setMessage(message);
+
             if (closeTheWindow) {
                 controller.stageToClose((Stage) firstName.getScene().getWindow());
             }
