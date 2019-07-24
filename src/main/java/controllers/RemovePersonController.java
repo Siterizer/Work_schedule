@@ -16,6 +16,7 @@ import java.util.Enumeration;
 public class RemovePersonController {
 
     @FXML
+
     private VBox vBox;
 
     @FXML
@@ -62,6 +63,7 @@ public class RemovePersonController {
         separator.setPrefWidth(20.0);
         return separator;
     }
+
 
     private Button getButton(People p){
         Button button = new Button();

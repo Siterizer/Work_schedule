@@ -13,12 +13,14 @@ public class MessageBoxController {
     private Stage stageToClose;
 
 
-    public void setMessage(String message){
+    public void setMessage(String message) {
         this.message.setText(message);
     }
 
+
     public void stageToClose(Stage closeThis){
         this.stageToClose = closeThis;
+
     }
 
     @FXML
