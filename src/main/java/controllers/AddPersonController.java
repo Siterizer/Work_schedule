@@ -24,8 +24,10 @@ public class AddPersonController {
     @FXML
     void handleAdd(ActionEvent event) {
         try {
+            String firstNameString = firstName.getText().substring(0, 1).toUpperCase() + firstName.getText().substring(1).toLowerCase();
+            String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText();
             checkFirstAndLastName();
-            new People(firstName.getText(), lastName.getText());
+            new People(firstNameString, lastNameString);
             message("Dodawanie zakonczone sukcesem", true);
         } catch (IllegalCharsetNameException e) {
             System.out.println(e.getCharsetName());
@@ -33,7 +35,8 @@ public class AddPersonController {
         }
 
     }
-    private void checkFirstAndLastName(){
+    
+    private void checkFirstAndLastName() {
         if (firstName.getText().length() < 3) {
             throw new IllegalCharsetNameException("FirstNameLengthException");
         }
