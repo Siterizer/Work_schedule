@@ -15,6 +15,10 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);
         primaryStage.show();
+        new People("Dawid", "Koziej");
+        new People("Adam", "Koziej");
+        new People("Adam", "Macura");
+        new People("Dawid", "Macura");
 
     }
 

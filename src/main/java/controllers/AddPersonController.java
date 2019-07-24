@@ -48,13 +48,13 @@ public class AddPersonController {
         }
 
     }
-    private void message(String message, boolean closeTheWindow){
+    private void message(String message, boolean closePreviousWindow){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/MessageBox.fxml"));
             Parent root1 = fxmlLoader.load();
             MessageBoxController controller = fxmlLoader.getController();
             controller.setMessage(message);
-            if(closeTheWindow){
+            if(closePreviousWindow){
                 controller.stageToClose((Stage) firstName.getScene().getWindow());
             }
             Stage stage = new Stage();
