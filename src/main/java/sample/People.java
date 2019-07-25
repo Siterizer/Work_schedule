@@ -25,5 +25,13 @@ public class People {
     public static Vector<People> funkcja() {
         return ludzie;
     } // zwracac klona wektora glownego
+
+    public static void showPeople() {
+        for (People people :
+                ludzie
+        ) {
+            System.out.println(people.getImie() + people.getNazwisko());
+        }
+    }
 }
 
