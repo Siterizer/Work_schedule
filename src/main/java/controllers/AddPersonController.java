@@ -25,7 +25,7 @@ public class AddPersonController {
     void handleAdd(ActionEvent event) {
         try {
             String firstNameString = firstName.getText().substring(0, 1).toUpperCase() + firstName.getText().substring(1).toLowerCase();
-            String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText();
+            String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText().substring(1);
             checkFirstAndLastName();
             new People(firstNameString, lastNameString);
             message("Dodawanie zakonczone sukcesem", true);

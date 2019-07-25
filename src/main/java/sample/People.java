@@ -30,7 +30,7 @@ public class People {
         for (People people :
                 ludzie
         ) {
-            System.out.println(people.getImie() + people.getNazwisko());
+            System.out.println(people.getImie() + " " + people.getNazwisko());
         }
     }
 }
