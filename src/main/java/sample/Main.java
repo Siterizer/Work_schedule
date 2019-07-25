@@ -1,6 +1,6 @@
 package sample;
 
-import collector.data.DataDirectoryCreator;
+import collectordata.DataDirectoryCreator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;

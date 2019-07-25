@@ -1,4 +1,4 @@
-package collector.data;
+package collectordata;
 
 import java.io.File;
 import java.io.IOException;
