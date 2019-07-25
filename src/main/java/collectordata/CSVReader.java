@@ -36,8 +36,8 @@ public class CSVReader extends CSVMainClass{
     }
 
     private void readCSVFile(){
-        BufferedReader bufferedReader = null;
-        String line = "";
+        BufferedReader bufferedReader;
+        String line;
         String csvSplitBy = ",";
 
         try{
