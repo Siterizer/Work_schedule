@@ -44,7 +44,7 @@ public class Main extends Application {
     }
 
     private void initialize() throws IOException {
-        new DataDirectoryCreator();
+        new DataDirectoryCreator("data");
     }
 
 

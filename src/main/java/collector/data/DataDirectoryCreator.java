@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class DataDirectoryCreator extends CSVMainClass{
-    public DataDirectoryCreator() throws IOException {
-        String pathName = "data";
+    public DataDirectoryCreator(String pathName) throws IOException {
         createDataFolder(pathName);
         createdCSVFiles(pathName);
 
