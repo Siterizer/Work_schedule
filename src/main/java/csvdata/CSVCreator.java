@@ -1,4 +1,4 @@
-package collectordata;
+package csvdata;
 
 import java.io.FileWriter;
 import java.io.IOException;

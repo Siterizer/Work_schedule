@@ -1,7 +1,7 @@
 package sample;
 
-import collectordata.CSVReader;
-import collectordata.DataDirectoryCreator;
+import csvdata.CSVReader;
+import csvdata.DataDirectoryCreator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;

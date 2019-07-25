@@ -1,4 +1,4 @@
-package collectordata;
+package csvdata;
 
 import sample.People;
 
