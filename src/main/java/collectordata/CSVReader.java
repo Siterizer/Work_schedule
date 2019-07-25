@@ -11,14 +11,11 @@ import java.util.Vector;
 
 public class CSVReader extends CSVMainClass{
 
-    private String namePath;
-    private  Vector<People> saveData;
     public CSVReader(String namePath, Vector<People> whereSaveData){
         try{
             checkNamePath(namePath);
             checkWhereSaveData(whereSaveData);
-            this.namePath = namePath;
-            this.saveData = whereSaveData;
+            readCSVFile(namePath, whereSaveData);
         } catch (NoSuchFileException|NoSuchElementException e) {
             System.out.println(e.getMessage());
         }
@@ -35,16 +32,16 @@ public class CSVReader extends CSVMainClass{
         }
     }
 
-    private void readCSVFile(){
+    private void readCSVFile(String namePath, Vector<People> saveData){
         BufferedReader bufferedReader;
         String line;
         String csvSplitBy = ",";
 
         try{
-            bufferedReader = new BufferedReader(new FileReader(this.namePath));
+            bufferedReader = new BufferedReader(new FileReader(namePath + ".csv"));
             while((line = bufferedReader.readLine()) != null){
                 String[] firstLastName = line.split(csvSplitBy);
-                saveData.add(new People(firstLastName[0],firstLastName[1]));
+                new People(firstLastName[0],firstLastName[1]);
             }
         } catch (IOException e) {
             e.printStackTrace();
