@@ -67,7 +67,7 @@ public class AddPersonController {
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
-            System.out.println(People.funkcja());
+            People.showPeople();
         } catch (IOException e) {
             System.out.println("Nie mozna otworzyc okna 'Wiadomosc'");
         }
