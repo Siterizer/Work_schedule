@@ -1,6 +1,7 @@
 package sample;
 
-import collector.data.DataDirectoryCreator;
+import csvdata.CSVReader;
+import csvdata.DataDirectoryCreator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -44,7 +45,8 @@ public class Main extends Application {
     }
 
     private void initialize() throws IOException {
-        new DataDirectoryCreator();
+        new DataDirectoryCreator("data");
+        new CSVReader(".\\data\\pielegniarki", People.funkcja());
     }
 
 
