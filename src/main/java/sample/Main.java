@@ -1,6 +1,7 @@
 package sample;
 
 import csvdata.CSVReader;
+import csvdata.CSVWriter;
 import csvdata.DataDirectoryCreator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -52,7 +53,7 @@ public class Main extends Application {
     }
 
     private void saveData(){
-
+        new CSVWriter(".\\data\\pielegniarki", People.funkcja());
     }
 
 
