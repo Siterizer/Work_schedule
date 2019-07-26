@@ -42,6 +42,7 @@ public class CSVReader extends CSVMainClass{
             while((line = bufferedReader.readLine()) != null){
                 String[] firstLastName = line.split(csvSplitBy);
                 new People(firstLastName[0],firstLastName[1]);
+            bufferedReader.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
