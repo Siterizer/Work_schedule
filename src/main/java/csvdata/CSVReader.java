@@ -21,10 +21,6 @@ public class CSVReader extends CSVMainClass{
         }
     }
 
-    private void checkNamePath(String namePath) throws NoSuchFileException {
-        if(!chceckExistFile(namePath))
-            throw new NoSuchFileException(namePath + " taki plik nie istnieje");
-    }
 
     private void checkWhereSaveData(Vector<People> whereSaveData) throws NoSuchElementException{
         if(whereSaveData == null){
