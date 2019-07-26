@@ -24,7 +24,7 @@ public class Main extends Application {
         setScreenDimensions(primaryStage);
         //
 
-        primaryStage.setOnCloseRequest(e -> saveData()); //przy zamykaniu okna
+        primaryStage.setOnCloseRequest(e -> onCloseApp()); //przy zamykaniu okna
 
         initialize();
 
@@ -45,6 +45,10 @@ public class Main extends Application {
     private void initialize() throws IOException {
         new DataDirectoryCreator("data");
         new CSVReader(".\\data\\pielegniarki", People.funkcja());
+    }
+
+    private void onCloseApp(){
+        saveData();
     }
 
     private void saveData(){
