@@ -1,6 +1,7 @@
 package sample;
 
 import csvdata.CSVReader;
+import csvdata.CSVWriter;
 import csvdata.DataDirectoryCreator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,15 +24,12 @@ public class Main extends Application {
         setScreenDimensions(primaryStage);
         //
 
+        primaryStage.setOnCloseRequest(e -> onCloseApp()); //przy zamykaniu okna
+
         initialize();
 
         primaryStage.setMaximized(true);
         primaryStage.show();
-        new People("Dawid", "Koziej");
-        new People("Adam", "Koziej");
-        new People("Adam", "Macura");
-        new People("Dawid", "Macura");
-
     }
 
     private void setScreenDimensions(Stage stage) {
@@ -47,6 +45,14 @@ public class Main extends Application {
     private void initialize() throws IOException {
         new DataDirectoryCreator("data");
         new CSVReader(".\\data\\pielegniarki", People.funkcja());
+    }
+
+    private void onCloseApp(){
+        saveData();
+    }
+
+    private void saveData(){
+        new CSVWriter(".\\data\\pielegniarki", People.funkcja());
     }
 
 

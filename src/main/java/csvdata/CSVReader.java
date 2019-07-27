@@ -21,10 +21,6 @@ public class CSVReader extends CSVMainClass{
         }
     }
 
-    private void checkNamePath(String namePath) throws NoSuchFileException {
-        if(!chceckExistFile(namePath))
-            throw new NoSuchFileException(namePath + " taki plik nie istnieje");
-    }
 
     private void checkWhereSaveData(Vector<People> whereSaveData) throws NoSuchElementException{
         if(whereSaveData == null){
@@ -43,6 +39,7 @@ public class CSVReader extends CSVMainClass{
                 String[] firstLastName = line.split(csvSplitBy);
                 new People(firstLastName[0],firstLastName[1]);
             }
+            bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
