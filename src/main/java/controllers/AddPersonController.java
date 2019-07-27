@@ -25,7 +25,7 @@ public class AddPersonController {
     void handleAdd(ActionEvent event) {
         try {
             String firstNameString = firstName.getText().substring(0, 1).toUpperCase() + firstName.getText().substring(1).toLowerCase();
-            String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText();
+            String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText().substring(1);
             checkFirstAndLastName();
             new People(firstNameString, lastNameString);
             message("Dodawanie zakonczone sukcesem", true);
@@ -67,7 +67,7 @@ public class AddPersonController {
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
-            System.out.println(People.funkcja());
+            People.showPeople();
         } catch (IOException e) {
             System.out.println("Nie mozna otworzyc okna 'Wiadomosc'");
         }

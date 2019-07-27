@@ -1,11 +1,10 @@
-package collector.data;
+package csvdata;
 
 import java.io.File;
 import java.io.IOException;
 
-public class DataDirectoryCreator {
-    public DataDirectoryCreator() throws IOException {
-        String pathName = "data";
+public class DataDirectoryCreator extends CSVMainClass{
+    public DataDirectoryCreator(String pathName) throws IOException {
         createDataFolder(pathName);
         createdCSVFiles(pathName);
 
@@ -32,7 +31,4 @@ public class DataDirectoryCreator {
             new CSVCreator(pathData);
     }
 
-    private boolean chceckExistFile(String fileName){
-       return new File(fileName + "csv").exists();
-    }
 }
