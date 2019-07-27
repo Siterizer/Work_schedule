@@ -1,13 +1,11 @@
 package controllers;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Separator;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.ConfirmBox;
 import sample.People;
 
 import java.util.Enumeration;
@@ -27,7 +25,6 @@ public class RemovePersonController {
         while(vectorEnumeration.hasMoreElements()){
             addPersonToVBox((People) vectorEnumeration.nextElement());
         }
-
     }
 
     private void addPersonToVBox(People p){
@@ -63,16 +60,18 @@ public class RemovePersonController {
         return separator;
     }
 
-
     private Button getButton(People p){
         Button button = new Button();
         button.setMnemonicParsing(false);
         button.setText("Usun");
         button.setId(p.getImie());
         button.setOnAction(e -> {
-            People.funkcja().remove(p);
-            vBox.getChildren().clear();
-            initialize();
+            if(ConfirmBox.displayAndReturnAnswer("Czy na pewno chcesz usunac osobe:\n"
+                    + p.getImie() + " " + p.getNazwisko())) {
+                People.funkcja().remove(p);
+                vBox.getChildren().clear();
+                initialize();
+            }
         });
         return button;
     }

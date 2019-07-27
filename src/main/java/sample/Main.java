@@ -30,7 +30,12 @@ public class Main extends Application {
         new People("Adam", "Koziej");
         new People("Adam", "Macura");
         new People("Dawid", "Macura");
-
+        new People("Dawid", "Koziej");
+        new People("Adam", "Koziej");
+        new People("Adam", "Macura");
+        new People("Dawid", "Macura");
+        new People("Dawid", "Koziej");
+        new People("Adam", "Koziej");
     }
 
     private void setScreenDimensions(Stage stage) {
