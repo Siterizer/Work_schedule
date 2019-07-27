@@ -8,23 +8,23 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NewScheduleController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.NewScheduleController">
     <children>
-        <VBox prefHeight="196.0" prefWidth="400.0">
+        <VBox prefHeight="120.0" prefWidth="300.0">
             <children>
-                <Separator orientation="VERTICAL" prefHeight="47.0" prefWidth="14.0" />
-                <HBox prefHeight="42.0" prefWidth="600.0">
+                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="40.0" />
+                <HBox prefHeight="60.0" prefWidth="300.0">
                     <children>
-                        <Separator prefHeight="11.0" prefWidth="33.0" />
-                        <ChoiceBox fx:id="monthChoiceBox" prefWidth="150.0" />
-                        <Separator prefHeight="6.0" prefWidth="58.0" />
+                        <Separator opacity="0.0" prefHeight="0.0" prefWidth="20.0" />
+                        <ChoiceBox fx:id="monthChoiceBox" prefWidth="120.0" />
+                        <Separator opacity="0.0" prefHeight="0.0" prefWidth="30.0" />
                         <TextField prefHeight="31.0" prefWidth="113.0" promptText="Rok" />
                     </children>
                 </HBox>
-                <Separator orientation="VERTICAL" prefHeight="23.0" prefWidth="15.0" />
-                <HBox prefHeight="100.0" prefWidth="231.0">
+                <Separator opacity="0.0" orientation="VERTICAL" prefHeight="30.0" />
+                <HBox prefHeight="60.0" prefWidth="300.0">
                     <children>
-                        <Separator prefHeight="17.0" prefWidth="182.0" />
+                        <Separator opacity="0.0" prefHeight="0.0" prefWidth="120.0" />
                         <Button mnemonicParsing="false" text="Stwórz" />
                     </children>
                 </HBox>
