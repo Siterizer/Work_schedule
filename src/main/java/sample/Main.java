@@ -23,13 +23,11 @@ public class Main extends Application {
         //chwilowe rozwiazanie
         setScreenDimensions(primaryStage);
         //
-
         primaryStage.setOnCloseRequest(e -> onCloseApp()); //przy zamykaniu okna
-
         initialize();
-
         primaryStage.setMaximized(true);
         primaryStage.show();
+
     }
 
     private void setScreenDimensions(Stage stage) {
@@ -44,7 +42,7 @@ public class Main extends Application {
 
     private void initialize() throws IOException {
         new DataDirectoryCreator("data");
-        new CSVReader(".\\data\\pielegniarki", People.funkcja());
+        new CSVReader(".//data//pielegniarki", People.funkcja());
     }
 
     private void onCloseApp(){
@@ -52,7 +50,7 @@ public class Main extends Application {
     }
 
     private void saveData(){
-        new CSVWriter(".\\data\\pielegniarki", People.funkcja());
+        new CSVWriter(".//data//pielegniarki", People.funkcja());
     }
 
 
