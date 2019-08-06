@@ -11,7 +11,7 @@ public class MenuScreenController {
     @FXML
     void handleOpiekunowieDodaj(ActionEvent event) {
 
-        AddPerson.dipsplay();
+        AddPerson.display();
     }
 
     @FXML
