@@ -1,16 +1,14 @@
-package controllers;
+package controller.controllers;
 
+import controller.display.controller.MessageBox;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import sample.People;
-
-import java.io.IOException;
+import model.sample.People;
 import java.nio.charset.IllegalCharsetNameException;
 
 public class AddPersonController {
@@ -23,17 +21,26 @@ public class AddPersonController {
 
     @FXML
     void handleAdd(ActionEvent event) {
+        addPerson();
+    }
+
+    @FXML
+    void handleEnterButton(KeyEvent event) {
+        if(event.getCode() == KeyCode.ENTER){
+            addPerson();
+        }
+    }
+
+    private void addPerson(){
         try {
             String firstNameString = firstName.getText().substring(0, 1).toUpperCase() + firstName.getText().substring(1).toLowerCase();
             String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText().substring(1);
             checkFirstAndLastName();
             new People(firstNameString, lastNameString);
-            message("Dodawanie zakonczone sukcesem", true);
+            MessageBox.display("Dodawanie zakonczone sukcesem", (Stage) firstName.getScene().getWindow());
         } catch (IllegalCharsetNameException e) {
-            System.out.println(e.getCharsetName());
-            message("Dodawanie nie powiodlo sie", false);
+            MessageBox.display("Dodawanie nie powiodlo sie", null);
         }
-
     }
     
     private void checkFirstAndLastName() {
@@ -48,28 +55,6 @@ public class AddPersonController {
         }
         if (!lastName.getText().matches("[a-zA-Z]+")) {
             throw new IllegalCharsetNameException("LastNameCharacterException");
-        }
-    }
-
-    private void message(String message, boolean closeTheWindow) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/MessageBox.fxml"));
-            Parent root1 = fxmlLoader.load();
-            MessageBoxController controller = fxmlLoader.getController();
-            controller.setMessage(message);
-
-            if (closeTheWindow) {
-                controller.stageToClose((Stage) firstName.getScene().getWindow());
-            }
-            Stage stage = new Stage();
-            stage.setTitle("Wiadomosc");
-            stage.setScene(new Scene(root1));
-            stage.setResizable(false);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
-            People.showPeople();
-        } catch (IOException e) {
-            System.out.println("Nie mozna otworzyc okna 'Wiadomosc'");
         }
     }
 

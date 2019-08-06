@@ -1,6 +1,6 @@
-package model;
+package controller.display.controller;
 
-import controllers.ConfirmBoxController;
+import controller.controllers.ConfirmBoxController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
