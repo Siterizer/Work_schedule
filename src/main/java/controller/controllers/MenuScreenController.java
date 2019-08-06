@@ -10,19 +10,16 @@ public class MenuScreenController {
 
     @FXML
     void handleOpiekunowieDodaj(ActionEvent event) {
-
         AddPerson.display();
     }
 
     @FXML
     void handleOpiekunowieUsun(ActionEvent event) {
-
         RemovePerson.display();
     }
 
     @FXML
     void handleOpiekunowieNowyGrafik(ActionEvent event) {
-
         NewSchedule.display();
     }
 

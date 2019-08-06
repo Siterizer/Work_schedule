@@ -6,14 +6,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import controller.display.controller.ConfirmBox;
 import model.sample.People;
-
 import java.util.Enumeration;
-
 
 public class RemovePersonController {
 
     @FXML
-
     private VBox vBox;
 
     @FXML
