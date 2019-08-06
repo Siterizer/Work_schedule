@@ -1,4 +1,4 @@
-package sample;
+package model.sample;
 
 import java.util.Vector;
 

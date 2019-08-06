@@ -1,6 +1,6 @@
-package csvdata;
+package model.csvdata;
 
-import sample.People;
+import model.sample.People;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

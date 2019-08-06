@@ -1,8 +1,8 @@
-package sample;
+package model.sample;
 
-import csvdata.CSVReader;
-import csvdata.CSVWriter;
-import csvdata.DataDirectoryCreator;
+import model.csvdata.CSVReader;
+import model.csvdata.CSVWriter;
+import model.csvdata.DataDirectoryCreator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -23,11 +23,8 @@ public class Main extends Application {
         //chwilowe rozwiazanie
         setScreenDimensions(primaryStage);
         //
-
         primaryStage.setOnCloseRequest(e -> onCloseApp()); //przy zamykaniu okna
-
         initialize();
-
         primaryStage.setMaximized(true);
         primaryStage.show();
     }
@@ -35,7 +32,6 @@ public class Main extends Application {
     private void setScreenDimensions(Stage stage) {
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
-
         stage.setX(bounds.getMinX());
         stage.setY(bounds.getMinY());
         stage.setWidth(bounds.getWidth());
@@ -44,7 +40,7 @@ public class Main extends Application {
 
     private void initialize() throws IOException {
         new DataDirectoryCreator("data");
-        new CSVReader(".\\data\\pielegniarki", People.funkcja());
+        new CSVReader(".//data//pielegniarki", People.funkcja());
     }
 
     private void onCloseApp(){
@@ -52,9 +48,8 @@ public class Main extends Application {
     }
 
     private void saveData(){
-        new CSVWriter(".\\data\\pielegniarki", People.funkcja());
+        new CSVWriter(".//data//pielegniarki", People.funkcja());
     }
-
 
     public static void main(String[] args) {
         launch(args);

@@ -1,11 +1,11 @@
-package controllers;
+package controller.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import model.ConfirmBox;
-import sample.People;
+import controller.display.controller.ConfirmBox;
+import model.sample.People;
 
 import java.util.Enumeration;
 
@@ -27,6 +27,7 @@ public class RemovePersonController {
     }
 
     private void addPersonToVBox(People p){
+
         vBox.getChildren().add(getHBox(p));
 
     }
@@ -55,7 +56,7 @@ public class RemovePersonController {
     private Separator getSeparatorHeight(){
         Separator separator = new Separator();
         separator.setOpacity(0.0);
-        separator.setPrefWidth(20.0);
+        separator.setPrefHeight(20.0);
         return separator;
     }
 
