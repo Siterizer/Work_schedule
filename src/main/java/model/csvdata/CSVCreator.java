@@ -1,4 +1,4 @@
-package csvdata;
+package model.csvdata;
 
 import java.io.FileWriter;
 import java.io.IOException;

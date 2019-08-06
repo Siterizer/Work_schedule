@@ -28,7 +28,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>sample.Main</mainClass>
+                            <mainClass>model.sample.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

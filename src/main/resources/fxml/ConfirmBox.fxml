@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ConfirmBoxController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="240.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.controllers.ConfirmBoxController">
    <children>
       <HBox prefHeight="120.0" prefWidth="240.0">
          <children>
@@ -19,9 +19,9 @@
                   <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0" />
                   <HBox prefHeight="30.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="yesButton" mnemonicParsing="false" onAction="#handleYesButton" prefHeight="32.0" prefWidth="148.0" text="Tak" />
+                        <Button fx:id="yesButton" mnemonicParsing="false" onAction="#handleYesButton" onKeyPressed="#handleYesEnter" prefHeight="32.0" prefWidth="148.0" text="Tak" />
                         <Separator opacity="0.0" prefWidth="50.0" />
-                        <Button fx:id="noButton" mnemonicParsing="false" onAction="#handleNoButton" prefHeight="32.0" prefWidth="148.0" text="Nie" />
+                        <Button fx:id="noButton" mnemonicParsing="false" onAction="#handleNoButton" onKeyPressed="#handleNoEnter" prefHeight="32.0" prefWidth="148.0" text="Nie" />
                      </children>
                   </HBox>
                </children>
