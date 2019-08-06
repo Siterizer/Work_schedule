@@ -47,4 +47,8 @@ public class ConfirmBoxController {
     public void setMessage(String message){
         this.message.setText(message);
     }
+
+    public void onCloseWindowFasle(){
+        setAnswerAndCloseWindow(false);
+    }
 }

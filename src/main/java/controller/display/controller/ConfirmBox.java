@@ -22,6 +22,7 @@ public class ConfirmBox {
             controller.setMessage(message);
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setOnCloseRequest(e -> controller.onCloseWindowFasle());
             stage.showAndWait();
         } catch (IOException e) {
             System.out.println("Nie mozna otworzyc okna 'Confirm Box'");
