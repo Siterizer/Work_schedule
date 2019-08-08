@@ -4,9 +4,7 @@ import controller.hbox.factory.IHBox;
 import controller.hbox.factory.IHBoxFactory;
 import controller.hbox.factory.RemovePersonHBoxFactory;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import controller.display.controller.ConfirmBox;
 import model.sample.People;
 import java.util.Enumeration;
 
@@ -24,7 +22,8 @@ public class RemovePersonController {
         IHBoxFactory hBoxFactory = new RemovePersonHBoxFactory();
         Enumeration vectorEnumeration = People.funkcja().elements();
         while(vectorEnumeration.hasMoreElements()){
-            IHBox hBox = hBoxFactory.makeHBox((People) vectorEnumeration.nextElement());
+            People people =(People) vectorEnumeration.nextElement();
+            IHBox hBox = hBoxFactory.makeHBox(people);
             vBox.getChildren().add(hBox.getHBox());
         }
     }
