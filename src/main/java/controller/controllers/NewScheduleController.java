@@ -2,8 +2,12 @@ package controller.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 
 public class NewScheduleController {
+
+    @FXML
+    private TextField year;
 
     @FXML
     private ChoiceBox<String> monthChoiceBox;
