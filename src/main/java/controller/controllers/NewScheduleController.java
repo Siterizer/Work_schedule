@@ -6,7 +6,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 
 public class NewScheduleController {
 
@@ -38,7 +37,7 @@ public class NewScheduleController {
             Process XMLYearCreator = Runtime.getRuntime().exec("java -jar ./XMLYearCreator-1.0-SNAPSHOT.jar " + year);
             XMLYearCreator.waitFor();
             int feedback = XMLYearCreator.exitValue();
-            if(feedback == 1)
+            if (feedback == 1)
                 throw new Exception("Problem z utworzeniem pliku XML");
             MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
         } catch (Exception e) {
@@ -48,7 +47,7 @@ public class NewScheduleController {
     }
 
     private void checkYear(String year) throws Exception {
-        if(Integer.parseInt(year) < 1900){
+        if (Integer.parseInt(year) < 1900) {
             throw new Exception("Zły rok (rok > 1900)");
         }
     }
