@@ -9,6 +9,11 @@ public class NewScheduleController {
     private ChoiceBox<String> monthChoiceBox;
 
     @FXML
+    void handleCreate(){
+
+    }
+
+    @FXML
     public void initialize() {
         monthChoiceBox.getItems().addAll(
                 "Styczeń", "Luty", "Marzec",
