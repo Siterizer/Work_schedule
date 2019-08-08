@@ -1,8 +1,10 @@
 package controller.controllers;
 
+import controller.display.controller.MessageBox;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -15,8 +17,8 @@ public class NewScheduleController {
     private ChoiceBox<String> monthChoiceBox;
 
     @FXML
-    void handleCreate() throws IOException, InterruptedException {
-    //year.getText(); monthChoiceBox.getValue()
+    void handleCreate() {
+        //year.getText(); monthChoiceBox.getValue()
         createYear(year.getText());
     }
 
@@ -30,8 +32,24 @@ public class NewScheduleController {
         monthChoiceBox.setValue("Styczeń");
     }
 
-    private void createYear(String year) throws IOException, InterruptedException {
-        Runtime.getRuntime().exec("java -jar ./XMLYearCreator-1.0-SNAPSHOT.jar " + year);
-        
+    private void createYear(String year) {
+        try {
+            checkYear(year);
+            Process XMLYearCreator = Runtime.getRuntime().exec("java -jar ./XMLYearCreator-1.0-SNAPSHOT.jar " + year);
+            XMLYearCreator.waitFor();
+            int feedback = XMLYearCreator.exitValue();
+            if(feedback == 1)
+                throw new Exception("Problem z utworzeniem pliku XML");
+            MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageBox.display(e.getMessage(), null);
+        }
+    }
+
+    private void checkYear(String year) throws Exception {
+        if(Integer.parseInt(year) < 1900){
+            throw new Exception("Zły rok (rok > 1900)");
+        }
     }
 }
