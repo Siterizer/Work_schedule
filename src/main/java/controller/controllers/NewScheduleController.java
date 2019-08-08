@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class NewScheduleController {
 
     @FXML
@@ -13,8 +15,9 @@ public class NewScheduleController {
     private ChoiceBox<String> monthChoiceBox;
 
     @FXML
-    void handleCreate(){
-
+    void handleCreate() throws IOException, InterruptedException {
+    //year.getText(); monthChoiceBox.getValue()
+        createYear(year.getText());
     }
 
     @FXML
@@ -25,5 +28,10 @@ public class NewScheduleController {
                 "Lipiec", "Sierpień", "Wrzesień",
                 "Październik", "Listopad", "Grudzień");
         monthChoiceBox.setValue("Styczeń");
+    }
+
+    private void createYear(String year) throws IOException, InterruptedException {
+        Process proc = Runtime.getRuntime().exec("java -jar ./XMLYearCreator-1.0-SNAPSHOT.jar " + year);
+        proc.waitFor();
     }
 }
