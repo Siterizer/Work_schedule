@@ -31,7 +31,7 @@ public class NewScheduleController {
     }
 
     private void createYear(String year) throws IOException, InterruptedException {
-        Process proc = Runtime.getRuntime().exec("java -jar ./XMLYearCreator-1.0-SNAPSHOT.jar " + year);
-        proc.waitFor();
+        Runtime.getRuntime().exec("java -jar ./XMLYearCreator-1.0-SNAPSHOT.jar " + year);
+        
     }
 }
