@@ -33,5 +33,10 @@ public class People {
             System.out.println(people.getImie() + " " + people.getNazwisko());
         }
     }
+
+    @Override
+    public String toString() {
+        return this.getImie() + " " + this.getNazwisko();
+    }
 }
 
