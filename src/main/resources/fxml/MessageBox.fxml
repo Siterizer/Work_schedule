@@ -11,16 +11,16 @@
     <children>
         <HBox prefHeight="100.0" prefWidth="168.0">
             <children>
-                <Separator opacity="0.0" prefWidth="15.0" />
+                <Separator prefWidth="15.0" visible="false" />
                 <VBox prefHeight="100.0" prefWidth="153.0">
                     <children>
-                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0" />
+                        <Separator orientation="VERTICAL" prefHeight="10.0" visible="false" />
                         <Label fx:id="message" alignment="CENTER" prefHeight="43.0" prefWidth="153.0" text="Test" textAlignment="CENTER" wrapText="true" />
-                        <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0" />
+                        <Separator orientation="VERTICAL" prefHeight="10.0" visible="false" />
                         <Button fx:id="okButton" mnemonicParsing="false" onAction="#handleOkButton" onKeyPressed="#handleEnterButton" prefHeight="32.0" prefWidth="148.0" text="OK" />
                     </children>
                 </VBox>
-                <Separator opacity="0.0" prefWidth="15.0" />
+                <Separator prefWidth="15.0" visible="false" />
             </children>
         </HBox>
     </children>
