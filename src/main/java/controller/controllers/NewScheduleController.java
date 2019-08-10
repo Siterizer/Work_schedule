@@ -6,6 +6,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 
 public class NewScheduleController {
 
@@ -34,7 +36,7 @@ public class NewScheduleController {
     private void createYear(String year) {
         try {
             checkYear(year);
-            Process XMLYearCreator = Runtime.getRuntime().exec("java -jar ./XMLYearCreator-1.0-SNAPSHOT.jar " + year);
+            Process XMLYearCreator = Runtime.getRuntime().exec("java -jar ." + File.separator + "XMLYearCreator-1.0-SNAPSHOT.jar " + year);
             XMLYearCreator.waitFor();
             int feedback = XMLYearCreator.exitValue();
             if (feedback == 1)
