@@ -51,7 +51,7 @@ public class NewScheduleController {
     }
 
     private void createFile() throws Exception {
-        Process XMLYearCreator = Runtime.getRuntime().exec("java -jar ." + File.separator + "XMLYearCreator-1.0-SNAPSHOT.jar " + year);
+        Process XMLYearCreator = Runtime.getRuntime().exec("java -jar ./XMLYearCreator-1.0-SNAPSHOT.jar " + year);
         XMLYearCreator.waitFor();
         checkFeedback(XMLYearCreator.exitValue());
     }
