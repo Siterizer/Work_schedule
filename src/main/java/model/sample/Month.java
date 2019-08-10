@@ -23,4 +23,16 @@ public class Month {
             e.printStackTrace();
         }
     }
+
+    public Vector<Day> getDaysVector() {
+        return this.daysVector;
+    }
+
+    public void tempShow() {
+        System.out.println(noMonth);
+        System.out.println(noDays);
+        for (Day day : daysVector) {
+            day.showDay();
+        }
+    }
 }
