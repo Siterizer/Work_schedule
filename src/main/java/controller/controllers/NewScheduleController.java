@@ -20,6 +20,7 @@ public class NewScheduleController {
     @FXML
     void handleCreate() {
         //year.getText(); monthChoiceBox.getValue()
+        //sprawdza poprawnosc roku/miesiaca
         //if plik istnieje
         //T: wczytuje go
         //N:tworzy go, wczytuje go
