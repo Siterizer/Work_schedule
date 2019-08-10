@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.sample.Month;
+import model.xmldata.XMLReader;
 
 import java.io.File;
 
@@ -20,13 +22,25 @@ public class NewScheduleController {
     @FXML
     void handleCreate() {
         //year.getText(); monthChoiceBox.getValue()
+        //sprawdz czy istnieje
         //sprawdza poprawnosc roku/miesiaca
         //if plik istnieje
         //T: wczytuje go
         //N:tworzy go, wczytuje go
         //pobiera odpowiedni miesiac
         //XMLReader wczytuje odpowiednie dane do zmiennej typu Month
-        createYear(year.getText());
+        try {
+            checkYear(year.getText());
+            if (!XMLReader.checkIfFileExist("./XMLyears/" + year.getText())) {
+                createFile();
+            }
+            Month currentMonth = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
+            currentMonth.tempShow();
+            MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageBox.display(e.getMessage(), null);
+        }
     }
 
     @FXML
@@ -39,25 +53,14 @@ public class NewScheduleController {
         monthChoiceBox.setValue("Styczeń");
     }
 
-    private void createYear(String year) {
-        try {
-            checkYear(year);
-            createFile();
-            MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
-        } catch (Exception e) {
-            e.printStackTrace();
-            MessageBox.display(e.getMessage(), null);
-        }
-    }
-
-    private void checkYear(String year) throws Exception {
+    public static void checkYear(String year) throws Exception {
         if (Integer.parseInt(year) < 1900) {
             throw new Exception("Zły rok (rok > 1900)");
         }
     }
 
     private void createFile() throws Exception {
-        Process XMLYearCreator = Runtime.getRuntime().exec("java -jar ./XMLYearCreator-1.0-SNAPSHOT.jar " + year);
+        Process XMLYearCreator = Runtime.getRuntime().exec("java -jar ./XMLYearCreator-1.0-SNAPSHOT.jar " + year.getText());
         XMLYearCreator.waitFor();
         checkFeedback(XMLYearCreator.exitValue());
     }
