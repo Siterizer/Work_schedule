@@ -11,18 +11,20 @@ public class MessageBoxController {
 
     @FXML
     private Label message;
+
+    @FXML
     private Stage stageToClose;
 
     @FXML
     private Button okButton;
 
     @FXML
-    void handleOkButton(ActionEvent event) {
+    void handleOkButton(ActionEvent buttonClicked) {
         close();
     }
 
     @FXML
-    void handleEnterButton(KeyEvent event) {
+    void handleEnterButton(KeyEvent buttonEntered) {
         close();
     }
 

@@ -21,10 +21,11 @@ public class RemovePersonController {
         controller = this;
         IHBoxFactory hBoxFactory = new RemovePersonHBoxFactory();
         Enumeration vectorEnumeration = People.funkcja().elements();
+
         while(vectorEnumeration.hasMoreElements()){
-            People people =(People) vectorEnumeration.nextElement();
-            IHBox hBox = hBoxFactory.makeHBox(people);
-            vBox.getChildren().add(hBox.getHBox());
+            People peopleFromVector =(People) vectorEnumeration.nextElement();
+            IHBox generatedHBox = hBoxFactory.makeHBox(peopleFromVector);
+            vBox.getChildren().add(generatedHBox.getHBox());
         }
     }
 

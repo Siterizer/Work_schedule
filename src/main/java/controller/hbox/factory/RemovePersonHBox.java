@@ -27,7 +27,7 @@ public class RemovePersonHBox implements IHBox {
                 .setPrefWidth(260.0)
                 .build();
 
-        Label label = new LabelCreator.Builder()
+        Label nameOfPerson = new LabelCreator.Builder()
                 .setPrefWidth(180.0)
                 .setText(people.toString())
                 .build();
@@ -38,7 +38,7 @@ public class RemovePersonHBox implements IHBox {
                 .setVisible(false)
                 .build();
 
-        Button button = new ButtonCreator.Builder()
+        Button deletePerson = new ButtonCreator.Builder()
                 .setText("Usun")
                 .setOnAction(e -> {
                     if(ConfirmBox.displayAndReturnAnswer("Czy na pewno chcesz usunac osobe:\n"
@@ -50,7 +50,7 @@ public class RemovePersonHBox implements IHBox {
                 })
                 .build();
 
-        hBox.getChildren().addAll(label, separator, button);
+        hBox.getChildren().addAll(nameOfPerson, separator, deletePerson);
         return hBox;
     }
 }
