@@ -40,7 +40,7 @@ public class Main extends Application {
 
     private void initialize() throws IOException {
         new DataDirectoryCreator("data");
-        new CSVReader(".//data//pielegniarki", People.funkcja());
+        new CSVReader("./data/pielegniarki", People.funkcja());
     }
 
     private void onCloseApp(){
@@ -48,7 +48,7 @@ public class Main extends Application {
     }
 
     private void saveData(){
-        new CSVWriter(".//data//pielegniarki", People.funkcja());
+        new CSVWriter("./data/pielegniarki", People.funkcja());
     }
 
     public static void main(String[] args) {

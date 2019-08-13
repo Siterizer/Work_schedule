@@ -14,9 +14,9 @@
             <Separator prefWidth="15.0" visible="false" />
             <VBox prefHeight="120.0" prefWidth="210.0">
                <children>
-                  <Separator orientation="VERTICAL" prefHeight="10.0" visible="false" />
-                  <Label fx:id="message" alignment="CENTER" prefHeight="60.0" prefWidth="210.0" text="Test" textAlignment="CENTER" wrapText="true" />
-                  <Separator orientation="VERTICAL" prefHeight="10.0" visible="false" />
+                  <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0" />
+                  <Label fx:id="message" alignment="CENTER" prefHeight="80.0" prefWidth="210.0" text="Test" textAlignment="CENTER" wrapText="true" />
+                  <Separator opacity="0.0" orientation="VERTICAL" prefHeight="10.0" />
                   <HBox prefHeight="30.0" prefWidth="200.0">
                      <children>
                         <Button fx:id="yesButton" mnemonicParsing="false" onAction="#handleYesButton" onKeyPressed="#handleYesEnter" prefHeight="32.0" prefWidth="148.0" text="Tak" />
