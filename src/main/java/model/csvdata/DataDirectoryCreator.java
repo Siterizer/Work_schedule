@@ -23,8 +23,8 @@ public class DataDirectoryCreator extends CSVMainClass{
     }
 
     private void createdCSVFiles(String pathData) throws IOException {
-        createCSVFile(pathData + "//pielegniarki");
-        createCSVFile(pathData + "//opiekunki");
+        createCSVFile(pathData + "/pielegniarki");
+        createCSVFile(pathData + "/opiekunki");
     }
     private void createCSVFile(String pathData) throws IOException {
         if(!chceckExistFile(pathData))

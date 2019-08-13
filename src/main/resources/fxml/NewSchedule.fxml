@@ -18,14 +18,14 @@
                         <Separator opacity="0.0" prefHeight="0.0" prefWidth="20.0" />
                         <ChoiceBox fx:id="monthChoiceBox" prefWidth="120.0" />
                         <Separator opacity="0.0" prefHeight="0.0" prefWidth="30.0" />
-                        <TextField prefHeight="31.0" prefWidth="113.0" promptText="Rok" />
+                        <TextField fx:id="year" prefHeight="31.0" prefWidth="113.0" promptText="Rok" />
                     </children>
                 </HBox>
                 <Separator opacity="0.0" orientation="VERTICAL" prefHeight="30.0" />
                 <HBox prefHeight="60.0" prefWidth="300.0">
                     <children>
                         <Separator opacity="0.0" prefHeight="0.0" prefWidth="120.0" />
-                        <Button mnemonicParsing="false" text="Stwórz" />
+                        <Button mnemonicParsing="false" onAction="#handleCreate" text="Stwórz" />
                     </children>
                 </HBox>
             </children>
