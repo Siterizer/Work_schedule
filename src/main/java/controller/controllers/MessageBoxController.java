@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -12,30 +11,29 @@ public class MessageBoxController {
 
     @FXML
     private Label message;
+
+    @FXML
     private Stage stageToClose;
-
-
-    public void setMessage(String message) {
-        this.message.setText(message);
-    }
-
-
-    public void stageToClose(Stage closeThis){
-        this.stageToClose = closeThis;
-
-    }
 
     @FXML
     private Button okButton;
 
     @FXML
-    void handleOkButton(ActionEvent event) {
+    void handleOkButton(ActionEvent buttonClicked) {
         close();
     }
 
     @FXML
-    void handleEnterButton(KeyEvent event) {
+    void handleEnterButton(KeyEvent buttonEntered) {
         close();
+    }
+
+    public void setMessage(String message) {
+        this.message.setText(message);
+    }
+
+    public void stageToClose(Stage closeThis){
+        this.stageToClose = closeThis;
     }
 
     private void close(){

@@ -15,25 +15,25 @@ public class ConfirmBoxController {
     private Label message;
 
     @FXML
-    void handleNoButton(ActionEvent event) {
+    void handleNoButton(ActionEvent buttonClicked) {
         setAnswerAndCloseWindow(false);
     }
 
     @FXML
-    void handleNoEnter(KeyEvent event) {
-        if(event.getCode() == KeyCode.ENTER){
+    void handleNoEnter(KeyEvent buttonEntered) {
+        if(buttonEntered.getCode() == KeyCode.ENTER){
             setAnswerAndCloseWindow(false);
         }
     }
 
     @FXML
-    void handleYesButton(ActionEvent event) {
+    void handleYesButton(ActionEvent buttonClicked) {
         setAnswerAndCloseWindow(true);
     }
 
     @FXML
-    void handleYesEnter(KeyEvent event) {
-        if(event.getCode() == KeyCode.ENTER){
+    void handleYesEnter(KeyEvent buttonEntered) {
+        if(buttonEntered.getCode() == KeyCode.ENTER){
         setAnswerAndCloseWindow(true);
         }
     }

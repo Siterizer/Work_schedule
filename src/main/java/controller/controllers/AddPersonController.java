@@ -1,7 +1,6 @@
 package controller.controllers;
 
 import controller.display.controller.MessageBox;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;

@@ -9,9 +9,14 @@
    <content>
       <HBox maxWidth="280.0" minHeight="400.0" minWidth="280.0">
          <children>
-            <Separator opacity="0.0" prefWidth="10.0" />
-            <VBox fx:id="vBox" />
-            <Separator opacity="0.0" prefWidth="10.0" />
+            <Separator prefWidth="10.0" visible="false" />
+            <VBox>
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="20.0" visible="false" />
+                  <VBox fx:id="vBox" />
+               </children>
+            </VBox>
+            <Separator prefWidth="10.0" visible="false" />
          </children>
       </HBox>
    </content>
