@@ -15,7 +15,7 @@ public class CSVReader extends CSVMainClass{
         try{
             checkNamePath(namePath);
             checkWhereSaveData(whereSaveData);
-            readCSVFile(namePath, whereSaveData);
+            readCSVFile(namePath);
         } catch (NoSuchFileException|NoSuchElementException e) {
             System.out.println(e.getMessage());
         }
@@ -28,7 +28,7 @@ public class CSVReader extends CSVMainClass{
         }
     }
 
-    private void readCSVFile(String namePath, Vector<People> saveData){
+    private void readCSVFile(String namePath){
         BufferedReader bufferedReader;
         String line;
         String csvSplitBy = ",";
