@@ -39,7 +39,7 @@ public class CSVReader extends CSVMainClass{
                 String[] firstLastName = line.split(csvSplitBy);
                 new People(firstLastName[0],firstLastName[1]);
             }
-            People.sortPeople(); // dodaje jakby ktos kiedys dodawal przez plik
+            People.sortPeople(); // just in case    
             bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
