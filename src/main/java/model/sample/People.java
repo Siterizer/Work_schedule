@@ -1,8 +1,9 @@
 package model.sample;
 
+import java.util.Collections;
 import java.util.Vector;
 
-public class People {
+public class People implements Comparable<People>{
 
     private String imie;
     private String nazwisko;
@@ -12,6 +13,7 @@ public class People {
         this.imie = imie;
         this.nazwisko = nazwisko;
         ludzie.add(this);
+        this.sortPeople();
     }
 
     public String getImie() {
@@ -26,6 +28,10 @@ public class People {
         return ludzie;
     } // zwracac klona wektora glownego
 
+    public static void sortPeople(){
+        Collections.sort(ludzie);
+    }
+
     public static void showPeople() {
         for (People people :
                 ludzie
@@ -36,7 +42,15 @@ public class People {
 
     @Override
     public String toString() {
-        return this.getImie() + " " + this.getNazwisko();
+        return this.getNazwisko() + " " + this.getImie();
+    }
+
+    @Override
+    public int compareTo(People o) {
+        String namePerson1 = this.getNazwisko() + this.getImie();
+        String namePerson2 = o.getNazwisko() + o.getImie();
+
+        return namePerson1.compareTo(namePerson2);
     }
 }
 
