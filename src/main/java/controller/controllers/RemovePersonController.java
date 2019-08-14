@@ -2,7 +2,7 @@ package controller.controllers;
 
 import controller.hbox.factory.IHBox;
 import controller.hbox.factory.IHBoxFactory;
-import controller.hbox.factory.RemovePersonHBoxFactory;
+import controller.hbox.factory.RemovePerson.RemovePersonHBoxFactory;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 import model.sample.People;

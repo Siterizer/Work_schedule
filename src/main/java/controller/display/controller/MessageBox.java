@@ -12,6 +12,6 @@ public class MessageBox {
         if (stageToClose !=  null) {
             controller.stageToClose(stageToClose);
         }
-        template.getStage().show();
+        template.getStage().showAndWait();
     }
 }

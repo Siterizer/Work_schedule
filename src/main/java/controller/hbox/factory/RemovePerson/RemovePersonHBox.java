@@ -1,7 +1,8 @@
-package controller.hbox.factory;
+package controller.hbox.factory.RemovePerson;
 
 import controller.controllers.RemovePersonController;
 import controller.display.controller.ConfirmBox;
+import controller.hbox.factory.IHBox;
 import controller.hbox.factory.components.ButtonCreator;
 import controller.hbox.factory.components.HBoxCreator;
 import controller.hbox.factory.components.LabelCreator;
@@ -32,8 +33,7 @@ public class RemovePersonHBox implements IHBox {
                 .setText(people.toString())
                 .build();
 
-        Separator separator = new SeparatorCreator
-                .Builder()
+        Separator separator = new SeparatorCreator.Builder()
                 .setPrefWidth(20.0)
                 .setVisible(false)
                 .build();
