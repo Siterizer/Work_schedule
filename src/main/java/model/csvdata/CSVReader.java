@@ -15,7 +15,7 @@ public class CSVReader extends CSVMainClass{
         try{
             checkNamePath(namePath);
             checkWhereSaveData(whereSaveData);
-            readCSVFile(namePath, whereSaveData);
+            readCSVFile(namePath);
         } catch (NoSuchFileException|NoSuchElementException e) {
             System.out.println(e.getMessage());
         }
@@ -24,11 +24,11 @@ public class CSVReader extends CSVMainClass{
 
     private void checkWhereSaveData(Vector<People> whereSaveData) throws NoSuchElementException{
         if(whereSaveData == null){
-            throw new NoSuchElementException("WhereSaveData is empty!");
+            throw new NoSuchElementException("WhereSaveData is null!");
         }
     }
 
-    private void readCSVFile(String namePath, Vector<People> saveData){
+    private void readCSVFile(String namePath){
         BufferedReader bufferedReader;
         String line;
         String csvSplitBy = ",";
@@ -39,6 +39,7 @@ public class CSVReader extends CSVMainClass{
                 String[] firstLastName = line.split(csvSplitBy);
                 new People(firstLastName[0],firstLastName[1]);
             }
+            People.sortPeople(); // just in case
             bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
