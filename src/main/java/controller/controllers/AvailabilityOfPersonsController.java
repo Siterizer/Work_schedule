@@ -20,15 +20,13 @@ public class AvailabilityOfPersonsController {
     @FXML
     public void initialize(){
         controller = this;
-        AvailabilityOfPersonsHBoxFactory hBoxFactory = new AvailabilityOfPersonsHBoxFactory();//do naprawy
-        IHBox generatedHBox = hBoxFactory.makeFirstHBox();
-        vBox.getChildren().add(generatedHBox.getHBox());
-
+        IHBoxFactory hBoxFactory = new AvailabilityOfPersonsHBoxFactory();
         Enumeration vectorEnumeration = People.funkcja().elements();
         while(vectorEnumeration.hasMoreElements()){
             People peopleFromVector =(People) vectorEnumeration.nextElement();
-            IHBox generatedHBox1 = hBoxFactory.makeHBox(peopleFromVector);
-            vBox.getChildren().add(generatedHBox1.getHBox());
+            IHBox generatedHBox = hBoxFactory.makeHBox(peopleFromVector);
+            vBox.getChildren().add(generatedHBox.getHBox());
+
         }
     }
 }
