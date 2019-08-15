@@ -1,5 +1,6 @@
 package controller.controllers;
 
+import controller.display.controller.AvailabilityOfPersons;
 import controller.display.controller.MessageBox;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -37,6 +38,7 @@ public class NewScheduleController {
             Month currentMonth = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
             currentMonth.tempShow();
             MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
+            AvailabilityOfPersons.display();
         } catch (Exception e) {
             e.printStackTrace();
             MessageBox.display(e.getMessage(), null);

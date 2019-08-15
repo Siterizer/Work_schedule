@@ -1,5 +1,7 @@
-package controller.hbox.factory;
+package controller.hbox.factory.RemovePerson;
 
+import controller.hbox.factory.IHBox;
+import controller.hbox.factory.IHBoxFactory;
 import model.sample.People;
 
 public class RemovePersonHBoxFactory implements IHBoxFactory {
