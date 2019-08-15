@@ -2,9 +2,12 @@ package controller.controllers;
 
 import controller.display.controller.AvailabilityOfPersons;
 import controller.display.controller.MessageBox;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.sample.Month;
 import model.xmldata.XMLReader;
@@ -21,7 +24,28 @@ public class NewScheduleController {
     private ChoiceBox<String> monthChoiceBox;
 
     @FXML
-    void handleCreate() {
+    public void initialize() {
+        monthChoiceBox.getItems().addAll(
+                "Styczeń", "Luty", "Marzec",
+                "Kwiecień", "Maj", "Czerwiec",
+                "Lipiec", "Sierpień", "Wrzesień",
+                "Październik", "Listopad", "Grudzień");
+        monthChoiceBox.setValue("Styczeń");
+    }
+
+    @FXML
+    void handleCreate(ActionEvent buttonClicked) {
+        createSchedule();
+    }
+
+    @FXML
+    void handleEnterTextField(KeyEvent buttonEntered) {
+        if(buttonEntered.getCode() == KeyCode.ENTER){
+            createSchedule();
+        }
+    }
+
+    private void createSchedule(){
         //year.getText(); monthChoiceBox.getValue()
         //sprawdz czy istnieje
         //sprawdza poprawnosc roku/miesiaca
@@ -43,16 +67,6 @@ public class NewScheduleController {
             e.printStackTrace();
             MessageBox.display(e.getMessage(), null);
         }
-    }
-
-    @FXML
-    public void initialize() {
-        monthChoiceBox.getItems().addAll(
-                "Styczeń", "Luty", "Marzec",
-                "Kwiecień", "Maj", "Czerwiec",
-                "Lipiec", "Sierpień", "Wrzesień",
-                "Październik", "Listopad", "Grudzień");
-        monthChoiceBox.setValue("Styczeń");
     }
 
     public static void checkYear(String year) throws Exception {
