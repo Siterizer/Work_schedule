@@ -21,8 +21,7 @@ public class Main extends Application {
         primaryStage.setTitle("Apka");
         primaryStage.setScene(new Scene(root));
         //chwilowe rozwiazanie
-        setScreenDimensions(primaryStage);
-        //
+        //setScreenDimensions(primaryStage);
         primaryStage.setOnCloseRequest(e -> onCloseApp()); //przy zamykaniu okna
         initialize();
         primaryStage.setMaximized(true);

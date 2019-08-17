@@ -60,7 +60,6 @@ public class NewScheduleController {
                 createFile();
             }
             Month currentMonth = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
-            currentMonth.tempShow();
             MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
             AvailabilityOfPersons.display();
         } catch (Exception e) {
