@@ -2,22 +2,36 @@
 
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.controllers.AvailabilityOfPersonsController">
-   <content>
-      <HBox>
-         <children>
-            <Separator prefWidth="10.0" visible="false" />
+<SplitPane dividerPositions="0.3" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.controllers.AvailabilityOfPersonsController">
+   <items>
+      <ScrollPane fx:id="namesScrollPane" hbarPolicy="NEVER" vbarPolicy="NEVER">
+         <content>
             <VBox>
                <children>
+                  <HBox>
+                     <children>
+                        <Separator prefWidth="10.0" visible="false" />
+                        <VBox fx:id="nameVBox" />
+                     </children>
+                  </HBox>
                   <Separator orientation="VERTICAL" prefHeight="20.0" visible="false" />
-                  <VBox fx:id="vBox" />
                </children>
             </VBox>
-            <Separator prefWidth="10.0" visible="false" />
-         </children>
-      </HBox>
-   </content>
-</ScrollPane>
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="daysScrollPane">
+         <content>
+            <VBox>
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" visible="false" />
+                  <VBox fx:id="daysVBox" />
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </items>
+</SplitPane>
