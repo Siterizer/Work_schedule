@@ -16,7 +16,7 @@ public class AvailabilityOfPersonsButtonsHBox implements IHBox {
 
     private People people;
 
-    private int numberOfDays = 31;
+    private static int numberOfDays = 31;
 
     AvailabilityOfPersonsButtonsHBox(People people) {
         this.people = people;
@@ -60,4 +60,8 @@ public class AvailabilityOfPersonsButtonsHBox implements IHBox {
         }
         return hBox;
     }
+    public static void setNumberOfDays(int numberOfDays){
+        AvailabilityOfPersonsButtonsHBox.numberOfDays = numberOfDays;
+    }
+
 }

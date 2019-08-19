@@ -2,6 +2,7 @@ package controller.controllers;
 
 import controller.display.controller.AvailabilityOfPersons;
 import controller.display.controller.MessageBox;
+import controller.hbox.factory.AvailabilityOfPersons.buttons.AvailabilityOfPersonsButtonsHBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -61,6 +62,7 @@ public class NewScheduleController {
             }
             Month currentMonth = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
             MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
+            AvailabilityOfPersonsButtonsHBox.setNumberOfDays(currentMonth.getDaysVector().size());
             AvailabilityOfPersons.display();
         } catch (Exception e) {
             e.printStackTrace();
