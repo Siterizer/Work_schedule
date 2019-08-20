@@ -1,16 +1,19 @@
-package model.sample.calendar;
+package model.sample.calendar.day;
 
-public class DayTest implements Cloneable {
-    private DayTimeTest dayTime;
-    private NightTimeTest nightTime;
+import model.sample.calendar.day.components.DayTime;
+import model.sample.calendar.day.components.NightTime;
+
+public class Day implements Cloneable {
+    private DayTime dayTime;
+    private NightTime nightTime;
     private TypeOfDay dayType;
     private int numberOfDay;
 
-    public DayTest(int numberOfDay, TypeOfDay dayType){
+    public Day(int numberOfDay, TypeOfDay dayType){
         this.numberOfDay = numberOfDay;
         this.dayType = dayType;
-        this.dayTime = new DayTimeTest();
-        this.nightTime = new NightTimeTest();
+        this.dayTime = new DayTime();
+        this.nightTime = new NightTime();
     }
 
     public TypeOfDay getDayType(){
@@ -25,17 +28,17 @@ public class DayTest implements Cloneable {
         return numberOfDay;
     }
 
-    public DayTimeTest getDayTime() {
+    public DayTime getDayTime() {
         return dayTime;
     }
 
-    public NightTimeTest getNightTime() {
+    public NightTime getNightTime() {
         return nightTime;
     }
 
-    public DayTest clone(){
+    public Day clone(){
         try{
-            DayTest temp = (DayTest) super.clone();
+            Day temp = (Day) super.clone();
             temp.dayTime = dayTime.clone();
             temp.nightTime = nightTime.clone();
             return temp;

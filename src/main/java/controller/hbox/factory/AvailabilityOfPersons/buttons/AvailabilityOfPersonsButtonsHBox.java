@@ -1,20 +1,15 @@
 package controller.hbox.factory.AvailabilityOfPersons.buttons;
 
 import controller.controllers.AvailabilityOfPersonsController;
-import controller.controllers.RemovePersonController;
-import controller.display.controller.ConfirmBox;
 import controller.hbox.factory.IHBox;
 import controller.hbox.factory.components.*;
-import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.TextAlignment;
 import model.sample.People;
-import model.sample.calendar.TypeOfDay;
+import model.sample.calendar.day.TypeOfDay;
 
 public class AvailabilityOfPersonsButtonsHBox implements IHBox {
 

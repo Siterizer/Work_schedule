@@ -2,7 +2,6 @@ package controller.controllers;
 
 import controller.display.controller.AvailabilityOfPersons;
 import controller.display.controller.MessageBox;
-import controller.hbox.factory.AvailabilityOfPersons.buttons.AvailabilityOfPersonsButtonsHBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -10,13 +9,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import model.sample.Month;
 import model.sample.People;
-import model.sample.calendar.MonthTest;
-import model.sample.calendar.MonthTestCopier;
+import model.sample.calendar.month.Month;
+import model.sample.calendar.month.MonthCopier;
 import model.xmldata.XMLReader;
 
-import java.io.File;
 import java.util.Enumeration;
 
 
@@ -58,20 +55,19 @@ public class NewScheduleController {
         //T: wczytuje go
         //N:tworzy go, wczytuje go
         //pobiera odpowiedni miesiac
-        //XMLReader wczytuje odpowiednie dane do zmiennej typu Month
+        //XMLReader wczytuje odpowiednie dane do zmiennej typu month
         try {
             checkYear(year.getText());
             if (!XMLReader.checkIfFileExist("./XMLyears/" + year.getText())) {
                 createFile();
             }
-            MonthTest monthTest = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
+            Month month = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
             MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
-            MonthTestCopier monthTestCopier = new MonthTestCopier(monthTest);
+            MonthCopier monthCopier = new MonthCopier(month);
             Enumeration vectorEnumeration = People.funkcja().elements();
             while(vectorEnumeration.hasMoreElements()) {
                 People peopleFromVector =(People) vectorEnumeration.nextElement();
-                peopleFromVector.setMonth(monthTestCopier.copyMonthTest());
-                System.out.println(monthTestCopier.copyMonthTest().getDaysOfTheMonth().get(4));
+                peopleFromVector.setMonth(monthCopier.copyMonthTest());
             }
 
             AvailabilityOfPersons.display();

@@ -1,11 +1,9 @@
 package model.xmldata;
 
 import controller.controllers.NewScheduleController;
-import model.sample.Day;
-import model.sample.Month;
-import model.sample.calendar.DayTest;
-import model.sample.calendar.MonthTest;
-import model.sample.calendar.TypeOfDay;
+import model.sample.calendar.day.Day;
+import model.sample.calendar.month.Month;
+import model.sample.calendar.day.TypeOfDay;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -29,7 +27,7 @@ public class XMLReader {
         }
     }
 
-    public MonthTest getMonth() {
+    public Month getMonth() {
         try {
             if (!checkIfFileExist("./XMLyears/" + year))
                 throw new Exception("Taki plik nie istnieje!");
@@ -40,8 +38,8 @@ public class XMLReader {
         return createMonthIterior();
     }
 
-    private MonthTest createMonthIterior() {
-        MonthTest monthTest = new MonthTest(0, 0);
+    private Month createMonthIterior() {
+        Month monthTest = new Month(0, 0);
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
@@ -51,7 +49,7 @@ public class XMLReader {
             if (!(month.getNodeType() == Node.ELEMENT_NODE))
                 throw new Exception("To nie jest ELEMENT_NODE miesiac");
             Element monthToRead = (Element) month;
-            monthTest = new MonthTest(Integer.parseInt(monthToRead.getAttribute("NoDays")),
+            monthTest = new Month(Integer.parseInt(monthToRead.getAttribute("NoDays")),
                     Integer.parseInt(monthToRead.getAttribute("NoMonth")));
             NodeList daysOfMonth = monthToRead.getChildNodes();
             for (int i = 0; i < daysOfMonth.getLength(); i++) {
@@ -66,7 +64,7 @@ public class XMLReader {
                 else{
                     type = TypeOfDay.WORKING;
                 }
-               monthTest.addDay(new DayTest(Integer.parseInt(dayToLoad.getAttribute("NoDay")),type));
+               monthTest.addDay(new Day(Integer.parseInt(dayToLoad.getAttribute("NoDay")),type));
             }
         } catch (Exception e) {
             e.printStackTrace();

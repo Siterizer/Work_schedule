@@ -1,12 +1,11 @@
-package model.sample.calendar;
+package model.sample.calendar.day.components;
 
-public class DayTimeTest implements Cloneable {
+public class NightTime implements Cloneable {
     private TypeOfAvailability availabilityType;
 
-    DayTimeTest(){
+    public NightTime(){
         this.availabilityType = TypeOfAvailability.NEUTRALLY;
     }
-
     public TypeOfAvailability getAvailabilityType() {
         return availabilityType;
     }
@@ -19,7 +18,7 @@ public class DayTimeTest implements Cloneable {
             this.availabilityType = TypeOfAvailability.LIKE;
         }
         else{
-           this.availabilityType = TypeOfAvailability.NEUTRALLY;
+            this.availabilityType = TypeOfAvailability.NEUTRALLY;
         }
     }
 
@@ -39,9 +38,9 @@ public class DayTimeTest implements Cloneable {
         this.availabilityType = availabilityType;
     }
 
-    public DayTimeTest clone(){
+    public NightTime clone(){
         try{
-            DayTimeTest temp = (DayTimeTest) super.clone();
+            NightTime temp = (NightTime) super.clone();
             return temp;
         }
         catch (Exception ex){

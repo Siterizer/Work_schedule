@@ -1,6 +1,6 @@
 package model.sample;
 
-import model.sample.calendar.MonthTest;
+import model.sample.calendar.month.Month;
 
 import java.util.Collections;
 import java.util.Vector;
@@ -9,7 +9,7 @@ public class People implements Comparable<People>{
 
     private String imie;
     private String nazwisko;
-    private MonthTest monthTest;
+    private Month month;
     private static Vector<People> ludzie = new Vector<People>();
 
     public People(String imie, String nazwisko) {
@@ -19,12 +19,12 @@ public class People implements Comparable<People>{
         this.sortPeople();
     }
 
-    public MonthTest getMonth() {
-        return monthTest;
+    public Month getMonth() {
+        return month;
     }
 
-    public void setMonth(MonthTest monthTest) {
-        this.monthTest = monthTest;
+    public void setMonth(Month month) {
+        this.month = month;
     }
 
 
