@@ -3,6 +3,9 @@ package model.xmldata;
 import controller.controllers.NewScheduleController;
 import model.sample.Day;
 import model.sample.Month;
+import model.sample.calendar.DayTest;
+import model.sample.calendar.MonthTest;
+import model.sample.calendar.TypeOfDay;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -26,7 +29,7 @@ public class XMLReader {
         }
     }
 
-    public Month getMonth() {
+    public MonthTest getMonth() {
         try {
             if (!checkIfFileExist("./XMLyears/" + year))
                 throw new Exception("Taki plik nie istnieje!");
@@ -37,8 +40,8 @@ public class XMLReader {
         return createMonthIterior();
     }
 
-    private Month createMonthIterior() {
-        Month currentMonth = new Month(0,0);
+    private MonthTest createMonthIterior() {
+        MonthTest monthTest = new MonthTest(0, 0);
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
@@ -48,7 +51,7 @@ public class XMLReader {
             if (!(month.getNodeType() == Node.ELEMENT_NODE))
                 throw new Exception("To nie jest ELEMENT_NODE miesiac");
             Element monthToRead = (Element) month;
-            currentMonth = new Month(Integer.parseInt(monthToRead.getAttribute("NoDays")),
+            monthTest = new MonthTest(Integer.parseInt(monthToRead.getAttribute("NoDays")),
                     Integer.parseInt(monthToRead.getAttribute("NoMonth")));
             NodeList daysOfMonth = monthToRead.getChildNodes();
             for (int i = 0; i < daysOfMonth.getLength(); i++) {
@@ -56,13 +59,19 @@ public class XMLReader {
                 if(!(day.getNodeType() == Node.ELEMENT_NODE))
                     throw new Exception("To nie jest ELEMENT_NODE dzien");
                 Element dayToLoad = (Element) day;
-                currentMonth.addToVector(new Day(Integer.parseInt(dayToLoad.getAttribute("NoDay")),
-                        Integer.parseInt(dayToLoad.getAttribute("Holiday"))));
+                TypeOfDay type;
+                if(Integer.parseInt(dayToLoad.getAttribute("Holiday")) == 1){
+                    type = TypeOfDay.HOLIDAY;
+                }
+                else{
+                    type = TypeOfDay.WORKING;
+                }
+               monthTest.addDay(new DayTest(Integer.parseInt(dayToLoad.getAttribute("NoDay")),type));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return currentMonth;
+        return monthTest;
     }
 
     public static boolean checkIfFileExist(String fileName) {

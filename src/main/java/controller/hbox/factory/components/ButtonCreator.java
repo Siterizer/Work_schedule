@@ -11,6 +11,7 @@ public class ButtonCreator extends Button {
         this.setText(builder.text);
         this.setOnAction(builder.eventHandler);
         this.setPrefWidth(builder.prefWidth);
+        this.setStyle(builder.style);
     }
 
 
@@ -18,6 +19,7 @@ public class ButtonCreator extends Button {
         private String text;
         private EventHandler<ActionEvent> eventHandler = null;
         private double prefWidth = Region.USE_COMPUTED_SIZE;
+        private String style;
 
         public Builder setText(String text) {
             this.text = text;
@@ -31,6 +33,11 @@ public class ButtonCreator extends Button {
 
         public Builder setPrefWidth(double prefWidth){
             this.prefWidth = prefWidth;
+            return this;
+        }
+
+        public Builder setStyle(String style){
+            this.style = style;
             return this;
         }
 

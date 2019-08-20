@@ -53,5 +53,10 @@ public class AvailabilityOfPersonsController {
             }
         });
     }
+    public void updateVBox(){
+        nameVBox.getChildren().clear();
+        daysVBox.getChildren().clear();
+        initialize();
+    }
 
 }

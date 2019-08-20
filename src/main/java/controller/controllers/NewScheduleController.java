@@ -11,9 +11,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.sample.Month;
+import model.sample.People;
+import model.sample.calendar.MonthTest;
+import model.sample.calendar.MonthTestCopier;
 import model.xmldata.XMLReader;
 
 import java.io.File;
+import java.util.Enumeration;
 
 
 public class NewScheduleController {
@@ -60,9 +64,16 @@ public class NewScheduleController {
             if (!XMLReader.checkIfFileExist("./XMLyears/" + year.getText())) {
                 createFile();
             }
-            Month currentMonth = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
+            MonthTest monthTest = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
             MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
-            AvailabilityOfPersonsButtonsHBox.setNumberOfDays(currentMonth.getDaysVector().size());
+            MonthTestCopier monthTestCopier = new MonthTestCopier(monthTest);
+            Enumeration vectorEnumeration = People.funkcja().elements();
+            while(vectorEnumeration.hasMoreElements()) {
+                People peopleFromVector =(People) vectorEnumeration.nextElement();
+                peopleFromVector.setMonth(monthTestCopier.copyMonthTest());
+                System.out.println(monthTestCopier.copyMonthTest().getDaysOfTheMonth().get(4));
+            }
+
             AvailabilityOfPersons.display();
         } catch (Exception e) {
             e.printStackTrace();
