@@ -12,6 +12,7 @@
          <content>
             <VBox>
                <children>
+                  <Separator orientation="VERTICAL" prefHeight="10.0" />
                   <HBox>
                      <children>
                         <Separator prefWidth="10.0" visible="false" />

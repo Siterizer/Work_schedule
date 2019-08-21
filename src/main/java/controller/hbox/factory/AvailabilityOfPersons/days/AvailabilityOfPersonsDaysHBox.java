@@ -1,6 +1,6 @@
-package controller.hbox.factory.AvailabilityOfPersons.buttons;
+package controller.hbox.factory.AvailabilityOfPersons.days;
 
-import controller.controllers.AvailabilityOfPersonsController;
+import controller.hbox.factory.AvailabilityOfPersons.EvenColours;
 import controller.hbox.factory.IHBox;
 import controller.hbox.factory.components.*;
 import javafx.scene.control.Button;
@@ -11,13 +11,13 @@ import javafx.scene.layout.VBox;
 import model.sample.People;
 import model.sample.calendar.day.TypeOfDay;
 
-public class AvailabilityOfPersonsButtonsHBox implements IHBox {
+public class AvailabilityOfPersonsDaysHBox implements IHBox {
 
     private People people;
 
     private int numberOfDays;
 
-    AvailabilityOfPersonsButtonsHBox(People people) {
+    AvailabilityOfPersonsDaysHBox(People people) {
         this.people = people;
         this.numberOfDays = people.getMonth().getDaysOfTheMonth().size();
     }
@@ -77,6 +77,7 @@ public class AvailabilityOfPersonsButtonsHBox implements IHBox {
             temp.getChildren().addAll(separatorBetweenDays, vBox);
             hBox.getChildren().addAll(temp);
         }
+        hBox.setStyle(EvenColours.getColour(true));
         return hBox;
     }
 }
