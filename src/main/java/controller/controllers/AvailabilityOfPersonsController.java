@@ -6,8 +6,11 @@ import controller.hbox.factory.IHBox;
 import controller.hbox.factory.IHBoxFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import model.sample.People;
@@ -17,13 +20,13 @@ import java.util.Enumeration;
 public class AvailabilityOfPersonsController {
 
     @FXML
+    private SplitPane splitPane;
+
+    @FXML
     private VBox nameVBox;
 
     @FXML
     private VBox daysVBox;
-
-    @FXML
-    public static AvailabilityOfPersonsController controller;
 
     @FXML
     private ScrollPane namesScrollPane;
@@ -31,10 +34,8 @@ public class AvailabilityOfPersonsController {
     @FXML
     private ScrollPane daysScrollPane;
 
-
-    @FXML
     public void initialize(){
-        controller = this;
+        splitPane.setDividerPositions(0.3);
         IHBoxFactory hBoxNamesFactory = new AvailabilityOfPersonsNamesHBoxFactory();
         IHBoxFactory hBoxDaysFactory = new AvailabilityOfPersonsButtonsHBoxFactory();
         Enumeration vectorEnumeration = People.funkcja().elements();
@@ -53,10 +54,4 @@ public class AvailabilityOfPersonsController {
             }
         });
     }
-    public void updateVBox(){
-        nameVBox.getChildren().clear();
-        daysVBox.getChildren().clear();
-        initialize();
-    }
-
 }

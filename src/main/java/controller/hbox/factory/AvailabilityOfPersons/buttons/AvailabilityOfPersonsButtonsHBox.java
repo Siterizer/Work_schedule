@@ -49,7 +49,8 @@ public class AvailabilityOfPersonsButtonsHBox implements IHBox {
                     .setStyle(people.getMonth().getDaysOfTheMonth().get(j).getDayTime().getColor())
                     .setOnAction(e -> {
                         people.getMonth().getDaysOfTheMonth().get(j).getDayTime().changeAvailability();
-                        AvailabilityOfPersonsController.controller.updateVBox();
+                        Button temp = (Button) e.getSource();
+                        temp.setStyle(people.getMonth().getDaysOfTheMonth().get(j).getDayTime().getColor());
                     })
                     .build();
             Separator separatorBetweenTimeOfDay = new SeparatorCreator.Builder()
@@ -63,7 +64,8 @@ public class AvailabilityOfPersonsButtonsHBox implements IHBox {
                     .setStyle(people.getMonth().getDaysOfTheMonth().get(j).getNightTime().getColor())
                     .setOnAction(e -> {
                         people.getMonth().getDaysOfTheMonth().get(j).getNightTime().changeAvailability();
-                        AvailabilityOfPersonsController.controller.updateVBox();
+                        Button temp = (Button) e.getSource();
+                        temp.setStyle(people.getMonth().getDaysOfTheMonth().get(j).getNightTime().getColor());
                     })
                     .build();
             vBox.getChildren().addAll(numberOfDay, separatorBetweenTimeOfDay, numberOfNight);
@@ -71,8 +73,9 @@ public class AvailabilityOfPersonsButtonsHBox implements IHBox {
             if(people.getMonth().getDaysOfTheMonth().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
                 vBox.setStyle("-fx-background-color: #0033cc;");
             }
-
-            hBox.getChildren().addAll(separatorBetweenDays, vBox);
+            HBox temp = new HBox();
+            temp.getChildren().addAll(separatorBetweenDays, vBox);
+            hBox.getChildren().addAll(temp);
         }
         return hBox;
     }
