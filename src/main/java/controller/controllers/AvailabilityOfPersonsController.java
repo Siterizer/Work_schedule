@@ -1,6 +1,6 @@
 package controller.controllers;
 
-import controller.hbox.factory.AvailabilityOfPersons.buttons.AvailabilityOfPersonsButtonsHBoxFactory;
+import controller.hbox.factory.AvailabilityOfPersons.days.AvailabilityOfPersonsDaysHBoxFactory;
 import controller.hbox.factory.AvailabilityOfPersons.names.AvailabilityOfPersonsNamesHBoxFactory;
 import controller.hbox.factory.IHBox;
 import controller.hbox.factory.IHBoxFactory;
@@ -8,7 +8,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.VBox;
 import model.sample.People;
 
@@ -17,13 +17,13 @@ import java.util.Enumeration;
 public class AvailabilityOfPersonsController {
 
     @FXML
+    private SplitPane splitPane;
+
+    @FXML
     private VBox nameVBox;
 
     @FXML
     private VBox daysVBox;
-
-    @FXML
-    public static AvailabilityOfPersonsController controller;
 
     @FXML
     private ScrollPane namesScrollPane;
@@ -31,12 +31,9 @@ public class AvailabilityOfPersonsController {
     @FXML
     private ScrollPane daysScrollPane;
 
-
-    @FXML
     public void initialize(){
-        controller = this;
         IHBoxFactory hBoxNamesFactory = new AvailabilityOfPersonsNamesHBoxFactory();
-        IHBoxFactory hBoxDaysFactory = new AvailabilityOfPersonsButtonsHBoxFactory();
+        IHBoxFactory hBoxDaysFactory = new AvailabilityOfPersonsDaysHBoxFactory();
         Enumeration vectorEnumeration = People.funkcja().elements();
         while(vectorEnumeration.hasMoreElements()){
             People peopleFromVector =(People) vectorEnumeration.nextElement();
@@ -52,6 +49,7 @@ public class AvailabilityOfPersonsController {
                 namesScrollPane.vvalueProperty().setValue(new_val.doubleValue());
             }
         });
+        int numberOfDays = People.funkcja().get(0).getMonth().getDaysOfTheMonth().size();
+        splitPane.setDividerPositions((double) (0.295 - ((31 - numberOfDays)  * 0.0066)));
     }
-
 }

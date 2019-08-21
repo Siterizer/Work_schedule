@@ -1,5 +1,6 @@
 package controller.hbox.factory.AvailabilityOfPersons.names;
 
+import controller.hbox.factory.AvailabilityOfPersons.EvenColours;
 import controller.hbox.factory.IHBox;
 import controller.hbox.factory.components.HBoxCreator;
 import controller.hbox.factory.components.LabelCreator;
@@ -32,6 +33,7 @@ public class AvailabilityOfPersonsNamesHBox implements IHBox {
                 .build();
         nameOfPerson.setTextAlignment(TextAlignment.CENTER);
         hBox.getChildren().addAll(nameOfPerson);
+        hBox.setStyle(EvenColours.getColour(false));
         return hBox;
     }
 }
