@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import model.sample.People;
+import model.sample.person.Person;
 import model.sample.calendar.month.Month;
 import model.sample.calendar.month.MonthCopier;
 import model.xmldata.XMLReader;
@@ -64,10 +64,10 @@ public class NewScheduleController {
             Month month = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
             MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
             MonthCopier monthCopier = new MonthCopier(month);
-            Enumeration vectorEnumeration = People.funkcja().elements();
+            Enumeration vectorEnumeration = Person.funkcja().elements();
             while(vectorEnumeration.hasMoreElements()) {
-                People peopleFromVector =(People) vectorEnumeration.nextElement();
-                peopleFromVector.setMonth(monthCopier.copyMonthTest());
+                Person personFromVector =(Person) vectorEnumeration.nextElement();
+                personFromVector.setMonth(monthCopier.copyMonthTest());
             }
 
             AvailabilityOfPersons.display();

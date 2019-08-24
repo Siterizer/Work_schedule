@@ -11,14 +11,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.HBox;
-import model.sample.People;
+import model.sample.person.Person;
 
 public class RemovePersonHBox implements IHBox {
 
-    private People people;
+    private Person person;
 
-    RemovePersonHBox(People people){
-        this.people = people;
+    RemovePersonHBox(Person person){
+        this.person = person;
     }
 
     public HBox getHBox() {
@@ -30,7 +30,7 @@ public class RemovePersonHBox implements IHBox {
 
         Label nameOfPerson = new LabelCreator.Builder()
                 .setPrefWidth(180.0)
-                .setText(people.toString())
+                .setText(person.toString())
                 .build();
 
         Separator separator = new SeparatorCreator.Builder()
@@ -42,8 +42,8 @@ public class RemovePersonHBox implements IHBox {
                 .setText("Usun")
                 .setOnAction(e -> {
                     if(ConfirmBox.displayAndReturnAnswer("Czy na pewno chcesz usunac osobe:\n"
-                            + people.getImie() + " " + people.getNazwisko())) {
-                        People.funkcja().remove(people);
+                            + person.getImie() + " " + person.getNazwisko())) {
+                        Person.funkcja().remove(person);
                         RemovePersonController controller = RemovePersonController.controller;
                         controller.updateVBox();
                     }

@@ -1,6 +1,6 @@
 package model.csvdata;
 
-import model.sample.People;
+import model.sample.person.Person;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +11,7 @@ import java.util.Vector;
 
 public class CSVReader extends CSVMainClass{
 
-    public CSVReader(String namePath, Vector<People> whereSaveData){
+    public CSVReader(String namePath, Vector<Person> whereSaveData){
         try{
             checkNamePath(namePath);
             checkWhereSaveData(whereSaveData);
@@ -22,7 +22,7 @@ public class CSVReader extends CSVMainClass{
     }
 
 
-    private void checkWhereSaveData(Vector<People> whereSaveData) throws NoSuchElementException{
+    private void checkWhereSaveData(Vector<Person> whereSaveData) throws NoSuchElementException{
         if(whereSaveData == null){
             throw new NoSuchElementException("WhereSaveData is null!");
         }
@@ -37,9 +37,9 @@ public class CSVReader extends CSVMainClass{
             bufferedReader = new BufferedReader(new FileReader(namePath + ".csv"));
             while((line = bufferedReader.readLine()) != null){
                 String[] firstLastName = line.split(csvSplitBy);
-                new People(firstLastName[0],firstLastName[1]);
+                new Person(firstLastName[0],firstLastName[1]);
             }
-            People.sortPeople(); // just in case
+            Person.sortPeople(); // just in case
             bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();

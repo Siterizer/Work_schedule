@@ -1,8 +1,8 @@
 package controller.hbox.factory;
 
-import model.sample.People;
+import model.sample.person.Person;
 
 
 public interface IHBoxFactory {
-    IHBox makeHBox(People p);
+    IHBox makeHBox(Person p);
 }

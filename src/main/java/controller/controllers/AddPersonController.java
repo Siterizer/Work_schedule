@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import model.sample.People;
+import model.sample.person.Person;
 import java.nio.charset.IllegalCharsetNameException;
 
 public class AddPersonController {
@@ -35,7 +35,7 @@ public class AddPersonController {
             String firstNameString = firstName.getText().substring(0, 1).toUpperCase() + firstName.getText().substring(1).toLowerCase();
             String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText().substring(1);
             checkFirstAndLastName();
-            new People(firstNameString, lastNameString);
+            new Person(firstNameString, lastNameString);
             MessageBox.display("Dodawanie zakonczone sukcesem", (Stage) firstName.getScene().getWindow());
         } catch (IllegalCharsetNameException e) {
             MessageBox.display("Dodawanie nie powiodlo sie", null);

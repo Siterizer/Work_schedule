@@ -1,18 +1,18 @@
-package model.sample;
+package model.sample.person;
 
 import model.sample.calendar.month.Month;
 
 import java.util.Collections;
 import java.util.Vector;
 
-public class People implements Comparable<People>{
+public class Person implements Comparable<Person>{
 
     private String imie;
     private String nazwisko;
     private Month month;
-    private static Vector<People> ludzie = new Vector<People>();
+    private static Vector<Person> ludzie = new Vector<Person>();
 
-    public People(String imie, String nazwisko) {
+    public Person(String imie, String nazwisko) {
         this.imie = imie;
         this.nazwisko = nazwisko;
         ludzie.add(this);
@@ -37,7 +37,7 @@ public class People implements Comparable<People>{
         return nazwisko;
     }
 
-    public static Vector<People> funkcja() {
+    public static Vector<Person> funkcja() {
         return ludzie;
     } // zwracac klona wektora glownego
 
@@ -46,10 +46,10 @@ public class People implements Comparable<People>{
     }
 
     public static void showPeople() {
-        for (People people :
+        for (Person person :
                 ludzie
         ) {
-            System.out.println(people.getImie() + " " + people.getNazwisko());
+            System.out.println(person.getImie() + " " + person.getNazwisko());
         }
     }
 
@@ -59,7 +59,7 @@ public class People implements Comparable<People>{
     }
 
     @Override
-    public int compareTo(People o) {
+    public int compareTo(Person o) {
         String namePerson1 = this.getNazwisko() + this.getImie();
         String namePerson2 = o.getNazwisko() + o.getImie();
 

@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import model.sample.person.Person;
 
 import java.io.IOException;
 
@@ -39,7 +40,7 @@ public class Main extends Application {
 
     private void initialize() throws IOException {
         new DataDirectoryCreator("data");
-        new CSVReader("./data/pielegniarki", People.funkcja());
+        new CSVReader("./data/pielegniarki", Person.funkcja());
     }
 
     private void onCloseApp(){
@@ -47,7 +48,7 @@ public class Main extends Application {
     }
 
     private void saveData(){
-        new CSVWriter("./data/pielegniarki", People.funkcja());
+        new CSVWriter("./data/pielegniarki", Person.funkcja());
     }
 
     public static void main(String[] args) {

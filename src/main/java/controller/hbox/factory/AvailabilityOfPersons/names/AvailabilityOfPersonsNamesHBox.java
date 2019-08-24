@@ -8,14 +8,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.text.TextAlignment;
-import model.sample.People;
+import model.sample.person.Person;
 
 public class AvailabilityOfPersonsNamesHBox implements IHBox {
 
-    private People people;
+    private Person person;
 
-    AvailabilityOfPersonsNamesHBox(People people){
-        this.people = people;
+    AvailabilityOfPersonsNamesHBox(Person person){
+        this.person = person;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class AvailabilityOfPersonsNamesHBox implements IHBox {
         Label nameOfPerson = new LabelCreator.Builder()
                 .setPrefWidth(180.0)
                 .setPrefHeight(64)
-                .setText(people.toString())
+                .setText(person.toString())
                 .build();
         nameOfPerson.setTextAlignment(TextAlignment.CENTER);
         hBox.getChildren().addAll(nameOfPerson);

@@ -1,6 +1,6 @@
 package model.csvdata;
 
-import model.sample.People;
+import model.sample.person.Person;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 import java.util.Vector;
 
 public class CSVWriter extends CSVMainClass {
-    public CSVWriter(String pathName, Vector<People> whatSave) {
+    public CSVWriter(String pathName, Vector<Person> whatSave) {
         try {
             checkNamePath(pathName);
             checkWhatSave(whatSave);
@@ -18,14 +18,14 @@ public class CSVWriter extends CSVMainClass {
         }
     }
 
-    private void checkWhatSave(Vector<People> people) throws NoSuchElementException {
+    private void checkWhatSave(Vector<Person> people) throws NoSuchElementException {
         if (people == null)
             throw new NoSuchElementException("WhereSaveData is empty!");
     }
 
-    private void saveToCSVFile(String pathName, Vector<People> whatSave) throws IOException {
+    private void saveToCSVFile(String pathName, Vector<Person> whatSave) throws IOException {
         FileWriter csvFile = new FileWriter(pathName + ".csv");
-        for (People person : whatSave
+        for (Person person : whatSave
         ) {
             csvFile.append(person.getImie()).append(",").append(person.getNazwisko()).append(String.valueOf('\n'));
         }
