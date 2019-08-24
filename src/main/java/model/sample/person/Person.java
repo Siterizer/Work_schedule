@@ -10,11 +10,13 @@ public class Person implements Comparable<Person>{
     private String imie;
     private String nazwisko;
     private Month month;
+    private ContractType contractType;
     private static Vector<Person> ludzie = new Vector<Person>();
 
-    public Person(String imie, String nazwisko) {
+    public Person(String imie, String nazwisko, String contractType) {
         this.imie = imie;
         this.nazwisko = nazwisko;
+        this.contractType = ContractMethods.getContract(contractType);
         ludzie.add(this);
         this.sortPeople();
     }
@@ -27,7 +29,13 @@ public class Person implements Comparable<Person>{
         this.month = month;
     }
 
+    public ContractType getContractType() {
+        return contractType;
+    }
 
+    public void setContractType(ContractType contractType) {
+        this.contractType = contractType;
+    }
 
     public String getImie() {
         return imie;

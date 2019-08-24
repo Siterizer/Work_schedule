@@ -1,5 +1,6 @@
 package model.csvdata;
 
+import model.sample.person.ContractMethods;
 import model.sample.person.Person;
 
 import java.io.FileWriter;
@@ -27,7 +28,12 @@ public class CSVWriter extends CSVMainClass {
         FileWriter csvFile = new FileWriter(pathName + ".csv");
         for (Person person : whatSave
         ) {
-            csvFile.append(person.getImie()).append(",").append(person.getNazwisko()).append(String.valueOf('\n'));
+            csvFile.append(person.getImie())
+                    .append(",")
+                    .append(person.getNazwisko())
+                    .append(",")
+                    .append(ContractMethods.getStringContract(person.getContractType()))
+                    .append(String.valueOf('\n'));
         }
         csvFile.flush();
         csvFile.close();
