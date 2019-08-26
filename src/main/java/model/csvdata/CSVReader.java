@@ -36,8 +36,8 @@ public class CSVReader extends CSVMainClass{
         try{
             bufferedReader = new BufferedReader(new FileReader(namePath + ".csv"));
             while((line = bufferedReader.readLine()) != null){
-                String[] firstLastName = line.split(csvSplitBy);
-                new Person(firstLastName[0],firstLastName[1], firstLastName[2]);
+                String[] personData = line.split(csvSplitBy);
+                new Person(personData[0],personData[1], personData[2]);
             }
             Person.sortPeople(); // just in case
             bufferedReader.close();
