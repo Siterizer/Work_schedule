@@ -9,7 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import model.sample.person.Person;
-import model.sample.calendar.day.TypeOfDay;
+import model.sample.availability.data.day.TypeOfDay;
 
 public class AvailabilityOfPersonsDaysHBox implements IHBox {
 

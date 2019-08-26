@@ -10,8 +10,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.sample.person.Person;
-import model.sample.calendar.month.Month;
-import model.sample.calendar.month.MonthCopier;
+import model.sample.availability.data.month.Month;
+import model.sample.availability.data.month.MonthCopier;
 import model.xmldata.XMLReader;
 
 import java.util.Enumeration;
