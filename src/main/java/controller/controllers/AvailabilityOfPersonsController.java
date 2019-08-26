@@ -49,7 +49,7 @@ public class AvailabilityOfPersonsController {
                 namesScrollPane.vvalueProperty().setValue(new_val.doubleValue());
             }
         });
-        int numberOfDays = Person.funkcja().get(0).getMonth().getDaysOfTheMonth().size();
+        int numberOfDays = Person.funkcja().get(0).getAvailabilityMonth().getDaysOfTheMonth().size();
         splitPane.setDividerPositions((double) (0.295 - ((31 - numberOfDays)  * 0.0066)));
     }
 }

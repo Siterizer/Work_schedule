@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import model.sample.person.ContractMethods;
+import model.sample.person.ContractTypeMethods;
 import model.sample.person.ContractType;
 import model.sample.person.Person;
 import java.nio.charset.IllegalCharsetNameException;
@@ -26,9 +26,9 @@ public class AddPersonController {
 
     public void initialize(){
         for(ContractType type : ContractType.values()){
-            contractType.getItems().add(ContractMethods.getStringContract(type));
+            contractType.getItems().add(ContractTypeMethods.getStringContract(type));
         }
-        contractType.setValue(ContractMethods.getStringContract(ContractType.CONTRACT_OF_EMPLOYMENT));
+        contractType.setValue(ContractTypeMethods.getStringContract(ContractType.CONTRACT_OF_EMPLOYMENT));
     }
 
     @FXML
@@ -50,23 +50,35 @@ public class AddPersonController {
             checkFirstAndLastName();
             new Person(firstNameString, lastNameString, contractType.getValue());
             MessageBox.display("Dodawanie zakonczone sukcesem", (Stage) firstName.getScene().getWindow());
-        } catch (IllegalCharsetNameException e) {
+        } catch (IllegalArgumentException e) {
             MessageBox.display("Dodawanie nie powiodlo sie", null);
         }
     }
     
     private void checkFirstAndLastName() {
         if (firstName.getText().length() < 3) {
-            throw new IllegalCharsetNameException("FirstNameLengthException");
+            throw new IllegalArgumentException("FirstNameLengthException");
         }
         if (!firstName.getText().matches("[a-zA-Z]+")) {
-            throw new IllegalCharsetNameException("FirstNameCharacterException");
+            throw new IllegalArgumentException("FirstNameCharacterException");
         }
         if (lastName.getText().length() < 3) {
-            throw new IllegalCharsetNameException("LastNameLengthException");
+            throw new IllegalArgumentException("LastNameLengthException");
         }
         if (!lastName.getText().matches("[a-zA-Z]+")) {
-            throw new IllegalCharsetNameException("LastNameCharacterException");
+            throw new IllegalArgumentException("LastNameCharacterException");
+        }
+    }
+
+    private void checkContractType(){
+        boolean temp = false;
+        for(ContractType type : ContractType.values()){
+            if(ContractTypeMethods.getContract(contractType.getValue()) == type){
+                temp = true;
+            }
+        }
+        if(!temp){
+            throw new IllegalArgumentException("ContratTypeException");
         }
     }
 

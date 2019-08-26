@@ -1,6 +1,6 @@
 package model.sample.person;
 
-public class ContractMethods {
+public class ContractTypeMethods {
 
     public static ContractType getContract(String contract){
         if(contract.equals("Umowa o prace")){

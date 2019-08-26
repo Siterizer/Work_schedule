@@ -1,6 +1,6 @@
 package model.csvdata;
 
-import model.sample.person.ContractMethods;
+import model.sample.person.ContractTypeMethods;
 import model.sample.person.Person;
 
 import java.io.FileWriter;
@@ -32,7 +32,7 @@ public class CSVWriter extends CSVMainClass {
                     .append(",")
                     .append(person.getNazwisko())
                     .append(",")
-                    .append(ContractMethods.getStringContract(person.getContractType()))
+                    .append(ContractTypeMethods.getStringContract(person.getContractType()))
                     .append(String.valueOf('\n'));
         }
         csvFile.flush();

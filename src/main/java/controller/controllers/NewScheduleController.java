@@ -10,8 +10,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.sample.person.Person;
-import model.sample.availability.data.month.Month;
-import model.sample.availability.data.month.MonthCopier;
+import model.sample.availability.data.month.AvailabilityMonth;
+import model.sample.availability.data.month.AvailabilityMonthCopier;
 import model.xmldata.XMLReader;
 
 import java.util.Enumeration;
@@ -61,13 +61,13 @@ public class NewScheduleController {
             if (!XMLReader.checkIfFileExist("./XMLyears/" + year.getText())) {
                 createFile();
             }
-            Month month = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
+            AvailabilityMonth availabilityMonth = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
             MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
-            MonthCopier monthCopier = new MonthCopier(month);
+            AvailabilityMonthCopier availabilityMonthCopier = new AvailabilityMonthCopier(availabilityMonth);
             Enumeration vectorEnumeration = Person.funkcja().elements();
             while(vectorEnumeration.hasMoreElements()) {
                 Person personFromVector =(Person) vectorEnumeration.nextElement();
-                personFromVector.setMonth(monthCopier.copyMonthTest());
+                personFromVector.setAvailabilityMonth(availabilityMonthCopier.copyAvailabilityMonth());
             }
 
             AvailabilityOfPersons.display();
