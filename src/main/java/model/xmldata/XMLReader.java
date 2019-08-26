@@ -1,9 +1,9 @@
 package model.xmldata;
 
 import controller.controllers.NewScheduleController;
-import model.sample.availability.data.day.AvailabilityDay;
-import model.sample.availability.data.month.AvailabilityMonth;
-import model.sample.availability.data.day.TypeOfAvailabilityDay;
+import model.sample.availability.calendar.day.AvailabilityDay;
+import model.sample.availability.calendar.month.AvailabilityMonth;
+import model.sample.availability.calendar.day.TypeOfAvailabilityDay;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

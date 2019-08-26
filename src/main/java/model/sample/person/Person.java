@@ -1,6 +1,6 @@
 package model.sample.person;
 
-import model.sample.availability.data.month.AvailabilityMonth;
+import model.sample.availability.calendar.month.AvailabilityMonth;
 
 import java.util.Collections;
 import java.util.Vector;
