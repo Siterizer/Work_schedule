@@ -21,7 +21,6 @@ public class RemovePersonController {
         controller = this;
         IHBoxFactory hBoxFactory = new RemovePersonHBoxFactory();
         Enumeration vectorEnumeration = Person.funkcja().elements();
-
         while(vectorEnumeration.hasMoreElements()){
             Person personFromVector =(Person) vectorEnumeration.nextElement();
             IHBox generatedHBox = hBoxFactory.makeHBox(personFromVector);

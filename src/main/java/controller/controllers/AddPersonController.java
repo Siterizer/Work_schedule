@@ -48,7 +48,8 @@ public class AddPersonController {
             String firstNameString = firstName.getText().substring(0, 1).toUpperCase() + firstName.getText().substring(1).toLowerCase();
             String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText().substring(1);
             checkFirstAndLastName();
-            new Person(firstNameString, lastNameString, contractType.getValue());
+            checkContractType();
+            new Person(firstNameString, lastNameString, ContractTypeMethods.getContract(contractType.getValue()));
             MessageBox.display("Dodawanie zakonczone sukcesem", (Stage) firstName.getScene().getWindow());
         } catch (IllegalArgumentException e) {
             MessageBox.display("Dodawanie nie powiodlo sie", null);

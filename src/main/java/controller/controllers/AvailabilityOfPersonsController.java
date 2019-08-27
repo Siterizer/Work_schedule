@@ -41,7 +41,6 @@ public class AvailabilityOfPersonsController {
             daysVBox.getChildren().add(generatedDayHBox.getHBox());
             IHBox generatedNameHBox = hBoxNamesFactory.makeHBox(personFromVector);
             nameVBox.getChildren().add(generatedNameHBox.getHBox());
-
         }
         daysScrollPane.vvalueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,

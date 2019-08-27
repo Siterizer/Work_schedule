@@ -13,10 +13,10 @@ public class Person implements Comparable<Person>{
     private ContractType contractType;
     private static Vector<Person> ludzie = new Vector<Person>();
 
-    public Person(String imie, String nazwisko, String contractType) {
+    public Person(String imie, String nazwisko, ContractType contractType) {
         this.imie = imie;
         this.nazwisko = nazwisko;
-        this.contractType = ContractTypeMethods.getContract(contractType);
+        this.contractType = contractType;
         ludzie.add(this);
         this.sortPeople();
     }

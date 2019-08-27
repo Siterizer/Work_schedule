@@ -19,7 +19,7 @@ public class AvailabilityOfPersonsDaysHBox implements IHBox {
 
     AvailabilityOfPersonsDaysHBox(Person person) {
         this.person = person;
-        this.numberOfDays = person.getAvailabilityMonth().getDaysOfTheMonth().size();
+        this.numberOfDays = person.getAvailabilityMonth().getNumberOfDays();
     }
 
     @Override
@@ -49,8 +49,8 @@ public class AvailabilityOfPersonsDaysHBox implements IHBox {
                     .setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().getColor())
                     .setOnAction(e -> {
                         person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().changeAvailability();
-                        Button temp = (Button) e.getSource();
-                        temp.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().getColor());
+                        Button pressedButton = (Button) e.getSource();
+                        pressedButton.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().getColor());
                     })
                     .build();
             Separator separatorBetweenTimeOfDay = new SeparatorCreator.Builder()
@@ -64,8 +64,8 @@ public class AvailabilityOfPersonsDaysHBox implements IHBox {
                     .setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getNightTime().getColor())
                     .setOnAction(e -> {
                         person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getNightTime().changeAvailability();
-                        Button temp = (Button) e.getSource();
-                        temp.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getNightTime().getColor());
+                        Button pressedButton = (Button) e.getSource();
+                        pressedButton.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getNightTime().getColor());
                     })
                     .build();
             vBox.getChildren().addAll(numberOfDay, separatorBetweenTimeOfDay, numberOfNight);

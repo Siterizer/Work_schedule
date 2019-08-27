@@ -25,6 +25,10 @@ public class AvailabilityMonth implements Cloneable {
         return daysOfTheMonth;
     }
 
+    public int getNumberOfDays() {
+        return numberOfDays;
+    }
+
     public AvailabilityMonth clone(){
         try{
             AvailabilityMonth temp = (AvailabilityMonth) super.clone();

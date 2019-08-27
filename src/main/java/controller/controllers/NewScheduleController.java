@@ -69,7 +69,6 @@ public class NewScheduleController {
                 Person personFromVector =(Person) vectorEnumeration.nextElement();
                 personFromVector.setAvailabilityMonth(availabilityMonthCopier.copyAvailabilityMonth());
             }
-
             AvailabilityOfPersons.display();
         } catch (Exception e) {
             e.printStackTrace();

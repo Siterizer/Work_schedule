@@ -39,8 +39,8 @@ public class Main extends Application {
     }
 
     private void initialize() throws IOException {
-        new DataDirectoryCreator("calendar");
-        new CSVReader("./calendar/pielegniarki", Person.funkcja());
+        new DataDirectoryCreator("data");
+        new CSVReader("./data/pielegniarki", Person.funkcja());
     }
 
     private void onCloseApp(){
@@ -48,7 +48,7 @@ public class Main extends Application {
     }
 
     private void saveData(){
-        new CSVWriter("./calendar/pielegniarki", Person.funkcja());
+        new CSVWriter("./data/pielegniarki", Person.funkcja());
     }
 
     public static void main(String[] args) {

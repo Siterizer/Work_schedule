@@ -1,5 +1,7 @@
 package model.csvdata;
 
+import model.sample.person.ContractType;
+import model.sample.person.ContractTypeMethods;
 import model.sample.person.Person;
 
 import java.io.BufferedReader;
@@ -37,7 +39,8 @@ public class CSVReader extends CSVMainClass{
             bufferedReader = new BufferedReader(new FileReader(namePath + ".csv"));
             while((line = bufferedReader.readLine()) != null){
                 String[] personData = line.split(csvSplitBy);
-                new Person(personData[0],personData[1], personData[2]);
+                ContractType contractType = ContractTypeMethods.getContract(personData[2]);
+                new Person(personData[0],personData[1], contractType);
             }
             Person.sortPeople(); // just in case
             bufferedReader.close();

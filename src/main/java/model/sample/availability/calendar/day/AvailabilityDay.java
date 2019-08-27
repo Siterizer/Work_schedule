@@ -5,7 +5,7 @@ import model.sample.availability.calendar.day.components.AvailabilityNightTime;
 
 public class AvailabilityDay implements Cloneable {
     private AvailabilityDayTime availabilityDayTime;
-    private AvailabilityNightTime nightTime;
+    private AvailabilityNightTime availabilityNightTime;
     private TypeOfAvailabilityDay dayType;
     private int numberOfDay;
 
@@ -13,7 +13,7 @@ public class AvailabilityDay implements Cloneable {
         this.numberOfDay = numberOfDay;
         this.dayType = dayType;
         this.availabilityDayTime = new AvailabilityDayTime();
-        this.nightTime = new AvailabilityNightTime();
+        this.availabilityNightTime = new AvailabilityNightTime();
     }
 
     public TypeOfAvailabilityDay getDayType(){
@@ -29,7 +29,7 @@ public class AvailabilityDay implements Cloneable {
     }
 
     public AvailabilityNightTime getNightTime() {
-        return nightTime;
+        return availabilityNightTime;
     }
 
     public AvailabilityDay clone(){
