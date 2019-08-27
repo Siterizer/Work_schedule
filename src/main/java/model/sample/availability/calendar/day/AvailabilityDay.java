@@ -28,7 +28,7 @@ public class AvailabilityDay implements Cloneable {
         return availabilityDayTime;
     }
 
-    public AvailabilityNightTime getNightTime() {
+    public AvailabilityNightTime getAvailabilityNightTime() {
         return availabilityNightTime;
     }
 

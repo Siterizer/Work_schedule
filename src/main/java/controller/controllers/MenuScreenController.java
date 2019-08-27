@@ -5,6 +5,7 @@ import controller.display.controller.NewSchedule;
 import controller.display.controller.RemovePerson;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import model.sample.person.Person;
 
 public class MenuScreenController {
 

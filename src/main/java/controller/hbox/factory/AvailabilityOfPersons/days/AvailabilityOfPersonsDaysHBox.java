@@ -61,11 +61,11 @@ public class AvailabilityOfPersonsDaysHBox implements IHBox {
             Button numberOfNight = new ButtonCreator.Builder()
                     .setText(String.valueOf(i) + "N")
                     .setPrefWidth(45)
-                    .setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getNightTime().getColor())
+                    .setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().getColor())
                     .setOnAction(e -> {
-                        person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getNightTime().changeAvailability();
+                        person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().changeAvailability();
                         Button pressedButton = (Button) e.getSource();
-                        pressedButton.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getNightTime().getColor());
+                        pressedButton.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().getColor());
                     })
                     .build();
             vBox.getChildren().addAll(numberOfDay, separatorBetweenTimeOfDay, numberOfNight);
