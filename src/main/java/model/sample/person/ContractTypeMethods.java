@@ -14,4 +14,15 @@ public class ContractTypeMethods {
         }
         return "Umowa zlecenie";
     }
+    public static void checkIfStringIsContractType(String contractType){
+        boolean temp = false;
+        for(ContractType type : ContractType.values()){
+            if(ContractTypeMethods.getContract(contractType) == type){
+                temp = true;
+            }
+        }
+        if(!temp){
+            throw new IllegalArgumentException("ContratTypeException");
+        }
+    }
 }

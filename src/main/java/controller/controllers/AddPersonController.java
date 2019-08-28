@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import model.sample.person.ContractTypeMethods;
 import model.sample.person.ContractType;
 import model.sample.person.Person;
+import model.sample.person.PersonMethods;
+
 import java.nio.charset.IllegalCharsetNameException;
 
 public class AddPersonController {
@@ -47,39 +49,12 @@ public class AddPersonController {
         try {
             String firstNameString = firstName.getText().substring(0, 1).toUpperCase() + firstName.getText().substring(1).toLowerCase();
             String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText().substring(1);
-            checkFirstAndLastName();
-            checkContractType();
+            PersonMethods.checkFirstAndLastName(firstNameString, lastNameString);
+            ContractTypeMethods.checkIfStringIsContractType(contractType.getValue());
             new Person(firstNameString, lastNameString, ContractTypeMethods.getContract(contractType.getValue()));
             MessageBox.display("Dodawanie zakonczone sukcesem", (Stage) firstName.getScene().getWindow());
         } catch (IllegalArgumentException e) {
             MessageBox.display("Dodawanie nie powiodlo sie", null);
-        }
-    }
-    
-    private void checkFirstAndLastName() {
-        if (firstName.getText().length() < 3) {
-            throw new IllegalArgumentException("FirstNameLengthException");
-        }
-        if (!firstName.getText().matches("[a-zA-Z]+")) {
-            throw new IllegalArgumentException("FirstNameCharacterException");
-        }
-        if (lastName.getText().length() < 3) {
-            throw new IllegalArgumentException("LastNameLengthException");
-        }
-        if (!lastName.getText().matches("[a-zA-Z]+")) {
-            throw new IllegalArgumentException("LastNameCharacterException");
-        }
-    }
-
-    private void checkContractType(){
-        boolean temp = false;
-        for(ContractType type : ContractType.values()){
-            if(ContractTypeMethods.getContract(contractType.getValue()) == type){
-                temp = true;
-            }
-        }
-        if(!temp){
-            throw new IllegalArgumentException("ContratTypeException");
         }
     }
 
