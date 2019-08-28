@@ -39,7 +39,7 @@ public class Main extends Application {
     }
 
     private void initialize() throws IOException {
-        new DataDirectoryCreator("calender");
+        new DataDirectoryCreator("data");
         new CSVReader("./data/pielegniarki", Person.funkcja());
     }
 
