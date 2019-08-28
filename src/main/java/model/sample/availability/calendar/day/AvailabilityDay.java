@@ -34,7 +34,10 @@ public class AvailabilityDay implements Cloneable {
 
     public AvailabilityDay clone(){
         try{
-            return (AvailabilityDay) super.clone();
+            AvailabilityDay temp = (AvailabilityDay) super.clone();
+            temp.availabilityDayTime = temp.availabilityDayTime.clone();
+            temp.availabilityNightTime = temp.availabilityNightTime.clone();
+            return temp;
         }
         catch (Exception ex){
             return null;

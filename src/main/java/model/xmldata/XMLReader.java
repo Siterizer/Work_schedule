@@ -39,7 +39,8 @@ public class XMLReader {
     }
 
     private AvailabilityMonth createMonthIterior() {
-        AvailabilityMonth availabilityMonth = new AvailabilityMonth(0, 0);
+        AvailabilityMonth availabilityMonth =
+                new AvailabilityMonth(0, 0, 0);
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
@@ -50,7 +51,7 @@ public class XMLReader {
                 throw new Exception("To nie jest ELEMENT_NODE miesiac");
             Element monthToRead = (Element) month;
             availabilityMonth = new AvailabilityMonth(Integer.parseInt(monthToRead.getAttribute("NoDays")),
-                    Integer.parseInt(monthToRead.getAttribute("NoMonth")));
+                    Integer.parseInt(monthToRead.getAttribute("NoMonth")), Integer.parseInt(year));
             NodeList daysOfMonth = monthToRead.getChildNodes();
             for (int i = 0; i < daysOfMonth.getLength(); i++) {
                 Node day = daysOfMonth.item(i);

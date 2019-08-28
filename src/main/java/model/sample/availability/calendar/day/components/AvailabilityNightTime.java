@@ -33,4 +33,12 @@ public class AvailabilityNightTime implements Cloneable {
         }
         return "-fx-background-color: #ffffff;";
     }
+    public AvailabilityNightTime clone(){
+        try {
+            return (AvailabilityNightTime) super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
+
+    }
 }

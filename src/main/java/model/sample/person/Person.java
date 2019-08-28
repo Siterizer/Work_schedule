@@ -16,6 +16,7 @@ public class Person implements Comparable<Person>{
     public Person(String imie, String nazwisko, ContractType contractType) {
         this.imie = imie;
         this.nazwisko = nazwisko;
+        this.availabilityMonth = null;
         this.contractType = contractType;
         ludzie.add(this);
         this.sortPeople();

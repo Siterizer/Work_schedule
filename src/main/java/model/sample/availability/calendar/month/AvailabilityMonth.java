@@ -9,13 +9,14 @@ public class AvailabilityMonth implements Cloneable {
     private ArrayList<AvailabilityDay> daysOfTheMonth;
 
     private int monthNumber;
-
     private int numberOfDays;
+    private int year;
 
-    public AvailabilityMonth(int numberOfDays, int numberOfMonth){
+    public AvailabilityMonth(int numberOfDays, int numberOfMonth, int year){
         this.numberOfDays = numberOfDays;
         this.monthNumber = numberOfMonth;
         this.daysOfTheMonth = new ArrayList<AvailabilityDay>();
+        this.year = year;
     }
     public void addDay(AvailabilityDay availabilityDay){
         daysOfTheMonth.add(availabilityDay);
@@ -27,6 +28,14 @@ public class AvailabilityMonth implements Cloneable {
 
     public int getNumberOfDays() {
         return numberOfDays;
+    }
+
+    public int getYear(){
+        return year;
+    }
+
+    public int getMonthNumber() {
+        return monthNumber;
     }
 
     public AvailabilityMonth clone(){

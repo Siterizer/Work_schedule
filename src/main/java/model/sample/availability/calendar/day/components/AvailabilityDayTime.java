@@ -34,4 +34,13 @@ public class AvailabilityDayTime implements Cloneable {
         }
         return "-fx-background-color: #ffffff;";
     }
+
+    public AvailabilityDayTime clone(){
+        try {
+            return (AvailabilityDayTime) super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
+
+    }
 }

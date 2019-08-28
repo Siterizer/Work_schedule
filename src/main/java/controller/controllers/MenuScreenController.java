@@ -26,6 +26,5 @@ public class MenuScreenController {
 
     @FXML
     void handleOpiekunowieGeneruj(ActionEvent event) {
-
     }
 }
