@@ -99,11 +99,18 @@ public class NewScheduleController {
         if(month == null){
             return true;
         }
-        if (Person.funkcja().get(0).getAvailabilityMonth().getYear() != Integer.parseInt(year.getText())){
+        if (month.getYear() != Integer.parseInt(year.getText())){
             return true;
         }
-        if(Person.funkcja().get(0).getAvailabilityMonth().getMonthNumber() != getMonthNumber()){
+        if(month.getMonthNumber() != getMonthNumber()){
             return true;
+        }
+        Enumeration vectorEnumeration = Person.funkcja().elements();
+        while(vectorEnumeration.hasMoreElements()){
+            Person personFromVector = (Person) vectorEnumeration.nextElement();
+            if(personFromVector.getAvailabilityMonth() == null){
+                return true;
+            }
         }
         return false;
     }
