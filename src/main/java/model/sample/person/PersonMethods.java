@@ -16,16 +16,4 @@ public class PersonMethods {
             throw new IllegalArgumentException("LastNameCharacterException");
         }
     }
-
-    private void checkContractType(String contractType){
-        boolean temp = false;
-        for(ContractType type : ContractType.values()){
-            if(ContractTypeMethods.getContract(contractType) == type){
-                temp = true;
-            }
-        }
-        if(!temp){
-            throw new IllegalArgumentException("ContratTypeException");
-        }
-    }
 }
