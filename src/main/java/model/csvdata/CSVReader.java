@@ -1,6 +1,8 @@
 package model.csvdata;
 
-import model.sample.People;
+import model.sample.person.ContractType;
+import model.sample.person.ContractTypeMethods;
+import model.sample.person.Person;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +13,7 @@ import java.util.Vector;
 
 public class CSVReader extends CSVMainClass{
 
-    public CSVReader(String namePath, Vector<People> whereSaveData){
+    public CSVReader(String namePath, Vector<Person> whereSaveData){
         try{
             checkNamePath(namePath);
             checkWhereSaveData(whereSaveData);
@@ -22,7 +24,7 @@ public class CSVReader extends CSVMainClass{
     }
 
 
-    private void checkWhereSaveData(Vector<People> whereSaveData) throws NoSuchElementException{
+    private void checkWhereSaveData(Vector<Person> whereSaveData) throws NoSuchElementException{
         if(whereSaveData == null){
             throw new NoSuchElementException("WhereSaveData is null!");
         }
@@ -36,10 +38,11 @@ public class CSVReader extends CSVMainClass{
         try{
             bufferedReader = new BufferedReader(new FileReader(namePath + ".csv"));
             while((line = bufferedReader.readLine()) != null){
-                String[] firstLastName = line.split(csvSplitBy);
-                new People(firstLastName[0],firstLastName[1]);
+                String[] personData = line.split(csvSplitBy);
+                ContractType contractType = ContractTypeMethods.getContract(personData[2]);
+                new Person(personData[0],personData[1], contractType);
             }
-            People.sortPeople(); // just in case
+            Person.sortPeople(); // just in case
             bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();

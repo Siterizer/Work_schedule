@@ -2,11 +2,11 @@ package controller.hbox.factory.AvailabilityOfPersons.names;
 
 import controller.hbox.factory.IHBox;
 import controller.hbox.factory.IHBoxFactory;
-import model.sample.People;
+import model.sample.person.Person;
 
 public class AvailabilityOfPersonsNamesHBoxFactory implements IHBoxFactory {
     @Override
-    public IHBox makeHBox(People p) {
+    public IHBox makeHBox(Person p) {
         return new AvailabilityOfPersonsNamesHBox(p);
     }
 }

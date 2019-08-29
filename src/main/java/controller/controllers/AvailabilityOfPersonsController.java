@@ -10,7 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.VBox;
-import model.sample.People;
+import model.sample.person.Person;
 
 import java.util.Enumeration;
 
@@ -34,14 +34,13 @@ public class AvailabilityOfPersonsController {
     public void initialize(){
         IHBoxFactory hBoxNamesFactory = new AvailabilityOfPersonsNamesHBoxFactory();
         IHBoxFactory hBoxDaysFactory = new AvailabilityOfPersonsDaysHBoxFactory();
-        Enumeration vectorEnumeration = People.funkcja().elements();
+        Enumeration vectorEnumeration = Person.funkcja().elements();
         while(vectorEnumeration.hasMoreElements()){
-            People peopleFromVector =(People) vectorEnumeration.nextElement();
-            IHBox generatedDayHBox = hBoxDaysFactory.makeHBox(peopleFromVector);
+            Person personFromVector =(Person) vectorEnumeration.nextElement();
+            IHBox generatedDayHBox = hBoxDaysFactory.makeHBox(personFromVector);
             daysVBox.getChildren().add(generatedDayHBox.getHBox());
-            IHBox generatedNameHBox = hBoxNamesFactory.makeHBox(peopleFromVector);
+            IHBox generatedNameHBox = hBoxNamesFactory.makeHBox(personFromVector);
             nameVBox.getChildren().add(generatedNameHBox.getHBox());
-
         }
         daysScrollPane.vvalueProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue<? extends Number> ov,
@@ -49,7 +48,7 @@ public class AvailabilityOfPersonsController {
                 namesScrollPane.vvalueProperty().setValue(new_val.doubleValue());
             }
         });
-        int numberOfDays = People.funkcja().get(0).getMonth().getDaysOfTheMonth().size();
+        int numberOfDays = Person.funkcja().get(0).getAvailabilityMonth().getNumberOfDays();
         splitPane.setDividerPositions((double) (0.295 - ((31 - numberOfDays)  * 0.0066)));
     }
 }

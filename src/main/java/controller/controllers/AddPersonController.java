@@ -3,11 +3,16 @@ package controller.controllers;
 import controller.display.controller.MessageBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import model.sample.People;
+import model.sample.person.ContractTypeMethods;
+import model.sample.person.ContractType;
+import model.sample.person.Person;
+import model.sample.person.PersonMethods;
+
 import java.nio.charset.IllegalCharsetNameException;
 
 public class AddPersonController {
@@ -17,6 +22,16 @@ public class AddPersonController {
 
     @FXML
     private TextField lastName;
+
+    @FXML
+    private ChoiceBox<String> contractType;
+
+    public void initialize(){
+        for(ContractType type : ContractType.values()){
+            contractType.getItems().add(ContractTypeMethods.getStringContract(type));
+        }
+        contractType.setValue(ContractTypeMethods.getStringContract(ContractType.CONTRACT_OF_EMPLOYMENT));
+    }
 
     @FXML
     void handleAdd(ActionEvent event) {
@@ -34,26 +49,12 @@ public class AddPersonController {
         try {
             String firstNameString = firstName.getText().substring(0, 1).toUpperCase() + firstName.getText().substring(1).toLowerCase();
             String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText().substring(1);
-            checkFirstAndLastName();
-            new People(firstNameString, lastNameString);
+            PersonMethods.checkFirstAndLastName(firstNameString, lastNameString);
+            ContractTypeMethods.checkIfStringIsContractType(contractType.getValue());
+            new Person(firstNameString, lastNameString, ContractTypeMethods.getContract(contractType.getValue()));
             MessageBox.display("Dodawanie zakonczone sukcesem", (Stage) firstName.getScene().getWindow());
-        } catch (IllegalCharsetNameException e) {
+        } catch (IllegalArgumentException e) {
             MessageBox.display("Dodawanie nie powiodlo sie", null);
-        }
-    }
-    
-    private void checkFirstAndLastName() {
-        if (firstName.getText().length() < 3) {
-            throw new IllegalCharsetNameException("FirstNameLengthException");
-        }
-        if (!firstName.getText().matches("[a-zA-Z]+")) {
-            throw new IllegalCharsetNameException("FirstNameCharacterException");
-        }
-        if (lastName.getText().length() < 3) {
-            throw new IllegalCharsetNameException("LastNameLengthException");
-        }
-        if (!lastName.getText().matches("[a-zA-Z]+")) {
-            throw new IllegalCharsetNameException("LastNameCharacterException");
         }
     }
 

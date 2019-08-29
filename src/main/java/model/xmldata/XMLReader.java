@@ -1,9 +1,9 @@
 package model.xmldata;
 
 import controller.controllers.NewScheduleController;
-import model.sample.calendar.day.Day;
-import model.sample.calendar.month.Month;
-import model.sample.calendar.day.TypeOfDay;
+import model.sample.availability.calendar.day.AvailabilityDay;
+import model.sample.availability.calendar.month.AvailabilityMonth;
+import model.sample.availability.calendar.day.TypeOfAvailabilityDay;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -27,7 +27,7 @@ public class XMLReader {
         }
     }
 
-    public Month getMonth() {
+    public AvailabilityMonth getMonth() {
         try {
             if (!checkIfFileExist("./XMLyears/" + year))
                 throw new Exception("Taki plik nie istnieje!");
@@ -38,8 +38,9 @@ public class XMLReader {
         return createMonthIterior();
     }
 
-    private Month createMonthIterior() {
-        Month monthTest = new Month(0, 0);
+    private AvailabilityMonth createMonthIterior() {
+        AvailabilityMonth availabilityMonth =
+                new AvailabilityMonth(0, 0, 0);
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
@@ -49,27 +50,27 @@ public class XMLReader {
             if (!(month.getNodeType() == Node.ELEMENT_NODE))
                 throw new Exception("To nie jest ELEMENT_NODE miesiac");
             Element monthToRead = (Element) month;
-            monthTest = new Month(Integer.parseInt(monthToRead.getAttribute("NoDays")),
-                    Integer.parseInt(monthToRead.getAttribute("NoMonth")));
+            availabilityMonth = new AvailabilityMonth(Integer.parseInt(monthToRead.getAttribute("NoDays")),
+                    Integer.parseInt(monthToRead.getAttribute("NoMonth")), Integer.parseInt(year));
             NodeList daysOfMonth = monthToRead.getChildNodes();
             for (int i = 0; i < daysOfMonth.getLength(); i++) {
                 Node day = daysOfMonth.item(i);
                 if(!(day.getNodeType() == Node.ELEMENT_NODE))
                     throw new Exception("To nie jest ELEMENT_NODE dzien");
                 Element dayToLoad = (Element) day;
-                TypeOfDay type;
+                TypeOfAvailabilityDay type;
                 if(Integer.parseInt(dayToLoad.getAttribute("Holiday")) == 1){
-                    type = TypeOfDay.HOLIDAY;
+                    type = TypeOfAvailabilityDay.HOLIDAY;
                 }
                 else{
-                    type = TypeOfDay.WORKING;
+                    type = TypeOfAvailabilityDay.WORKING;
                 }
-               monthTest.addDay(new Day(Integer.parseInt(dayToLoad.getAttribute("NoDay")),type));
+               availabilityMonth.addDay(new AvailabilityDay(Integer.parseInt(dayToLoad.getAttribute("NoDay")),type));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return monthTest;
+        return availabilityMonth;
     }
 
     public static boolean checkIfFileExist(String fileName) {

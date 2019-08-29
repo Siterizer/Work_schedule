@@ -9,9 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import model.sample.People;
-import model.sample.calendar.month.Month;
-import model.sample.calendar.month.MonthCopier;
+import model.sample.person.Person;
+import model.sample.availability.calendar.month.AvailabilityMonth;
+import model.sample.availability.calendar.month.AvailabilityMonthCopier;
 import model.xmldata.XMLReader;
 
 import java.util.Enumeration;
@@ -42,12 +42,12 @@ public class NewScheduleController {
 
     @FXML
     void handleEnterTextField(KeyEvent buttonEntered) {
-        if(buttonEntered.getCode() == KeyCode.ENTER){
+        if (buttonEntered.getCode() == KeyCode.ENTER) {
             createSchedule();
         }
     }
 
-    private void createSchedule(){
+    private void createSchedule() {
         //year.getText(); monthChoiceBox.getValue()
         //sprawdz czy istnieje
         //sprawdza poprawnosc roku/miesiaca
@@ -61,15 +61,16 @@ public class NewScheduleController {
             if (!XMLReader.checkIfFileExist("./XMLyears/" + year.getText())) {
                 createFile();
             }
-            Month month = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
-            MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
-            MonthCopier monthCopier = new MonthCopier(month);
-            Enumeration vectorEnumeration = People.funkcja().elements();
-            while(vectorEnumeration.hasMoreElements()) {
-                People peopleFromVector =(People) vectorEnumeration.nextElement();
-                peopleFromVector.setMonth(monthCopier.copyMonthTest());
+            if (checkIfCreateNewMonth(Person.funkcja().get(0).getAvailabilityMonth())) {
+                AvailabilityMonth availabilityMonth = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
+                AvailabilityMonthCopier availabilityMonthCopier = new AvailabilityMonthCopier(availabilityMonth);
+                Enumeration vectorEnumeration = Person.funkcja().elements();
+                while (vectorEnumeration.hasMoreElements()) {
+                    Person personFromVector = (Person) vectorEnumeration.nextElement();
+                    personFromVector.setAvailabilityMonth(availabilityMonthCopier.copyAvailabilityMonth());
+                }
             }
-
+            MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());
             AvailabilityOfPersons.display();
         } catch (Exception e) {
             e.printStackTrace();
@@ -92,5 +93,55 @@ public class NewScheduleController {
     private void checkFeedback(int feedback) throws Exception {
         if (feedback == 1)
             throw new Exception("Problem z utworzeniem pliku XML");
+    }
+
+    private boolean checkIfCreateNewMonth(AvailabilityMonth month){
+        if(month == null){
+            return true;
+        }
+        if (month.getYear() != Integer.parseInt(year.getText())){
+            return true;
+        }
+        if(month.getMonthNumber() != getMonthNumber()){
+            return true;
+        }
+        Enumeration vectorEnumeration = Person.funkcja().elements();
+        while(vectorEnumeration.hasMoreElements()){
+            Person personFromVector = (Person) vectorEnumeration.nextElement();
+            if(personFromVector.getAvailabilityMonth() == null){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int getMonthNumber() {
+        switch (monthChoiceBox.getValue()) {
+            case "Styczeń":
+                return 1;
+            case "Luty":
+                return 2;
+            case "Marzec":
+                return 3;
+            case "Kwiecień":
+                return 4;
+            case "Maj":
+                return 5;
+            case "Czerwiec":
+                return 6;
+            case "Lipiec":
+                return 7;
+            case "Sierpień":
+                return 8;
+            case "Wrzesień":
+                return 9;
+            case "Październik":
+                return 10;
+            case "Listopad":
+                return 11;
+            case "Grudzień":
+                return 12;
+        }
+        return 0;
     }
 }
