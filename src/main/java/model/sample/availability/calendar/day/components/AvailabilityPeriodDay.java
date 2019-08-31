@@ -1,9 +1,9 @@
 package model.sample.availability.calendar.day.components;
 
-public class AvailabilityNightTime implements Cloneable {
+public class AvailabilityPeriodDay implements Cloneable {
     private TypeOfAvailability availabilityType;
 
-    public AvailabilityNightTime(){
+    public AvailabilityPeriodDay(){
         this.availabilityType = TypeOfAvailability.NEUTRALLY;
     }
     public TypeOfAvailability getAvailabilityType() {
@@ -33,9 +33,9 @@ public class AvailabilityNightTime implements Cloneable {
         }
         return "-fx-background-color: #ffffff;";
     }
-    public AvailabilityNightTime clone(){
+    public AvailabilityPeriodDay clone(){
         try {
-            return (AvailabilityNightTime) super.clone();
+            return (AvailabilityPeriodDay) super.clone();
         } catch (CloneNotSupportedException e) {
             return null;
         }
