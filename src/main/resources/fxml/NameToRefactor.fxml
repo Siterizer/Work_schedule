@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.controllers.NameToRefactorController">
+   <center>
+      <SplitPane fx:id="splitPane" dividerPositions="0.3" BorderPane.alignment="CENTER">
+         <items>
+            <ScrollPane fx:id="namesScrollPane" hbarPolicy="NEVER" vbarPolicy="NEVER">
+               <content>
+                  <VBox>
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="10.0" visible="false" />
+                        <HBox>
+                           <children>
+                              <Separator prefWidth="10.0" visible="false" />
+                              <VBox fx:id="nameVBox" />
+                           </children>
+                        </HBox>
+                        <Separator orientation="VERTICAL" prefHeight="20.0" visible="false" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <ScrollPane fx:id="daysScrollPane">
+               <content>
+                  <VBox>
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="10.0" visible="false" />
+                        <VBox fx:id="daysVBox" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </items></SplitPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

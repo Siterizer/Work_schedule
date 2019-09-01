@@ -1,6 +1,7 @@
 package controller.controllers;
 
 import controller.display.controller.AddPerson;
+import controller.display.controller.NameToRefactor;
 import controller.display.controller.NewSchedule;
 import controller.display.controller.RemovePerson;
 import javafx.event.ActionEvent;
@@ -26,5 +27,6 @@ public class MenuScreenController {
 
     @FXML
     void handleOpiekunowieGeneruj(ActionEvent event) {
+        NameToRefactor.display();
     }
 }
