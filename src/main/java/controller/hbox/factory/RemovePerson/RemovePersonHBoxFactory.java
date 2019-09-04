@@ -7,6 +7,11 @@ import model.sample.person.Person;
 public class RemovePersonHBoxFactory implements IHBoxFactory {
 
     @Override
+    public IHBox makeFirstHBox(Person p) {
+        return null;
+    }
+
+    @Override
     public IHBox makeHBox(Person p) {
         return new RemovePersonHBox(p);
     }

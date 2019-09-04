@@ -24,7 +24,6 @@ public class AvailabilityOfPersonsDaysHBox implements IHBox {
 
     @Override
     public HBox getHBox() {
-
         HBox hBox = new HBoxCreator.Builder()
                 .setPrefHeight(64)
                 .setPrefWidth(50)
@@ -34,18 +33,18 @@ public class AvailabilityOfPersonsDaysHBox implements IHBox {
             int j = i-1;
 
             Separator separatorBetweenDays = new SeparatorCreator.Builder()
-                    .setPrefWidth(20.0)
+                    .setPrefWidth(10.0)
                     .setVisible(true)
                     .build();
 
             VBox vBox = new VBoxCreator.Builder()
                     .setPrefHeight(64)
-                    .setPrefWidth(50)
+                    .setPrefWidth(32)
                     .build();
 
             Button numberOfDay = new ButtonCreator.Builder()
-                    .setText(String.valueOf(i) + "D")
-                    .setPrefWidth(45)
+                    .setText("D")
+                    .setPrefWidth(22)
                     .setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().getColor())
                     .setOnAction(e -> {
                         person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().changeAvailability();
@@ -59,8 +58,8 @@ public class AvailabilityOfPersonsDaysHBox implements IHBox {
                     .setVisible(true)
                     .build();
             Button numberOfNight = new ButtonCreator.Builder()
-                    .setText(String.valueOf(i) + "N")
-                    .setPrefWidth(45)
+                    .setText("N")
+                    .setPrefWidth(22)
                     .setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().getColor())
                     .setOnAction(e -> {
                         person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().changeAvailability();
@@ -71,7 +70,7 @@ public class AvailabilityOfPersonsDaysHBox implements IHBox {
             vBox.getChildren().addAll(numberOfDay, separatorBetweenTimeOfDay, numberOfNight);
 
             if(person.getAvailabilityMonth().getDaysOfTheMonth().get(i-1).getDayType() == TypeOfAvailabilityDay.HOLIDAY){
-                vBox.setStyle("-fx-background-color: #0033cc;");
+                vBox.setStyle("-fx-background-color: #809fff;");
             }
             HBox temp = new HBox();
             temp.getChildren().addAll(separatorBetweenDays, vBox);

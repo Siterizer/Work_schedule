@@ -7,6 +7,11 @@ import model.sample.person.Person;
 public class AvailabilityOfPersonsDaysHBoxFactory implements IHBoxFactory {
 
     @Override
+    public IHBox makeFirstHBox(Person p) {
+        return new AvailabilityOfPersonsDaysFirstHBox(p);
+    }
+
+    @Override
     public IHBox makeHBox(Person p) {
         return new AvailabilityOfPersonsDaysHBox(p);
     }

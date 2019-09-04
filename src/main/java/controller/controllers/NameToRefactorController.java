@@ -22,17 +22,30 @@ public class NameToRefactorController {
     private ScrollPane namesScrollPane;
 
     @FXML
+    private ScrollPane daysScrollPane;
+
+    @FXML
+    private ScrollPane firstDaysScrollPane;
+
+    @FXML
     private VBox nameVBox;
 
     @FXML
-    private ScrollPane daysScrollPane;
+    private VBox firstNameVBox;
 
     @FXML
     private VBox daysVBox;
 
+    @FXML
+    private VBox firstDaysVBox;
+
     public void initialize(){
         IHBoxFactory hBoxNamesFactory = new NameToRefactorNamesHBoxFactory();
         IHBoxFactory hBoxDaysFactory = new NameToRefactorDaysHBoxFactory();
+        IHBox generatedDaysFirstHBox = hBoxDaysFactory.makeFirstHBox(Person.funkcja().get(0));
+        firstDaysVBox.getChildren().add(generatedDaysFirstHBox.getHBox());
+        IHBox generatedNamesFirstHBox = hBoxNamesFactory.makeFirstHBox(Person.funkcja().get(0));
+        firstNameVBox.getChildren().add(generatedNamesFirstHBox.getHBox());
         Enumeration vectorEnumeration = Person.funkcja().elements();
         while(vectorEnumeration.hasMoreElements()){
             Person personFromVector =(Person) vectorEnumeration.nextElement();
@@ -45,6 +58,12 @@ public class NameToRefactorController {
             public void changed(ObservableValue<? extends Number> ov,
                                 Number old_val, Number new_val) {
                 namesScrollPane.vvalueProperty().setValue(new_val.doubleValue());
+            }
+        });
+        daysScrollPane.hvalueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,
+                                Number old_val, Number new_val) {
+                firstDaysScrollPane.hvalueProperty().setValue(new_val.doubleValue());
             }
         });
         int numberOfDays = Person.funkcja().get(0).getAvailabilityMonth().getNumberOfDays();
