@@ -9,7 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import model.sample.person.Person;
-import model.sample.availability.calendar.day.TypeOfAvailabilityDay;
+import model.sample.calendars.TypeOfDay;
 
 public class AvailabilityOfPersonsDaysHBox implements IHBox {
 
@@ -69,7 +69,7 @@ public class AvailabilityOfPersonsDaysHBox implements IHBox {
                     .build();
             vBox.getChildren().addAll(numberOfDay, separatorBetweenTimeOfDay, numberOfNight);
 
-            if(person.getAvailabilityMonth().getDaysOfTheMonth().get(i-1).getDayType() == TypeOfAvailabilityDay.HOLIDAY){
+            if(person.getAvailabilityMonth().getDaysOfTheMonth().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
                 vBox.setStyle("-fx-background-color: #809fff;");
             }
             HBox temp = new HBox();

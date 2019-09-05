@@ -1,6 +1,7 @@
 package model.sample.person;
 
-import model.sample.availability.calendar.month.AvailabilityMonth;
+import model.sample.calendars.availability.month.AvailabilityMonth;
+import model.sample.calendars.working.month.WorkingMonth;
 
 import java.util.Collections;
 import java.util.Vector;
@@ -10,6 +11,7 @@ public class Person implements Comparable<Person>{
     private String imie;
     private String nazwisko;
     private AvailabilityMonth availabilityMonth;
+    private WorkingMonth workingMonth;
     private ContractType contractType;
     private static Vector<Person> ludzie = new Vector<Person>();
 
@@ -17,6 +19,7 @@ public class Person implements Comparable<Person>{
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.availabilityMonth = null;
+        this.workingMonth = null;
         this.contractType = contractType;
         ludzie.add(this);
         this.sortPeople();
@@ -30,12 +33,16 @@ public class Person implements Comparable<Person>{
         this.availabilityMonth = availabilityMonth;
     }
 
-    public ContractType getContractType() {
-        return contractType;
+    public WorkingMonth getWorkingMonth() {
+        return workingMonth;
     }
 
-    public void setContractType(ContractType contractType) {
-        this.contractType = contractType;
+    public void setWorkingMonth(WorkingMonth workingMonth) {
+        this.workingMonth = workingMonth;
+    }
+
+    public ContractType getContractType() {
+        return contractType;
     }
 
     public String getImie() {

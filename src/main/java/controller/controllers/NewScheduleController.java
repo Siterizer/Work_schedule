@@ -9,9 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import model.sample.calendars.ConvertMonth;
 import model.sample.person.Person;
-import model.sample.availability.calendar.month.AvailabilityMonth;
-import model.sample.availability.calendar.month.AvailabilityMonthCopier;
+import model.sample.calendars.availability.month.AvailabilityMonth;
+import model.sample.calendars.availability.month.AvailabilityMonthCopier;
 import model.xmldata.XMLReader;
 
 import java.util.Enumeration;
@@ -66,8 +67,11 @@ public class NewScheduleController {
                 AvailabilityMonthCopier availabilityMonthCopier = new AvailabilityMonthCopier(availabilityMonth);
                 Enumeration vectorEnumeration = Person.funkcja().elements();
                 while (vectorEnumeration.hasMoreElements()) {
-                    Person personFromVector = (Person) vectorEnumeration.nextElement();
-                    personFromVector.setAvailabilityMonth(availabilityMonthCopier.copyAvailabilityMonth());
+                    AvailabilityMonth copiedAvailabilityMonth = availabilityMonthCopier.copyAvailabilityMonth();
+                    Person person = (Person) vectorEnumeration.nextElement();
+                    person.setAvailabilityMonth(copiedAvailabilityMonth);
+                    person.setWorkingMonth(ConvertMonth.availabilityToWorking(copiedAvailabilityMonth));
+
                 }
             }
             MessageBox.display("Grafik stworzony prawidłowo", (Stage) this.year.getScene().getWindow());

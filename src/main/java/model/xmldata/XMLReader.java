@@ -1,9 +1,9 @@
 package model.xmldata;
 
 import controller.controllers.NewScheduleController;
-import model.sample.availability.calendar.day.AvailabilityDay;
-import model.sample.availability.calendar.month.AvailabilityMonth;
-import model.sample.availability.calendar.day.TypeOfAvailabilityDay;
+import model.sample.calendars.availability.day.AvailabilityDay;
+import model.sample.calendars.availability.month.AvailabilityMonth;
+import model.sample.calendars.TypeOfDay;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -58,12 +58,12 @@ public class XMLReader {
                 if(!(day.getNodeType() == Node.ELEMENT_NODE))
                     throw new Exception("To nie jest ELEMENT_NODE dzien");
                 Element dayToLoad = (Element) day;
-                TypeOfAvailabilityDay type;
+                TypeOfDay type;
                 if(Integer.parseInt(dayToLoad.getAttribute("Holiday")) == 1){
-                    type = TypeOfAvailabilityDay.HOLIDAY;
+                    type = TypeOfDay.HOLIDAY;
                 }
                 else{
-                    type = TypeOfAvailabilityDay.WORKING;
+                    type = TypeOfDay.WORKING;
                 }
                availabilityMonth.addDay(new AvailabilityDay(Integer.parseInt(dayToLoad.getAttribute("NoDay")),type));
             }

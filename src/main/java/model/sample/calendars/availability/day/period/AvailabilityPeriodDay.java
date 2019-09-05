@@ -1,29 +1,29 @@
-package model.sample.availability.calendar.day.components;
+package model.sample.calendars.availability.day.period;
 
 public class AvailabilityPeriodDay implements Cloneable {
-    private TypeOfAvailability availabilityType;
+    private AvailabilityStatus availabilityStatus;
 
     public AvailabilityPeriodDay(){
-        this.availabilityType = TypeOfAvailability.NEUTRALLY;
+        this.availabilityStatus = AvailabilityStatus.NEUTRALLY;
     }
-    public TypeOfAvailability getAvailabilityType() {
-        return availabilityType;
+    public AvailabilityStatus getAvailabilityStatus() {
+        return availabilityStatus;
     }
 
     public void changeAvailability(){
-        if(this.availabilityType == TypeOfAvailability.NEUTRALLY){
-            this.availabilityType = TypeOfAvailability.UNLIKE;
+        if(this.availabilityStatus == AvailabilityStatus.NEUTRALLY){
+            this.availabilityStatus = AvailabilityStatus.UNLIKE;
         }
-        else if(this.availabilityType == TypeOfAvailability.UNLIKE){
-            this.availabilityType = TypeOfAvailability.LIKE;
+        else if(this.availabilityStatus == AvailabilityStatus.UNLIKE){
+            this.availabilityStatus = AvailabilityStatus.LIKE;
         }
         else{
-            this.availabilityType = TypeOfAvailability.NEUTRALLY;
+            this.availabilityStatus = AvailabilityStatus.NEUTRALLY;
         }
     }
 
     public String getColor(){
-        switch (availabilityType){
+        switch (availabilityStatus){
             case NEUTRALLY:
                 return "-fx-background-color: #ffffff;";
             case UNLIKE:

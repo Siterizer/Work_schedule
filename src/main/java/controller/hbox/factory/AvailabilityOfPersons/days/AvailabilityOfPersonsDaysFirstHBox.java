@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
-import model.sample.availability.calendar.day.TypeOfAvailabilityDay;
+import model.sample.calendars.TypeOfDay;
 import model.sample.person.Person;
 
 public class AvailabilityOfPersonsDaysFirstHBox implements IHBox {
@@ -49,7 +49,7 @@ public class AvailabilityOfPersonsDaysFirstHBox implements IHBox {
             numberOfDay.setTextAlignment(TextAlignment.CENTER);
             vBox.getChildren().addAll(numberOfDay);
 
-            if(person.getAvailabilityMonth().getDaysOfTheMonth().get(i-1).getDayType() == TypeOfAvailabilityDay.HOLIDAY){
+            if(person.getAvailabilityMonth().getDaysOfTheMonth().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
                 vBox.setStyle("-fx-background-color: #809fff;");
             }
             hBox.getChildren().addAll(separatorBetweenDays, vBox);

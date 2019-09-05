@@ -1,6 +1,5 @@
 package controller.hbox.factory.NameToRefactor.days;
 
-import controller.display.controller.NameToRefactor;
 import controller.hbox.factory.AvailabilityOfPersons.EvenColours;
 import controller.hbox.factory.IHBox;
 import controller.hbox.factory.components.ButtonCreator;
@@ -12,7 +11,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import model.sample.availability.calendar.day.TypeOfAvailabilityDay;
+import model.sample.calendars.TypeOfDay;
 import model.sample.person.Person;
 
 public class NameToRefactorDaysHBox implements IHBox {
@@ -49,11 +48,11 @@ public class NameToRefactorDaysHBox implements IHBox {
             Button numberOfDay = new ButtonCreator.Builder()
                     .setText("D")
                     .setPrefWidth(22)
-                    .setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().getColor())
+                    .setStyle(person.getWorkingMonth().getDaysOfTheMonth().get(j).getWorkingDayTime().getColor())
                     .setOnAction(e -> {
-                        person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().changeAvailability();
+                       /* person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().changeAvailability();
                         Button pressedButton = (Button) e.getSource();
-                        pressedButton.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().getColor());
+                        pressedButton.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().getColor());*/
                     })
                     .build();
             Separator separatorBetweenTimeOfDay = new SeparatorCreator.Builder()
@@ -64,16 +63,16 @@ public class NameToRefactorDaysHBox implements IHBox {
             Button numberOfNight = new ButtonCreator.Builder()
                     .setText("N")
                     .setPrefWidth(22)
-                    .setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().getColor())
+                    .setStyle(person.getWorkingMonth().getDaysOfTheMonth().get(j).getWorkingNightTime().getColor())
                     .setOnAction(e -> {
-                        person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().changeAvailability();
+                       /* person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().changeAvailability();
                         Button pressedButton = (Button) e.getSource();
-                        pressedButton.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().getColor());
+                        pressedButton.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().getColor());*/
                     })
                     .build();
             vBox.getChildren().addAll(numberOfDay, separatorBetweenTimeOfDay, numberOfNight);
 
-            if(person.getAvailabilityMonth().getDaysOfTheMonth().get(i-1).getDayType() == TypeOfAvailabilityDay.HOLIDAY){
+            if(person.getWorkingMonth().getDaysOfTheMonth().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
                 vBox.setStyle("-fx-background-color: #809fff;");
             }
             HBox temp = new HBox();

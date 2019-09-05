@@ -1,4 +1,4 @@
-package model.sample.availability.calendar.month;
+package model.sample.calendars.availability.month;
 
 public class AvailabilityMonthCopier {
     private AvailabilityMonth availabilityMonth;

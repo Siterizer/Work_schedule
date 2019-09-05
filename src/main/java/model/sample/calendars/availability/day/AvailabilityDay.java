@@ -1,21 +1,22 @@
-package model.sample.availability.calendar.day;
+package model.sample.calendars.availability.day;
 
-import model.sample.availability.calendar.day.components.AvailabilityPeriodDay;
+import model.sample.calendars.TypeOfDay;
+import model.sample.calendars.availability.day.period.AvailabilityPeriodDay;
 
 public class AvailabilityDay implements Cloneable {
     private AvailabilityPeriodDay availabilityDayTime;
     private AvailabilityPeriodDay availabilityNightTime;
-    private TypeOfAvailabilityDay dayType;
+    private TypeOfDay dayType;
     private int numberOfDay;
 
-    public AvailabilityDay(int numberOfDay, TypeOfAvailabilityDay dayType){
+    public AvailabilityDay(int numberOfDay, TypeOfDay dayType){
         this.numberOfDay = numberOfDay;
         this.dayType = dayType;
         this.availabilityDayTime = new AvailabilityPeriodDay();
         this.availabilityNightTime = new AvailabilityPeriodDay();
     }
 
-    public TypeOfAvailabilityDay getDayType(){
+    public TypeOfDay getDayType(){
         return this.dayType;
     }
 
