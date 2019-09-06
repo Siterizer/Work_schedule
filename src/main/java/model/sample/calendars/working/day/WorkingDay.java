@@ -7,28 +7,28 @@ public class WorkingDay {
     private WorkingPeriodDay workingDayTime;
     private WorkingPeriodDay workingNightTime;
     private TypeOfDay dayType;
-    private int numberOfDay;
+    private int dayNumber;
 
-    public WorkingDay(int numberOfDay, TypeOfDay dayType){
+    public WorkingDay(int dayNumber, TypeOfDay dayType){
         this.workingDayTime = new WorkingPeriodDay();
         this.workingNightTime = new WorkingPeriodDay();
         this.dayType = dayType;
-        this.numberOfDay = numberOfDay;
+        this.dayNumber = dayNumber;
     }
 
     public TypeOfDay getDayType(){
         return this.dayType;
     }
 
-    public int getNumberOfDay(){
-        return this.numberOfDay;
+    public int getDayNumber(){
+        return this.dayNumber;
     }
 
-    public WorkingPeriodDay getWorkingDayTime(){
+    public WorkingPeriodDay getDayTime(){
         return this.workingDayTime;
     }
 
-    public WorkingPeriodDay getWorkingNightTime(){
+    public WorkingPeriodDay getNightTime(){
         return this.workingNightTime;
     }
 

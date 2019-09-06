@@ -7,10 +7,10 @@ public class AvailabilityDay implements Cloneable {
     private AvailabilityPeriodDay availabilityDayTime;
     private AvailabilityPeriodDay availabilityNightTime;
     private TypeOfDay dayType;
-    private int numberOfDay;
+    private int dayNumber;
 
-    public AvailabilityDay(int numberOfDay, TypeOfDay dayType){
-        this.numberOfDay = numberOfDay;
+    public AvailabilityDay(int dayNumber, TypeOfDay dayType){
+        this.dayNumber = dayNumber;
         this.dayType = dayType;
         this.availabilityDayTime = new AvailabilityPeriodDay();
         this.availabilityNightTime = new AvailabilityPeriodDay();
@@ -20,15 +20,15 @@ public class AvailabilityDay implements Cloneable {
         return this.dayType;
     }
 
-    public int getNumberOfDay(){
-        return numberOfDay;
+    public int getDayNumber(){
+        return dayNumber;
     }
 
-    public AvailabilityPeriodDay getAvailabilityDayTime() {
+    public AvailabilityPeriodDay getDayTime() {
         return availabilityDayTime;
     }
 
-    public AvailabilityPeriodDay getAvailabilityNightTime() {
+    public AvailabilityPeriodDay getNightTime() {
         return availabilityNightTime;
     }
 

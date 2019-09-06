@@ -47,7 +47,7 @@ public class NameToRefactorDaysFirstHBox implements IHBox {
             numberOfDay.setTextAlignment(TextAlignment.CENTER);
             vBox.getChildren().addAll(numberOfDay);
 
-            if(person.getWorkingMonth().getDaysOfTheMonth().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
+            if(person.getWorkingMonth().getDays().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
                 vBox.setStyle("-fx-background-color: #809fff;");
             }
             hBox.getChildren().addAll(separatorBetweenDays, vBox);

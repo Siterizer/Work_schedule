@@ -22,7 +22,7 @@ public class AvailabilityMonth implements Cloneable {
         daysOfTheMonth.add(availabilityDay);
     }
 
-    public ArrayList<AvailabilityDay> getDaysOfTheMonth(){
+    public ArrayList<AvailabilityDay> getDays(){
         return daysOfTheMonth;
     }
 

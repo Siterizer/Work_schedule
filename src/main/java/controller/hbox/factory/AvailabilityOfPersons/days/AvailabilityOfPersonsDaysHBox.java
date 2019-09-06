@@ -45,11 +45,11 @@ public class AvailabilityOfPersonsDaysHBox implements IHBox {
             Button numberOfDay = new ButtonCreator.Builder()
                     .setText("D")
                     .setPrefWidth(22)
-                    .setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().getColor())
+                    .setStyle(person.getAvailabilityMonth().getDays().get(j).getDayTime().getColor())
                     .setOnAction(e -> {
-                        person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().changeAvailability();
+                        person.getAvailabilityMonth().getDays().get(j).getDayTime().changeAvailability();
                         Button pressedButton = (Button) e.getSource();
-                        pressedButton.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityDayTime().getColor());
+                        pressedButton.setStyle(person.getAvailabilityMonth().getDays().get(j).getDayTime().getColor());
                     })
                     .build();
             Separator separatorBetweenTimeOfDay = new SeparatorCreator.Builder()
@@ -60,16 +60,16 @@ public class AvailabilityOfPersonsDaysHBox implements IHBox {
             Button numberOfNight = new ButtonCreator.Builder()
                     .setText("N")
                     .setPrefWidth(22)
-                    .setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().getColor())
+                    .setStyle(person.getAvailabilityMonth().getDays().get(j).getNightTime().getColor())
                     .setOnAction(e -> {
-                        person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().changeAvailability();
+                        person.getAvailabilityMonth().getDays().get(j).getNightTime().changeAvailability();
                         Button pressedButton = (Button) e.getSource();
-                        pressedButton.setStyle(person.getAvailabilityMonth().getDaysOfTheMonth().get(j).getAvailabilityNightTime().getColor());
+                        pressedButton.setStyle(person.getAvailabilityMonth().getDays().get(j).getNightTime().getColor());
                     })
                     .build();
             vBox.getChildren().addAll(numberOfDay, separatorBetweenTimeOfDay, numberOfNight);
 
-            if(person.getAvailabilityMonth().getDaysOfTheMonth().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
+            if(person.getAvailabilityMonth().getDays().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
                 vBox.setStyle("-fx-background-color: #809fff;");
             }
             HBox temp = new HBox();

@@ -21,7 +21,7 @@ public class WorkingMonth implements Cloneable {
         this.daysOfTheMonth.add(day);
     }
 
-    public ArrayList<WorkingDay> getDaysOfTheMonth(){
+    public ArrayList<WorkingDay> getDays(){
         return this.daysOfTheMonth;
     }
 

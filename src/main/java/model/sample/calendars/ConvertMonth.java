@@ -10,8 +10,8 @@ public class ConvertMonth {
         WorkingMonth workingMonth = new WorkingMonth(availabilityMonth.getNumberOfDays(),
                 availabilityMonth.getMonthNumber(), availabilityMonth.getYear());
 
-        for(AvailabilityDay item: availabilityMonth.getDaysOfTheMonth()){
-            WorkingDay workingDay = new WorkingDay(item.getNumberOfDay(), item.getDayType());
+        for(AvailabilityDay item: availabilityMonth.getDays()){
+            WorkingDay workingDay = new WorkingDay(item.getDayNumber(), item.getDayType());
             workingMonth.addDay(workingDay);
         }
         return workingMonth;
@@ -21,8 +21,8 @@ public class ConvertMonth {
         AvailabilityMonth availabilityMonth = new AvailabilityMonth(workingMonth.getNumberOfDays(),
                 workingMonth.getMonthNumber(),workingMonth.getYear());
 
-        for(WorkingDay item:workingMonth.getDaysOfTheMonth()){
-            AvailabilityDay availabilityDay = new AvailabilityDay(item.getNumberOfDay(),item.getDayType());
+        for(WorkingDay item:workingMonth.getDays()){
+            AvailabilityDay availabilityDay = new AvailabilityDay(item.getDayNumber(),item.getDayType());
             availabilityMonth.addDay(availabilityDay);
         }
         return availabilityMonth;

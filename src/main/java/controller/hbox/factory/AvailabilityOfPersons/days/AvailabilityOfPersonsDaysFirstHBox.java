@@ -49,7 +49,7 @@ public class AvailabilityOfPersonsDaysFirstHBox implements IHBox {
             numberOfDay.setTextAlignment(TextAlignment.CENTER);
             vBox.getChildren().addAll(numberOfDay);
 
-            if(person.getAvailabilityMonth().getDaysOfTheMonth().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
+            if(person.getAvailabilityMonth().getDays().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
                 vBox.setStyle("-fx-background-color: #809fff;");
             }
             hBox.getChildren().addAll(separatorBetweenDays, vBox);
