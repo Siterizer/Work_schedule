@@ -7,13 +7,13 @@ import java.util.ArrayList;
 public class WorkingMonth implements Cloneable {
     private ArrayList<WorkingDay> daysOfTheMonth;
     private int numberOfDays;
-    private int numberOfMonth;
+    private int monthNumber;
     private int year;
 
-    public WorkingMonth(int numberOfDays, int numberOfMonth, int year){
+    public WorkingMonth(int numberOfDays, int monthNumber, int year){
         this.daysOfTheMonth = new ArrayList<WorkingDay>();
         this.numberOfDays = numberOfDays;
-        this.numberOfMonth = numberOfMonth;
+        this.monthNumber = monthNumber;
         this.year = year;
     }
 
@@ -30,8 +30,8 @@ public class WorkingMonth implements Cloneable {
         return numberOfDays;
     }
 
-    public int getNumberOfMonth() {
-        return numberOfMonth;
+    public int getMonthNumber() {
+        return monthNumber;
     }
 
     public int getYear() {

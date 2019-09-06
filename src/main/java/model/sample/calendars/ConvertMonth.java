@@ -16,4 +16,15 @@ public class ConvertMonth {
         }
         return workingMonth;
     }
+
+    public static AvailabilityMonth workingToAvailability(WorkingMonth workingMonth){
+        AvailabilityMonth availabilityMonth = new AvailabilityMonth(workingMonth.getNumberOfDays(),
+                workingMonth.getMonthNumber(),workingMonth.getYear());
+
+        for(WorkingDay item:workingMonth.getDaysOfTheMonth()){
+            AvailabilityDay availabilityDay = new AvailabilityDay(item.getNumberOfDay(),item.getDayType());
+            availabilityMonth.addDay(availabilityDay);
+        }
+        return availabilityMonth;
+    }
 }
