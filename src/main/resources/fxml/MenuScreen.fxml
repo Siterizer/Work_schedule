@@ -5,27 +5,31 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.controllers.MenuScreenController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.controllers.MenuScreenController">
     <top>
         <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="Opiekunowie">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieDodaj" text="Dodaj"/>
-                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieUsun" text="Usun"/>
-                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieNowyGrafik" text="Nowy grafik"/>
-                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieGeneruj" text="Generuj"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieDodaj" text="Dodaj" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieUsun" text="Usun" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieNowyGrafik" text="Nowy grafik" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieGeneruj" text="Generuj" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Pielegniarki">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Dodaj"/>
-                        <MenuItem mnemonicParsing="false" text="Usun"/>
-                        <MenuItem mnemonicParsing="false" text="Nowy grafik"/>
-                        <MenuItem mnemonicParsing="false" text="Generuj"/>
+                        <MenuItem mnemonicParsing="false" text="Dodaj" />
+                        <MenuItem mnemonicParsing="false" text="Usun" />
+                        <MenuItem mnemonicParsing="false" text="Nowy grafik" />
+                        <MenuItem mnemonicParsing="false" text="Generuj" />
                     </items>
                 </Menu>
+            <Menu mnemonicParsing="false" text="Oddziały">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleOddzialWybierz" text="Wybierz oddział" />
+              </items>
+            </Menu>
             </menus>
         </MenuBar>
     </top>

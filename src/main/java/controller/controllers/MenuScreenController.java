@@ -25,4 +25,9 @@ public class MenuScreenController {
     void handleOpiekunowieGeneruj(ActionEvent event) {
         NameToRefactor.display();
     }
+
+    @FXML
+    void handleOddzialWybierz(ActionEvent event) {
+        SelectDepartment.display();
+    }
 }
