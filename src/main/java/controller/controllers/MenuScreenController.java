@@ -1,14 +1,15 @@
 package controller.controllers;
 
-import controller.display.controller.AddPerson;
-import controller.display.controller.NameToRefactor;
-import controller.display.controller.NewSchedule;
-import controller.display.controller.RemovePerson;
+import controller.display.controller.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import model.sample.person.Person;
 
 public class MenuScreenController {
+
+    @FXML
+    public void initialize(){
+    }
 
     @FXML
     void handleOpiekunowieDodaj(ActionEvent event) {

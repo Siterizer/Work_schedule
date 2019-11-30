@@ -1,5 +1,6 @@
 package model.sample;
 
+import controller.display.controller.SelectDepartment;
 import model.csvdata.CSVReader;
 import model.csvdata.CSVWriter;
 import model.csvdata.DataDirectoryCreator;
@@ -11,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import model.sample.person.Person;
+import model.sample.person.PersonMethods;
 
 import java.io.IOException;
 
@@ -27,6 +29,7 @@ public class Main extends Application {
         initialize();
         primaryStage.setMaximized(true);
         primaryStage.show();
+        SelectDepartment.display();
     }
 
     private void setScreenDimensions(Stage stage) {
@@ -39,8 +42,10 @@ public class Main extends Application {
     }
 
     private void initialize() throws IOException {
-        new DataDirectoryCreator("data");
-        new CSVReader("./data/pielegniarki", Person.funkcja());
+        //Wczytuj DOPIERO kiedy będzie wiadome który department został wybrany (a zostaje wybierany w tym miejscu \/
+        //department.DepartmentMethods.setActualDepartment
+        //new DataDirectoryCreator("data");
+        //new CSVReader("./data/pielegniarki", PersonMethods.getActualPersons());
     }
 
     private void onCloseApp(){
@@ -48,7 +53,7 @@ public class Main extends Application {
     }
 
     private void saveData(){
-        new CSVWriter("./data/pielegniarki", Person.funkcja());
+        new CSVWriter("./data/pielegniarki", PersonMethods.getActualPersons());
     }
 
     public static void main(String[] args) {

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.controllers.SelectDepartmentController">
+   <content>
+      <HBox maxWidth="320.0" minHeight="400.0" minWidth="320.0">
+         <children>
+            <Separator prefWidth="10.0" visible="false" />
+            <VBox prefWidth="300.0">
+               <children>
+                  <Separator orientation="VERTICAL" prefHeight="20.0" visible="false" />
+                  <VBox fx:id="vBox" />
+                  <HBox prefHeight="25.0" prefWidth="300.0">
+                     <children>
+                        <Separator prefWidth="92.0" visible="false" />
+                        <Button fx:id="addNew" mnemonicParsing="false" onAction="#addNewAction" prefHeight="25.0" prefWidth="115.0" text="Dodaj nowy" />
+                        <Separator prefWidth="92.0" visible="false" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Separator prefWidth="10.0" visible="false" />
+         </children>
+      </HBox>
+   </content>
+</ScrollPane>

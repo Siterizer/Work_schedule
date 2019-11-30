@@ -1,18 +1,21 @@
 package controller.controllers;
 
-import controller.hbox.factory.AvailabilityOfPersons.days.AvailabilityOfPersonsDaysHBoxFactory;
-import controller.hbox.factory.AvailabilityOfPersons.names.AvailabilityOfPersonsNamesHBoxFactory;
-import controller.hbox.factory.IHBox;
-import controller.hbox.factory.IHBoxFactory;
+import controller.hbox.factory.person.AvailabilityOfPersons.days.AvailabilityOfPersonsDaysHBoxPFactory;
+import controller.hbox.factory.person.AvailabilityOfPersons.names.AvailabilityOfPersonsNamesHBoxPFactory;
+import controller.hbox.factory.person.IHBoxP;
+import controller.hbox.factory.person.IHBoxPFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.VBox;
+import model.sample.department.DepartmentMethods;
 import model.sample.person.Person;
+import model.sample.person.PersonMethods;
 
 import java.util.Enumeration;
+import java.util.Vector;
 
 public class AvailabilityOfPersonsController {
 
@@ -41,18 +44,19 @@ public class AvailabilityOfPersonsController {
     private VBox firstDaysVBox;
 
     public void initialize(){
-        IHBoxFactory hBoxNamesFactory = new AvailabilityOfPersonsNamesHBoxFactory();
-        IHBoxFactory hBoxDaysFactory = new AvailabilityOfPersonsDaysHBoxFactory();
-        IHBox generatedDaysFirstHBox = hBoxDaysFactory.makeFirstHBox(Person.funkcja().get(0));
+        Vector<Person> persons = PersonMethods.getActualPersons();
+        IHBoxPFactory hBoxNamesFactory = new AvailabilityOfPersonsNamesHBoxPFactory();
+        IHBoxPFactory hBoxDaysFactory = new AvailabilityOfPersonsDaysHBoxPFactory();
+        IHBoxP generatedDaysFirstHBox = hBoxDaysFactory.makeFirstHBox(persons.get(0));
         firstDaysVBox.getChildren().add(generatedDaysFirstHBox.getHBox());
-        IHBox generatedNamesFirstHBox = hBoxNamesFactory.makeFirstHBox(Person.funkcja().get(0));
+        IHBoxP generatedNamesFirstHBox = hBoxNamesFactory.makeFirstHBox(persons.get(0));
         firstNameVBox.getChildren().add(generatedNamesFirstHBox.getHBox());
-        Enumeration vectorEnumeration = Person.funkcja().elements();
+        Enumeration vectorEnumeration = persons.elements();
         while(vectorEnumeration.hasMoreElements()){
             Person personFromVector =(Person) vectorEnumeration.nextElement();
-            IHBox generatedDayHBox = hBoxDaysFactory.makeHBox(personFromVector);
+            IHBoxP generatedDayHBox = hBoxDaysFactory.makeHBox(personFromVector);
             daysVBox.getChildren().add(generatedDayHBox.getHBox());
-            IHBox generatedNameHBox = hBoxNamesFactory.makeHBox(personFromVector);
+            IHBoxP generatedNameHBox = hBoxNamesFactory.makeHBox(personFromVector);
             nameVBox.getChildren().add(generatedNameHBox.getHBox());
         }
         daysScrollPane.vvalueProperty().addListener(new ChangeListener<Number>() {
@@ -67,7 +71,7 @@ public class AvailabilityOfPersonsController {
                 firstDaysScrollPane.hvalueProperty().setValue(new_val.doubleValue());
             }
         });
-        int numberOfDays = Person.funkcja().get(0).getAvailabilityMonth().getNumberOfDays();
+        int numberOfDays = persons.get(0).getAvailabilityMonth().getNumberOfDays();
         splitPane.setDividerPositions((double) (0.295 - ((31 - numberOfDays)  * 0.0066)));
     }
 }

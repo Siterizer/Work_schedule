@@ -1,7 +1,7 @@
-package controller.hbox.factory.AvailabilityOfPersons.days;
+package controller.hbox.factory.person.NameToRefactor.days;
 
-import controller.hbox.factory.AvailabilityOfPersons.EvenColours;
-import controller.hbox.factory.IHBox;
+import controller.hbox.factory.person.AvailabilityOfPersons.EvenColours;
+import controller.hbox.factory.person.IHBoxP;
 import controller.hbox.factory.components.HBoxCreator;
 import controller.hbox.factory.components.LabelCreator;
 import controller.hbox.factory.components.SeparatorCreator;
@@ -15,16 +15,17 @@ import javafx.scene.text.TextAlignment;
 import model.sample.calendars.TypeOfDay;
 import model.sample.person.Person;
 
-public class AvailabilityOfPersonsDaysFirstHBox implements IHBox {
-
-    private Person person;
+public class NameToRefactorDaysFirstHBoxP implements IHBoxP {
 
     private int numberOfDays;
 
-    AvailabilityOfPersonsDaysFirstHBox(Person person){
+    private Person person;
+
+    NameToRefactorDaysFirstHBoxP(Person person){
         this.person = person;
         this.numberOfDays = person.getAvailabilityMonth().getNumberOfDays();
     }
+
     @Override
     public HBox getHBox() {
         HBox hBox = new HBoxCreator.Builder()
@@ -49,7 +50,7 @@ public class AvailabilityOfPersonsDaysFirstHBox implements IHBox {
             numberOfDay.setTextAlignment(TextAlignment.CENTER);
             vBox.getChildren().addAll(numberOfDay);
 
-            if(person.getAvailabilityMonth().getDays().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
+            if(person.getWorkingMonth().getDays().get(i-1).getDayType() == TypeOfDay.HOLIDAY){
                 vBox.setStyle("-fx-background-color: #809fff;");
             }
             hBox.getChildren().addAll(separatorBetweenDays, vBox);

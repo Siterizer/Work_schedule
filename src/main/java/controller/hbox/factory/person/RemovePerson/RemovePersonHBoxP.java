@@ -1,8 +1,8 @@
-package controller.hbox.factory.RemovePerson;
+package controller.hbox.factory.person.RemovePerson;
 
 import controller.controllers.RemovePersonController;
 import controller.display.controller.ConfirmBox;
-import controller.hbox.factory.IHBox;
+import controller.hbox.factory.person.IHBoxP;
 import controller.hbox.factory.components.ButtonCreator;
 import controller.hbox.factory.components.HBoxCreator;
 import controller.hbox.factory.components.LabelCreator;
@@ -12,12 +12,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.HBox;
 import model.sample.person.Person;
+import model.sample.person.PersonMethods;
 
-public class RemovePersonHBox implements IHBox {
+public class RemovePersonHBoxP implements IHBoxP {
 
     private Person person;
 
-    RemovePersonHBox(Person person){
+    RemovePersonHBoxP(Person person){
         this.person = person;
     }
 
@@ -43,9 +44,8 @@ public class RemovePersonHBox implements IHBox {
                 .setOnAction(e -> {
                     if(ConfirmBox.displayAndReturnAnswer("Czy na pewno chcesz usunac osobe:\n"
                             + person.getImie() + " " + person.getNazwisko())) {
-                        Person.funkcja().remove(person);
-                        RemovePersonController controller = RemovePersonController.controller;
-                        controller.updateVBox();
+                        PersonMethods.getActualPersons().remove(person);
+                        RemovePersonController.controller.updateVBox();
                     }
                 })
                 .build();

@@ -1,11 +1,14 @@
 package controller.controllers;
 
-import controller.hbox.factory.IHBox;
-import controller.hbox.factory.IHBoxFactory;
-import controller.hbox.factory.RemovePerson.RemovePersonHBoxFactory;
+import controller.hbox.factory.person.IHBoxP;
+import controller.hbox.factory.person.IHBoxPFactory;
+import controller.hbox.factory.person.RemovePerson.RemovePersonHBoxPFactory;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import model.sample.person.Person;
+import model.sample.person.PersonMethods;
+
 import java.util.Enumeration;
 
 public class RemovePersonController {
@@ -17,13 +20,16 @@ public class RemovePersonController {
     public static RemovePersonController controller;
 
     @FXML
+    private Button addNew;
+
+    @FXML
     public void initialize(){
         controller = this;
-        IHBoxFactory hBoxFactory = new RemovePersonHBoxFactory();
-        Enumeration vectorEnumeration = Person.funkcja().elements();
+        IHBoxPFactory hBoxFactory = new RemovePersonHBoxPFactory();
+        Enumeration vectorEnumeration = PersonMethods.getActualPersons().elements();
         while(vectorEnumeration.hasMoreElements()){
             Person personFromVector =(Person) vectorEnumeration.nextElement();
-            IHBox generatedHBox = hBoxFactory.makeHBox(personFromVector);
+            IHBoxP generatedHBox = hBoxFactory.makeHBox(personFromVector);
             vBox.getChildren().add(generatedHBox.getHBox());
         }
     }

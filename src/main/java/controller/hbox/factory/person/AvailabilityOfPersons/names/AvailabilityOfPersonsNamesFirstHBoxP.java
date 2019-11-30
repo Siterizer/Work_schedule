@@ -1,22 +1,22 @@
-package controller.hbox.factory.AvailabilityOfPersons.names;
+package controller.hbox.factory.person.AvailabilityOfPersons.names;
 
-import controller.hbox.factory.AvailabilityOfPersons.EvenColours;
-import controller.hbox.factory.IHBox;
+import controller.hbox.factory.person.IHBoxP;
 import controller.hbox.factory.components.HBoxCreator;
 import controller.hbox.factory.components.LabelCreator;
+import controller.hbox.factory.person.AvailabilityOfPersons.EvenColours;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.text.TextAlignment;
 import model.sample.person.Person;
 
-public class AvailabilityOfPersonsNamesFirstHBox implements IHBox {
+public class AvailabilityOfPersonsNamesFirstHBoxP implements IHBoxP {
 
     private int numberOfDays;
 
     private Person person;
 
-    AvailabilityOfPersonsNamesFirstHBox(Person person){
+    AvailabilityOfPersonsNamesFirstHBoxP(Person person){
         this.numberOfDays = person.getAvailabilityMonth().getNumberOfDays();
         this.person = person;
     }

@@ -1,4 +1,4 @@
-package controller.hbox.factory.AvailabilityOfPersons;
+package controller.hbox.factory.person.AvailabilityOfPersons;
 
 public class EvenColours {
 

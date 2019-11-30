@@ -13,6 +13,7 @@ import model.sample.calendars.ConvertMonth;
 import model.sample.person.Person;
 import model.sample.calendars.availability.month.AvailabilityMonth;
 import model.sample.calendars.availability.month.AvailabilityMonthCopier;
+import model.sample.person.PersonMethods;
 import model.xmldata.XMLReader;
 
 import java.util.Enumeration;
@@ -62,10 +63,10 @@ public class NewScheduleController {
             if (!XMLReader.checkIfFileExist("./XMLyears/" + year.getText())) {
                 createFile();
             }
-            if (checkIfCreateNewMonth(Person.funkcja().get(0).getAvailabilityMonth())) {
+            if (checkIfCreateNewMonth(PersonMethods.getActualPersons().get(0).getAvailabilityMonth())) {
                 AvailabilityMonth availabilityMonth = new XMLReader(monthChoiceBox.getValue(), year.getText()).getMonth();
                 AvailabilityMonthCopier availabilityMonthCopier = new AvailabilityMonthCopier(availabilityMonth);
-                Enumeration vectorEnumeration = Person.funkcja().elements();
+                Enumeration vectorEnumeration = PersonMethods.getActualPersons().elements();
                 while (vectorEnumeration.hasMoreElements()) {
                     AvailabilityMonth copiedAvailabilityMonth = availabilityMonthCopier.copyAvailabilityMonth();
                     Person person = (Person) vectorEnumeration.nextElement();
@@ -109,7 +110,7 @@ public class NewScheduleController {
         if(month.getMonthNumber() != getMonthNumber()){
             return true;
         }
-        Enumeration vectorEnumeration = Person.funkcja().elements();
+        Enumeration vectorEnumeration = PersonMethods.getActualPersons().elements();
         while(vectorEnumeration.hasMoreElements()){
             Person personFromVector = (Person) vectorEnumeration.nextElement();
             if(personFromVector.getAvailabilityMonth() == null){

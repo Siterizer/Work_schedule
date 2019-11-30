@@ -1,5 +1,10 @@
 package model.sample.person;
 
+import model.sample.department.DepartmentMethods;
+
+import java.util.Collections;
+import java.util.Vector;
+
 public class PersonMethods {
 
     public static void checkFirstAndLastName(String firstName, String lastName) {
@@ -15,5 +20,13 @@ public class PersonMethods {
         if (!lastName.matches("[a-zA-Z]+")) {
             throw new IllegalArgumentException("LastNameCharacterException");
         }
+    }
+
+    public static void sortPersons(Vector<Person> persons){
+        Collections.sort(persons);
+    }
+
+    public static Vector<Person> getActualPersons(){
+        return DepartmentMethods.getActualDepartment().getPersonsVector();
     }
 }

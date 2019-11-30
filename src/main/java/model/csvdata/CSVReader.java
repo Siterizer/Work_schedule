@@ -1,5 +1,6 @@
 package model.csvdata;
 
+import model.sample.department.DepartmentMethods;
 import model.sample.person.ContractType;
 import model.sample.person.ContractTypeMethods;
 import model.sample.person.Person;
@@ -40,9 +41,9 @@ public class CSVReader extends CSVMainClass{
             while((line = bufferedReader.readLine()) != null){
                 String[] personData = line.split(csvSplitBy);
                 ContractType contractType = ContractTypeMethods.getContract(personData[2]);
-                new Person(personData[0],personData[1], contractType);
+                Person person = new Person(personData[0],personData[1], contractType);
+                DepartmentMethods.addPersonToActualDepartment(person);
             }
-            Person.sortPeople(); // just in case
             bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();

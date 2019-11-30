@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import model.sample.department.DepartmentMethods;
 import model.sample.person.ContractTypeMethods;
 import model.sample.person.ContractType;
 import model.sample.person.Person;
@@ -51,7 +52,8 @@ public class AddPersonController {
             String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText().substring(1);
             PersonMethods.checkFirstAndLastName(firstNameString, lastNameString);
             ContractTypeMethods.checkIfStringIsContractType(contractType.getValue());
-            new Person(firstNameString, lastNameString, ContractTypeMethods.getContract(contractType.getValue()));
+            Person person = new Person(firstNameString, lastNameString, ContractTypeMethods.getContract(contractType.getValue()));
+            DepartmentMethods.addPersonToActualDepartment(person);
             MessageBox.display("Dodawanie zakonczone sukcesem", (Stage) firstName.getScene().getWindow());
         } catch (IllegalArgumentException e) {
             MessageBox.display("Dodawanie nie powiodlo sie", null);

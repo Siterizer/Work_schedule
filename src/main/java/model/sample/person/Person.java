@@ -13,7 +13,6 @@ public class Person implements Comparable<Person>{
     private AvailabilityMonth availabilityMonth;
     private WorkingMonth workingMonth;
     private ContractType contractType;
-    private static Vector<Person> ludzie = new Vector<Person>();
 
     public Person(String imie, String nazwisko, ContractType contractType) {
         this.imie = imie;
@@ -21,8 +20,6 @@ public class Person implements Comparable<Person>{
         this.availabilityMonth = null;
         this.workingMonth = null;
         this.contractType = contractType;
-        ludzie.add(this);
-        this.sortPeople();
     }
 
     public AvailabilityMonth getAvailabilityMonth() {
@@ -51,22 +48,6 @@ public class Person implements Comparable<Person>{
 
     public String getNazwisko() {
         return nazwisko;
-    }
-
-    public static Vector<Person> funkcja() {
-        return ludzie;
-    } // zwracac klona wektora glownego
-
-    public static void sortPeople(){
-        Collections.sort(ludzie);
-    }
-
-    public static void showPeople() {
-        for (Person person :
-                ludzie
-        ) {
-            System.out.println(person.getImie() + " " + person.getNazwisko());
-        }
     }
 
     @Override
