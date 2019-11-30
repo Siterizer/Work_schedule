@@ -1,7 +1,7 @@
 package controller.controllers;
 
-import controller.hbox.factory.person.AvailabilityOfPersons.days.AvailabilityOfPersonsDaysHBoxPFactory;
-import controller.hbox.factory.person.AvailabilityOfPersons.names.AvailabilityOfPersonsNamesHBoxPFactory;
+import controller.hbox.factory.person.AvailabilityOfPersons.days.AvailabilityOfPersonsDaysHBoxFactory;
+import controller.hbox.factory.person.AvailabilityOfPersons.names.AvailabilityOfPersonsNamesHBoxFactory;
 import controller.hbox.factory.person.IHBoxP;
 import controller.hbox.factory.person.IHBoxPFactory;
 import javafx.beans.value.ChangeListener;
@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.VBox;
-import model.sample.department.DepartmentMethods;
 import model.sample.person.Person;
 import model.sample.person.PersonMethods;
 
@@ -45,8 +44,8 @@ public class AvailabilityOfPersonsController {
 
     public void initialize(){
         Vector<Person> persons = PersonMethods.getActualPersons();
-        IHBoxPFactory hBoxNamesFactory = new AvailabilityOfPersonsNamesHBoxPFactory();
-        IHBoxPFactory hBoxDaysFactory = new AvailabilityOfPersonsDaysHBoxPFactory();
+        IHBoxPFactory hBoxNamesFactory = new AvailabilityOfPersonsNamesHBoxFactory();
+        IHBoxPFactory hBoxDaysFactory = new AvailabilityOfPersonsDaysHBoxFactory();
         IHBoxP generatedDaysFirstHBox = hBoxDaysFactory.makeFirstHBox(persons.get(0));
         firstDaysVBox.getChildren().add(generatedDaysFirstHBox.getHBox());
         IHBoxP generatedNamesFirstHBox = hBoxNamesFactory.makeFirstHBox(persons.get(0));

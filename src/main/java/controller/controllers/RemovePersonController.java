@@ -2,7 +2,7 @@ package controller.controllers;
 
 import controller.hbox.factory.person.IHBoxP;
 import controller.hbox.factory.person.IHBoxPFactory;
-import controller.hbox.factory.person.RemovePerson.RemovePersonHBoxPFactory;
+import controller.hbox.factory.person.RemovePerson.RemovePersonHBoxFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
@@ -25,7 +25,7 @@ public class RemovePersonController {
     @FXML
     public void initialize(){
         controller = this;
-        IHBoxPFactory hBoxFactory = new RemovePersonHBoxPFactory();
+        IHBoxPFactory hBoxFactory = new RemovePersonHBoxFactory();
         Enumeration vectorEnumeration = PersonMethods.getActualPersons().elements();
         while(vectorEnumeration.hasMoreElements()){
             Person personFromVector =(Person) vectorEnumeration.nextElement();

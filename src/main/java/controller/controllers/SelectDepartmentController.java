@@ -1,16 +1,13 @@
 package controller.controllers;
 
 import controller.display.controller.AddDepartment;
-import controller.display.controller.SelectDepartment;
 import controller.hbox.factory.department.IHBoxD;
 import controller.hbox.factory.department.IHBoxDFactory;
 import controller.hbox.factory.department.SelectDepartment.SelectDepartmentHBoxFactory;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import model.sample.department.Department;
 
 import java.util.Enumeration;

@@ -2,7 +2,6 @@ package model.sample.department;
 
 import model.sample.person.Person;
 import model.sample.person.PersonMethods;
-
 import java.util.Collections;
 import java.util.Vector;
 

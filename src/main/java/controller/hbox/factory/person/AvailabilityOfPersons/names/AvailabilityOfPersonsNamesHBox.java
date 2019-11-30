@@ -10,11 +10,11 @@ import javafx.scene.layout.Region;
 import javafx.scene.text.TextAlignment;
 import model.sample.person.Person;
 
-public class AvailabilityOfPersonsNamesHBoxP implements IHBoxP {
+public class AvailabilityOfPersonsNamesHBox implements IHBoxP {
 
     private Person person;
 
-    AvailabilityOfPersonsNamesHBoxP(Person person){
+    AvailabilityOfPersonsNamesHBox(Person person){
         this.person = person;
     }
 

@@ -2,7 +2,6 @@ package model.csvdata;
 
 import model.sample.person.ContractTypeMethods;
 import model.sample.person.Person;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.NoSuchElementException;

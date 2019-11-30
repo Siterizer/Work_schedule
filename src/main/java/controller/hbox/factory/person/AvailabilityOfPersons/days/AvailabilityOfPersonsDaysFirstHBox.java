@@ -15,13 +15,13 @@ import javafx.scene.text.TextAlignment;
 import model.sample.calendars.TypeOfDay;
 import model.sample.person.Person;
 
-public class AvailabilityOfPersonsDaysFirstHBoxP implements IHBoxP {
+public class AvailabilityOfPersonsDaysFirstHBox implements IHBoxP {
 
     private Person person;
 
     private int numberOfDays;
 
-    AvailabilityOfPersonsDaysFirstHBoxP(Person person){
+    AvailabilityOfPersonsDaysFirstHBox(Person person){
         this.person = person;
         this.numberOfDays = person.getAvailabilityMonth().getNumberOfDays();
     }

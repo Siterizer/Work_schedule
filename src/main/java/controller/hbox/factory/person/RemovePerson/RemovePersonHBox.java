@@ -14,11 +14,11 @@ import javafx.scene.layout.HBox;
 import model.sample.person.Person;
 import model.sample.person.PersonMethods;
 
-public class RemovePersonHBoxP implements IHBoxP {
+public class RemovePersonHBox implements IHBoxP {
 
     private Person person;
 
-    RemovePersonHBoxP(Person person){
+    RemovePersonHBox(Person person){
         this.person = person;
     }
 

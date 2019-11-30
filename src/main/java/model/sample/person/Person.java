@@ -3,9 +3,6 @@ package model.sample.person;
 import model.sample.calendars.availability.month.AvailabilityMonth;
 import model.sample.calendars.working.month.WorkingMonth;
 
-import java.util.Collections;
-import java.util.Vector;
-
 public class Person implements Comparable<Person>{
 
     private String imie;

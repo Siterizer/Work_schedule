@@ -1,9 +1,7 @@
 package model.sample;
 
 import controller.display.controller.SelectDepartment;
-import model.csvdata.CSVReader;
 import model.csvdata.CSVWriter;
-import model.csvdata.DataDirectoryCreator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -11,9 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import model.sample.person.Person;
 import model.sample.person.PersonMethods;
-
 import java.io.IOException;
 
 public class Main extends Application {

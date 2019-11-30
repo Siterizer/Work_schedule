@@ -2,8 +2,8 @@ package controller.controllers;
 
 import controller.hbox.factory.person.IHBoxP;
 import controller.hbox.factory.person.IHBoxPFactory;
-import controller.hbox.factory.person.NameToRefactor.days.NameToRefactorDaysHBoxPFactory;
-import controller.hbox.factory.person.NameToRefactor.names.NameToRefactorNamesHBoxPFactory;
+import controller.hbox.factory.person.NameToRefactor.days.NameToRefactorDaysHBoxFactory;
+import controller.hbox.factory.person.NameToRefactor.names.NameToRefactorNamesHBoxFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -12,7 +12,6 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.layout.VBox;
 import model.sample.person.Person;
 import model.sample.person.PersonMethods;
-
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -43,8 +42,8 @@ public class NameToRefactorController {
 
     public void initialize(){
         Vector<Person> persons = PersonMethods.getActualPersons();
-        IHBoxPFactory hBoxNamesFactory = new NameToRefactorNamesHBoxPFactory();
-        IHBoxPFactory hBoxDaysFactory = new NameToRefactorDaysHBoxPFactory();
+        IHBoxPFactory hBoxNamesFactory = new NameToRefactorNamesHBoxFactory();
+        IHBoxPFactory hBoxDaysFactory = new NameToRefactorDaysHBoxFactory();
         IHBoxP generatedDaysFirstHBox = hBoxDaysFactory.makeFirstHBox(persons.get(0));
         firstDaysVBox.getChildren().add(generatedDaysFirstHBox.getHBox());
         IHBoxP generatedNamesFirstHBox = hBoxNamesFactory.makeFirstHBox(persons.get(0));

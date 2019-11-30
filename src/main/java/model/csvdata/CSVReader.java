@@ -4,7 +4,6 @@ import model.sample.department.DepartmentMethods;
 import model.sample.person.ContractType;
 import model.sample.person.ContractTypeMethods;
 import model.sample.person.Person;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

@@ -14,8 +14,6 @@ import model.sample.person.ContractType;
 import model.sample.person.Person;
 import model.sample.person.PersonMethods;
 
-import java.nio.charset.IllegalCharsetNameException;
-
 public class AddPersonController {
 
     @FXML

@@ -10,11 +10,11 @@ import javafx.scene.layout.Region;
 import javafx.scene.text.TextAlignment;
 import model.sample.person.Person;
 
-public class NameToRefactorNamesHBoxP implements IHBoxP {
+public class NameToRefactorNamesHBox implements IHBoxP {
 
     private Person person;
 
-    NameToRefactorNamesHBoxP(Person person){
+    NameToRefactorNamesHBox(Person person){
         this.person = person;
     }
 

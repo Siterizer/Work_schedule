@@ -10,13 +10,13 @@ import javafx.scene.layout.Region;
 import javafx.scene.text.TextAlignment;
 import model.sample.person.Person;
 
-public class AvailabilityOfPersonsNamesFirstHBoxP implements IHBoxP {
+public class AvailabilityOfPersonsNamesFirstHBox implements IHBoxP {
 
     private int numberOfDays;
 
     private Person person;
 
-    AvailabilityOfPersonsNamesFirstHBoxP(Person person){
+    AvailabilityOfPersonsNamesFirstHBox(Person person){
         this.numberOfDays = person.getAvailabilityMonth().getNumberOfDays();
         this.person = person;
     }

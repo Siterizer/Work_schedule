@@ -14,13 +14,13 @@ import javafx.scene.layout.VBox;
 import model.sample.calendars.TypeOfDay;
 import model.sample.person.Person;
 
-public class NameToRefactorDaysHBoxP implements IHBoxP {
+public class NameToRefactorDaysHBox implements IHBoxP {
 
     private Person person;
 
     private int numberOfDays;
 
-    NameToRefactorDaysHBoxP(Person person){
+    NameToRefactorDaysHBox(Person person){
         this.person = person;
         this.numberOfDays = person.getAvailabilityMonth().getNumberOfDays();
     }
