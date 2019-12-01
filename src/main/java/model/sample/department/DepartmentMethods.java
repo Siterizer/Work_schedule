@@ -3,16 +3,25 @@ package model.sample.department;
 import model.sample.person.Person;
 import model.sample.person.PersonMethods;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.Vector;
 
 public class DepartmentMethods {
     private static Department actualDepartment;
     public static void checkName(String name){
         if (name.length() < 1) {
-            throw new IllegalArgumentException("FirstNameLengthException");
+            throw new IllegalArgumentException("NameLengthException");
         }
         if (!name.matches("[a-zA-Z]+")) {
-            throw new IllegalArgumentException("FirstNameCharacterException");
+            throw new IllegalArgumentException("NameCharacterException");
+        }
+
+        Enumeration vectorEnumeration = Department.getDepartments().elements();
+        while(vectorEnumeration.hasMoreElements()){
+            Department department = (Department) vectorEnumeration.nextElement();
+            if(department.getName().matches(name)){
+                throw new IllegalArgumentException("DuplicatePersonNameException");
+            }
         }
     }
 
