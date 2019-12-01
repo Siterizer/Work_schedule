@@ -5,15 +5,15 @@ import model.sample.calendars.working.month.WorkingMonth;
 
 public class Person implements Comparable<Person>{
 
-    private String imie;
-    private String nazwisko;
+    private String name;
+    private String surname;
     private AvailabilityMonth availabilityMonth;
     private WorkingMonth workingMonth;
     private ContractType contractType;
 
-    public Person(String imie, String nazwisko, ContractType contractType) {
-        this.imie = imie;
-        this.nazwisko = nazwisko;
+    public Person(String name, String surname, ContractType contractType) {
+        this.name = name;
+        this.surname = surname;
         this.availabilityMonth = null;
         this.workingMonth = null;
         this.contractType = contractType;
@@ -39,23 +39,23 @@ public class Person implements Comparable<Person>{
         return contractType;
     }
 
-    public String getImie() {
-        return imie;
+    public String getName() {
+        return name;
     }
 
-    public String getNazwisko() {
-        return nazwisko;
+    public String getSurname() {
+        return surname;
     }
 
     @Override
     public String toString() {
-        return this.getNazwisko() + " " + this.getImie();
+        return this.getSurname() + " " + this.getName();
     }
 
     @Override
     public int compareTo(Person o) {
-        String namePerson1 = this.getNazwisko() + this.getImie();
-        String namePerson2 = o.getNazwisko() + o.getImie();
+        String namePerson1 = this.getSurname() + this.getName();
+        String namePerson2 = o.getSurname() + o.getName();
 
         return namePerson1.compareTo(namePerson2);
     }

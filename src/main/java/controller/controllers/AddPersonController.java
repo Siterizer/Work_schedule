@@ -48,7 +48,7 @@ public class AddPersonController {
         try {
             String firstNameString = firstName.getText().substring(0, 1).toUpperCase() + firstName.getText().substring(1).toLowerCase();
             String lastNameString = lastName.getText().substring(0, 1).toUpperCase() + lastName.getText().substring(1);
-            PersonMethods.checkFirstAndLastName(firstNameString, lastNameString);
+            PersonMethods.checkNameAndSurname(firstNameString, lastNameString);
             ContractTypeMethods.checkIfStringIsContractType(contractType.getValue());
             Person person = new Person(firstNameString, lastNameString, ContractTypeMethods.getContract(contractType.getValue()));
             DepartmentMethods.addPersonToActualDepartment(person);

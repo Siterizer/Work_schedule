@@ -43,7 +43,7 @@ public class AvailabilityOfPersonsController {
     private VBox firstDaysVBox;
 
     public void initialize(){
-        Vector<Person> persons = PersonMethods.getActualPersons();
+        Vector<Person> persons = PersonMethods.getActualVectorPersons();
         IHBoxPFactory hBoxNamesFactory = new AvailabilityOfPersonsNamesHBoxFactory();
         IHBoxPFactory hBoxDaysFactory = new AvailabilityOfPersonsDaysHBoxFactory();
         IHBoxP generatedDaysFirstHBox = hBoxDaysFactory.makeFirstHBox(persons.get(0));

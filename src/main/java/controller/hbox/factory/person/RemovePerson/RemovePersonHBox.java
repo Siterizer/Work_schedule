@@ -43,8 +43,8 @@ public class RemovePersonHBox implements IHBoxP {
                 .setText("Usun")
                 .setOnAction(e -> {
                     if(ConfirmBox.displayAndReturnAnswer("Czy na pewno chcesz usunac osobe:\n"
-                            + person.getImie() + " " + person.getNazwisko())) {
-                        PersonMethods.getActualPersons().remove(person);
+                            + person.getName() + " " + person.getSurname())) {
+                        PersonMethods.getActualVectorPersons().remove(person);
                         RemovePersonController.controller.updateVBox();
                     }
                 })

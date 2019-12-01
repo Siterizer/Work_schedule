@@ -4,7 +4,6 @@ import controller.hbox.factory.person.IHBoxP;
 import controller.hbox.factory.person.IHBoxPFactory;
 import controller.hbox.factory.person.RemovePerson.RemovePersonHBoxFactory;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import model.sample.person.Person;
 import model.sample.person.PersonMethods;
@@ -20,13 +19,10 @@ public class RemovePersonController {
     public static RemovePersonController controller;
 
     @FXML
-    private Button addNew;
-
-    @FXML
     public void initialize(){
         controller = this;
         IHBoxPFactory hBoxFactory = new RemovePersonHBoxFactory();
-        Enumeration vectorEnumeration = PersonMethods.getActualPersons().elements();
+        Enumeration vectorEnumeration = PersonMethods.getActualVectorPersons().elements();
         while(vectorEnumeration.hasMoreElements()){
             Person personFromVector =(Person) vectorEnumeration.nextElement();
             IHBoxP generatedHBox = hBoxFactory.makeHBox(personFromVector);

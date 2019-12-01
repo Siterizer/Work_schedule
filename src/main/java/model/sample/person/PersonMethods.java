@@ -6,17 +6,17 @@ import java.util.Vector;
 
 public class PersonMethods {
 
-    public static void checkFirstAndLastName(String firstName, String lastName) {
-        if (firstName.length() < 3) {
+    public static void checkNameAndSurname(String name, String surname) {
+        if (name.length() < 3) {
             throw new IllegalArgumentException("FirstNameLengthException");
         }
-        if (!firstName.matches("[a-zA-Z]+")) {
+        if (!name.matches("[a-zA-Z]+")) {
             throw new IllegalArgumentException("FirstNameCharacterException");
         }
-        if (lastName.length() < 3) {
+        if (surname.length() < 3) {
             throw new IllegalArgumentException("LastNameLengthException");
         }
-        if (!lastName.matches("[a-zA-Z]+")) {
+        if (!surname.matches("[a-zA-Z]+")) {
             throw new IllegalArgumentException("LastNameCharacterException");
         }
     }
@@ -25,7 +25,7 @@ public class PersonMethods {
         Collections.sort(persons);
     }
 
-    public static Vector<Person> getActualPersons(){
+    public static Vector<Person> getActualVectorPersons(){
         return DepartmentMethods.getActualDepartment().getPersonsVector();
     }
 }

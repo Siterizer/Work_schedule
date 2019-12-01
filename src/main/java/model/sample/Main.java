@@ -49,7 +49,7 @@ public class Main extends Application {
     }
 
     private void saveData(){
-        new CSVWriter("./data/pielegniarki", PersonMethods.getActualPersons());
+        new CSVWriter("./data/pielegniarki", PersonMethods.getActualVectorPersons());
     }
 
     public static void main(String[] args) {

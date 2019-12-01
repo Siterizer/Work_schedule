@@ -7,27 +7,28 @@ import javafx.fxml.FXML;
 public class MenuScreenController {
 
     @FXML
-    void handleOpiekunowieDodaj(ActionEvent event) {
+    void handleAddKeeper(ActionEvent event) {
         AddPerson.display();
     }
 
     @FXML
-    void handleOpiekunowieUsun(ActionEvent event) {
+    void handleDeleteKeeper(ActionEvent event) {
         RemovePerson.display();
     }
 
     @FXML
-    void handleOpiekunowieNowyGrafik(ActionEvent event) {
-        NewSchedule.display();
-    }
-
-    @FXML
-    void handleOpiekunowieGeneruj(ActionEvent event) {
+    void handleGenerateKeepersSchedule(ActionEvent event) {
         NameToRefactor.display();
     }
 
     @FXML
-    void handleOddzialWybierz(ActionEvent event) {
+    void handleNewScheduleKeepers(ActionEvent event) {
+        NewSchedule.display();
+    }
+
+    @FXML
+    void handleSelectDepartment(ActionEvent event) {
         SelectDepartment.display();
     }
+
 }

@@ -11,10 +11,10 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Opiekunowie">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieDodaj" text="Dodaj" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieUsun" text="Usun" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieNowyGrafik" text="Nowy grafik" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleOpiekunowieGeneruj" text="Generuj" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAddKeeper" text="Dodaj" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleDeleteKeeper" text="Usun" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleNewScheduleKeepers" text="Nowy grafik" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleGenerateKeepersSchedule" text="Generuj" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Pielegniarki">
@@ -27,7 +27,7 @@
                 </Menu>
             <Menu mnemonicParsing="false" text="Oddziały">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#handleOddzialWybierz" text="Wybierz oddział" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSelectDepartment" text="Wybierz oddział" />
               </items>
             </Menu>
             </menus>

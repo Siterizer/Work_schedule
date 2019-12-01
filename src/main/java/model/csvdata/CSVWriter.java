@@ -27,9 +27,9 @@ public class CSVWriter extends CSVMainClass {
         FileWriter csvFile = new FileWriter(pathName + ".csv");
         for (Person person : whatSave
         ) {
-            csvFile.append(person.getImie())
+            csvFile.append(person.getName())
                     .append(",")
-                    .append(person.getNazwisko())
+                    .append(person.getSurname())
                     .append(",")
                     .append(ContractTypeMethods.getStringContract(person.getContractType()))
                     .append(String.valueOf('\n'));

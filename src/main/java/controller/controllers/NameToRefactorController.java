@@ -41,7 +41,7 @@ public class NameToRefactorController {
     private VBox firstDaysVBox;
 
     public void initialize(){
-        Vector<Person> persons = PersonMethods.getActualPersons();
+        Vector<Person> persons = PersonMethods.getActualVectorPersons();
         IHBoxPFactory hBoxNamesFactory = new NameToRefactorNamesHBoxFactory();
         IHBoxPFactory hBoxDaysFactory = new NameToRefactorDaysHBoxFactory();
         IHBoxP generatedDaysFirstHBox = hBoxDaysFactory.makeFirstHBox(persons.get(0));
