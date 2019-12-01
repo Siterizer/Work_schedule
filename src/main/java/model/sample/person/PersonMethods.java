@@ -2,6 +2,7 @@ package model.sample.person;
 
 import model.sample.department.DepartmentMethods;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.Vector;
 
 public class PersonMethods {
@@ -18,6 +19,13 @@ public class PersonMethods {
         }
         if (!surname.matches("[a-zA-Z]+")) {
             throw new IllegalArgumentException("LastNameCharacterException");
+        }
+        Enumeration vectorEnumeration = getActualVectorPersons().elements();
+        while(vectorEnumeration.hasMoreElements()){
+            Person person = (Person) vectorEnumeration.nextElement();
+            if(person.getName().matches(name) && person.getSurname().matches(surname)){
+                throw new IllegalArgumentException("DuplicatePersonNameException");
+            }
         }
     }
 
